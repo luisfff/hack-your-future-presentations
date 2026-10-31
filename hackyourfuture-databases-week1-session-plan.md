@@ -11,30 +11,31 @@
 ## Session Outline
 
 1. [Introduction to Databases](#1-introduction-to-databases)
-   - **1.1** What is a database?
-   - **1.2** Real-life examples
-   - **1.3** Benefits of using a database
-   - **1.4** Databases in software architecture
-   - **1.5** Database vs. Database Management System
+   - [**1.1** What is a database?](#11-what-is-a-database)
+   - [**1.2** Real-life examples](#12-real-life-examples)
+   - [**1.3** Benefits of using a database](#13-what-do-we-gain-from-using-a-database)
+   - [**1.4** Databases in software architecture](#14-databases-in-software-architecture)
+   - [**1.5** Database vs. Database Management System](#15-database-vs-database-management-system)
+   - [**1.6** Popular DBMS options](#16-popular-dbms-options)
 2. [Creating Your First Database](#2-creating-your-first-database)
-   - **2.1** Create a SQLite connection
-   - **2.2** Understand database structure
-   - **2.3** Create tables and insert sample data
-   - **2.4** Explore the sample database
-   - **2.5** Understand data types
-3. [Interacting with Your Database](#3-interacting-with-your-database)
-   - **3.1** Introduction to SQL and CRUD
-   - **3.2** Retrieve data with `SELECT`
-   - **3.3** Filter data with `WHERE`
-   - **3.4** Sort data with `ORDER BY`
-   - **3.5** Practice `SELECT` queries
-   - **3.6** Add data with `INSERT`
-   - **3.7** Modify data with `UPDATE`
-   - **3.8** Remove data with `DELETE`
-   - **3.9** Interactive CRUD practice
-   - **3.10** Combine the SQL operations
-   - **3.11** Review key takeaways
-   - **3.12** Follow safe data-change practices
+   - [**2.1** Create a SQLite connection](#21-create-a-new-sqlite-connection)
+   - [**2.2** Understand database structure](#22-understanding-database-structure)
+   - [**2.3** Create tables and insert sample data](#23-create-tables-and-insert-sample-data)
+   - [**2.4** Explore the sample database](#24-exercise-explore-the-database)
+   - [**2.5** Understand data types](#25-data-types)
+3. [Interacting With Your Database](#3-interacting-with-your-database)
+   - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
+   - [**3.2** Retrieve data with `SELECT`](#32-select-retrieving-data)
+   - [**3.3** Filter data with `WHERE`](#33-where-filtering-data)
+   - [**3.4** Sort data with `ORDER BY`](#34-order-by-sorting-data)
+   - [**3.5** Practice `SELECT` queries](#35-exercise-practice-select-queries)
+   - [**3.6** Add data with `INSERT`](#36-insert-adding-data)
+   - [**3.7** Modify data with `UPDATE`](#37-update-modifying-data)
+   - [**3.8** Remove data with `DELETE`](#38-delete-removing-data)
+   - [**3.9** Interactive CRUD practice](#39-interactive-practice)
+   - [**3.10** Combine the SQL operations](#310-exercise-combine-everything)
+   - [**3.11** Review key takeaways](#311-key-takeaways)
+   - [**3.12** Follow safe data-change practices](#312-safety-rules-to-remember)
 
 ---
 
@@ -54,19 +55,19 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 ## 1.2 Real-Life Examples
 
-### 1.2.1 Personal Use
+### Personal Use
 
 - **Contact List:** Your phone's contact list is a simple database storing names, phone numbers, and email addresses.
 - **Photo Library:** Your phone's photo app is a database organizing images by date, location, or album.
 - **Excel Spreadsheets:** When you track monthly expenses or create a shopping list, you're essentially using a simple database.
 
-### 1.2.2 Business Use
+### Business Use
 
 - **Inventory Management:** Stores use databases to track products, quantities, and prices.
 - **Customer Records:** Businesses maintain customer information, purchase history, and preferences.
 - **Employee Management:** Companies store employee details, attendance, and payroll information.
 
-### 1.2.3 Everyday Services
+### Everyday Services
 
 - **Banking Systems:** Banks use databases to track account balances, transactions, and personal information.
 - **Social Media:** Platforms such as Facebook and Instagram store user profiles, posts, and connections.
@@ -132,7 +133,7 @@ Without a database, these applications would be like a library without a catalog
 
 A database stores the information; a Database Management System (DBMS) is the software used to create, query, update, and protect that information. The online-store example illustrates why the distinction matters.
 
-### 1.5.1 Real-Life Example — Online Store
+### Real-Life Example — Online Store
 
 Imagine running an online store. You need to maintain data such as:
 
@@ -176,7 +177,7 @@ When someone places an order, the system can automatically:
 
 Think of a DBMS as a digital assistant that helps manage data efficiently, securely, and reliably.
 
-### 1.5.2 Popular DBMS Options
+## 1.6 Popular DBMS Options
 
 | DBMS | Often used for | Why |
 |---|---|---|
@@ -516,21 +517,21 @@ WHERE id = 18;
 
 Practice the CRUD operations together.
 
-### 3.9.1 Retrieve all tasks
+### Retrieve all tasks
 
 ```sql
 SELECT *
 FROM task;
 ```
 
-### 3.9.2 Add a new task
+### Add a new task
 
 ```sql
 INSERT INTO task (...)
 VALUES (...);
 ```
 
-### 3.9.3 Verify the task was added
+### Verify the task was added
 
 ```sql
 SELECT *
@@ -538,7 +539,7 @@ FROM task
 WHERE ...;
 ```
 
-### 3.9.4 Update the task status
+### Update the task status
 
 ```sql
 UPDATE task
@@ -546,7 +547,7 @@ SET status_id = 2
 WHERE ...;
 ```
 
-### 3.9.5 Verify that the update worked
+### Verify that the update worked
 
 ```sql
 SELECT *
