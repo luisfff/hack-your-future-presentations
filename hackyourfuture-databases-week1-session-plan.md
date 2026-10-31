@@ -18,14 +18,6 @@
 
 # 1. Introduction to Databases
 
-```mermaid
-flowchart LR
-    A["Contacts<br/>names and phone numbers"] --> D[(Database)]
-    B["Shop inventory<br/>products and quantities"] --> D
-    C["Online service<br/>users and activity"] --> D
-    D --> E["Find, organize, and update information"]
-```
-
 ## What is a database?
 
 A database is an organized collection of structured information, or data, typically stored electronically in a computer system.
@@ -68,14 +60,6 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 # 2. Databases in Software Architecture
 
-```mermaid
-flowchart LR
-    U[Visitor] --> W[Recipe website]
-    W -->|search recipes| DB[("Database")]
-    DB -->|recipes, profiles, ratings| W
-    W -->|matching recipes| U
-```
-
 In modern software applications, databases serve as the backbone of data storage and management.
 
 ### Recipe website
@@ -115,17 +99,6 @@ Without a database, these applications would be like a library without a catalog
 ---
 
 # 3. Database vs Database Management System
-
-```mermaid
-flowchart LR
-    O[Customer places order] --> M[DBMS]
-    M --> I[Update inventory]
-    M --> R[Save order]
-    M --> C[Update customer history]
-    I --> V{Changes stay consistent}
-    R --> V
-    C --> V
-```
 
 ## Real-Life Example — Online Store
 
@@ -184,15 +157,6 @@ Think of a DBMS as a digital assistant that helps manage data efficiently, secur
 
 # 4. Creating Your First Database
 
-```mermaid
-flowchart LR
-    A[New connection] --> B[Choose SQLite]
-    B --> C[Choose file location]
-    C --> D["Name it tasks.sqlite3"]
-    D --> E[Test connection]
-    E --> F[Finish]
-```
-
 The goal is to create a database that can be used as a playground for learning SQL.
 
 This will also allow us to explore:
@@ -228,17 +192,6 @@ tasks.sqlite3
 
 # 5. Understanding Database Structure
 
-```mermaid
-flowchart TB
-    DB[(tasks.sqlite3)] --> T[task table]
-    DB --> U[user table]
-    T --> R1["Row: one task"]
-    T --> C1["Columns: id, title, status_id"]
-    R1 --> PK["Primary key: task.id"]
-    T --> FK["Foreign key: task.user_id"]
-    FK -. references .-> U
-```
-
 Before creating tables, understand the basic terminology.
 
 ## Database Terminology
@@ -268,13 +221,6 @@ Database
 
 # 6. Create Tables and Insert Sample Data
 
-```mermaid
-flowchart LR
-    A[Open sample SQL script] --> B[Run script in DBeaver]
-    B --> C[Tables and sample rows created]
-    C --> D[Inspect tables and relationships]
-```
-
 1. Find the sample SQL file in the session materials.
 2. Copy the contents of the SQL file.
 3. In DBeaver, right-click your database connection.
@@ -297,14 +243,6 @@ Use the database diagram to understand the relationships between the tables.
 
 # Exercise 1 — Explore the Database
 
-```mermaid
-flowchart LR
-    A[Open database diagram] --> B[Choose a table]
-    B --> C[Inspect columns and properties]
-    C --> D[Browse rows]
-    D --> E[Find the requested value]
-```
-
 If you have not already done so, follow the setup steps above.
 
 Then explore your database in DBeaver.
@@ -321,13 +259,6 @@ Then explore your database in DBeaver.
 ---
 
 # 7. Data Types
-
-```mermaid
-flowchart LR
-    A["INTEGER<br/>18"] --> ID[Identifier]
-    B["TEXT<br/>Write a report"] --> TITLE[Task title]
-    C["DATETIME<br/>2026-10-31 09:00"] --> CREATED[Created time]
-```
 
 Open the properties of the `task` table.
 
@@ -359,17 +290,6 @@ This helps the database understand how to store and manage the data efficiently.
 ---
 
 # 8. Interacting With Your Database
-
-```mermaid
-sequenceDiagram
-    participant You
-    participant DBeaver
-    participant SQLite
-    You->>DBeaver: Write a SQL statement
-    DBeaver->>SQLite: Execute the statement
-    SQLite-->>DBeaver: Return rows or confirm changes
-    DBeaver-->>You: Show the result
-```
 
 Now that the database is set up, learn how to interact with it using **SQL (Structured Query Language)**.
 
@@ -405,12 +325,6 @@ These are commonly referred to as **CRUD**:
 
 # 9. SELECT — Retrieving Data
 
-```mermaid
-flowchart LR
-    Q["SELECT title<br/>FROM task"] --> DB[(task table)]
-    DB --> R["Result: matching title values"]
-```
-
 The `SELECT` statement is used to retrieve data from one or more tables.
 
 It is one of the most common SQL operations.
@@ -432,14 +346,6 @@ FROM table_name;
 ---
 
 # 10. WHERE — Filtering Data
-
-```mermaid
-flowchart LR
-    A["All tasks"] --> B{"status_id = 2?"}
-    B -->|Yes| C["Keep task"]
-    B -->|No| D["Leave out task"]
-    C --> E["Filtered results"]
-```
 
 The `WHERE` clause filters records based on conditions.
 
@@ -463,14 +369,6 @@ WHERE status_id = 2;
 
 # 11. ORDER BY — Sorting Data
 
-```mermaid
-flowchart LR
-    A["Mina, Alex, Sam"] --> B["ORDER BY name ASC"]
-    B --> C["Alex, Mina, Sam"]
-    A --> D["ORDER BY name DESC"]
-    D --> E["Sam, Mina, Alex"]
-```
-
 The `ORDER BY` clause sorts query results.
 
 ### Ascending
@@ -493,13 +391,6 @@ ORDER BY name DESC;
 
 # Exercise 2 — Practice SELECT Queries
 
-```mermaid
-flowchart LR
-    A[Choose columns] --> B[Select rows]
-    B --> C[Sort results]
-    C --> D[Check the answer]
-```
-
 Now that the database is set up, practice writing SQL queries.
 
 1. List the names and phones of all users.
@@ -512,12 +403,6 @@ Now that the database is set up, practice writing SQL queries.
 ---
 
 # 12. INSERT — Adding Data
-
-```mermaid
-flowchart LR
-    A["INSERT INTO user<br/>name: Alex<br/>phone: 555-0100"] --> B[SQLite]
-    B --> C["New user row"]
-```
 
 The `INSERT` statement adds new records to a table.
 
@@ -538,13 +423,6 @@ VALUES ('John Doe', '12345678');
 ---
 
 # 13. UPDATE — Modifying Data
-
-```mermaid
-flowchart LR
-    A["task row id = 18<br/>status_id = 1"] --> B{"WHERE id = 18"}
-    B --> C["Set status_id = 2"]
-    C --> D["Only the intended row changes"]
-```
 
 The `UPDATE` statement modifies existing records.
 
@@ -572,13 +450,6 @@ WHERE id = 18;
 
 # 14. DELETE — Removing Data
 
-```mermaid
-flowchart LR
-    A["task table"] --> B{"WHERE id = 18"}
-    B --> C["Remove matching row"]
-    B -. no WHERE .-> D["All rows could be removed"]
-```
-
 The `DELETE` statement removes records.
 
 ## Basic Syntax
@@ -602,14 +473,6 @@ WHERE id = 18;
 ---
 
 # 15. Interactive Practice
-
-```mermaid
-flowchart LR
-    A[SELECT tasks] --> B[INSERT a task]
-    B --> C[SELECT to verify]
-    C --> D[UPDATE its status]
-    D --> E[SELECT to verify again]
-```
 
 Practice the CRUD operations together.
 
@@ -654,15 +517,6 @@ WHERE ...;
 ---
 
 # Exercise 3 — Combine Everything
-
-```mermaid
-flowchart LR
-    A[Add yourself as a user] --> B[Create tasks]
-    B --> C[Assign tasks to yourself]
-    C --> D[Update one task]
-    D --> E[SELECT your task details]
-    E --> F[DELETE an unneeded task]
-```
 
 Use the SQL operations you have learned.
 
