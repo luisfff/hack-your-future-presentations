@@ -312,8 +312,6 @@ The first time DBeaver opens:
 
 You should now see the main DBeaver window. On the left is the **Database Navigator**, which lists your database connections. It will be empty for now.
 
-![DBeaver main window with Database Navigator](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/database-view.png)
-
 ### Troubleshooting
 
 | Problem | What to do |
@@ -354,9 +352,18 @@ A **connection** tells DBeaver *where* a database is and *how* to talk to it. Fo
 Using DBeaver:
 
 1. Click **New Database Connection** (the plug icon with a `+`) in the toolbar, or press `Ctrl+Shift+N` (`Cmd+Shift+N` on macOS).
+
+![Click the New Database Connection button](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/create-new-connection.png)
+
 2. Select **SQLite**.
+
+![Choose SQLite from the list of databases](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/choose-sqlite.png)
+
 3. Click **Next**.
 4. In the **Path** field, click **Browse** (or **Create**) and choose where to save the database — for example, a new `databases` folder in your Documents.
+
+![Choose where to save the database file](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/create-save-path.png)
+
 5. Name the database file:
 
 ```text
@@ -473,6 +480,8 @@ If you have not already done so, follow the setup steps above.
 Then explore your database in DBeaver.
 
 > **How to look around:** Double-click a table in the Database Navigator. The **Properties** tab shows its columns and their data types. The **Data** tab shows its rows, like a spreadsheet. The **ER Diagram** tab shows how it links to other tables.
+
+![Browsing tables and data in DBeaver](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/database-view.png)
 
 ### Questions
 
@@ -619,6 +628,8 @@ Common beginner mistakes:
 - Misspelling a table or column name: `users` instead of `user`.
 
 > **Save your work:** Use **File** → **Save As** to save your queries as a `.sql` file, for example for homework.
+
+![Saving a SQL script as a .sql file](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/save-queries.png)
 
 ---
 
