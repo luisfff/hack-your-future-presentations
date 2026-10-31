@@ -7,6 +7,9 @@
 
 - **Database Diagram** — The diagram of the database to be created in this session.
 - **Sample Tasks database** — Pre-created SQLite database with the contents of the sample SQL file.
+- **Sample SQL file** — The SQL script that creates the tables and fills them with example data.
+
+> **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
 ## Session Outline
 
@@ -14,29 +17,33 @@
    - [**1.1** What is a database?](#11-what-is-a-database)
    - [**1.2** Real-life examples](#12-real-life-examples)
    - [**1.3** Benefits of using a database](#13-what-do-we-gain-from-using-a-database)
-   - [**1.4** Databases in software architecture](#14-databases-in-software-architecture)
-   - [**1.5** Database vs. Database Management System](#15-database-vs-database-management-system)
-   - [**1.6** Popular DBMS options](#16-popular-dbms-options)
+   - [**1.4** Spreadsheets vs. databases](#14-spreadsheets-vs-databases)
+   - [**1.5** Databases in software architecture](#15-databases-in-software-architecture)
+   - [**1.6** Database vs. Database Management System](#16-database-vs-database-management-system)
+   - [**1.7** Popular DBMS options](#17-popular-dbms-options)
 2. [Creating Your First Database](#2-creating-your-first-database)
-   - [**2.1** Install DBeaver and connect from Visual Studio Code](#21-install-dbeaver-and-connect-from-visual-studio-code)
-   - [**2.2** Create a SQLite connection](#22-create-a-new-sqlite-connection)
-   - [**2.3** Understand database structure](#23-understanding-database-structure)
-   - [**2.4** Create tables and insert sample data](#24-create-tables-and-insert-sample-data)
-   - [**2.5** Explore the sample database](#25-exercise-explore-the-database)
-   - [**2.6** Understand data types](#26-data-types)
+   - [**2.1** Install DBeaver](#21-install-dbeaver)
+   - [**2.2** Optional: use the database from Visual Studio Code](#22-optional-use-the-database-from-visual-studio-code)
+   - [**2.3** Create a SQLite connection](#23-create-a-new-sqlite-connection)
+   - [**2.4** Understand database structure](#24-understanding-database-structure)
+   - [**2.5** Create tables and insert sample data](#25-create-tables-and-insert-sample-data)
+   - [**2.6** Explore the sample database](#26-exercise--explore-the-database)
+   - [**2.7** Understand data types](#27-data-types)
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
-   - [**3.2** Retrieve data with `SELECT`](#32-select-retrieving-data)
-   - [**3.3** Filter data with `WHERE`](#33-where-filtering-data)
-   - [**3.4** Sort data with `ORDER BY`](#34-order-by-sorting-data)
-   - [**3.5** Practice `SELECT` queries](#35-exercise-practice-select-queries)
-   - [**3.6** Add data with `INSERT`](#36-insert-adding-data)
-   - [**3.7** Modify data with `UPDATE`](#37-update-modifying-data)
-   - [**3.8** Remove data with `DELETE`](#38-delete-removing-data)
-   - [**3.9** Interactive CRUD practice](#39-interactive-practice)
-   - [**3.10** Combine the SQL operations](#310-exercise-combine-everything)
-   - [**3.11** Review key takeaways](#311-key-takeaways)
-   - [**3.12** Follow safe data-change practices](#312-safety-rules-to-remember)
+   - [**3.2** Write and run SQL in DBeaver](#32-writing-and-running-sql-in-dbeaver)
+   - [**3.3** Retrieve data with `SELECT`](#33-select--retrieving-data)
+   - [**3.4** Filter data with `WHERE`](#34-where--filtering-data)
+   - [**3.5** Sort and limit data with `ORDER BY` and `LIMIT`](#35-order-by-and-limit--sorting-and-limiting-data)
+   - [**3.6** Practice `SELECT` queries](#36-exercise--practice-select-queries)
+   - [**3.7** Add data with `INSERT`](#37-insert--adding-data)
+   - [**3.8** Modify data with `UPDATE`](#38-update--modifying-data)
+   - [**3.9** Remove data with `DELETE`](#39-delete--removing-data)
+   - [**3.10** Interactive CRUD practice](#310-interactive-practice)
+   - [**3.11** Combine the SQL operations](#311-exercise--combine-everything)
+   - [**3.12** Review key takeaways](#312-key-takeaways)
+   - [**3.13** Follow safe data-change practices](#313-safety-rules-to-remember)
+4. [Glossary](#glossary)
 
 ---
 
@@ -50,9 +57,13 @@ This chapter introduces databases as a practical way to organize and manage info
 
 ## 1.1 What is a database?
 
-A database is an organized collection of structured information, or data, typically stored electronically in a computer system.
+**Data** is simply recorded information: a name, a phone number, a price, a date, a photo.
+
+A **database** is an organized collection of structured information, or data, typically stored electronically in a computer system.
 
 Think of it as a digital filing cabinet where you can store, retrieve, and manage information efficiently.
+
+"Structured" means that every piece of information has a fixed place. In a contact list, for example, every contact has a *name* field, a *phone* field, and an *email* field. Because the structure is predictable, the computer can quickly answer questions such as *"Which contacts live in Copenhagen?"*
 
 ## 1.2 Real-Life Examples
 
@@ -74,6 +85,8 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 - **Social Media:** Platforms such as Facebook and Instagram store user profiles, posts, and connections.
 - **Online Shopping:** E-commerce sites use databases to manage product catalogs, customer orders, and shipping information.
 
+> **Discussion:** Which apps did you use today? What information do you think they stored about you?
+
 ## 1.3 What Do We Gain from Using a Database?
 
 1. **Organization** — Information is structured and easy to find.
@@ -88,11 +101,38 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 ---
 
-## 1.4 Databases in Software Architecture
+## 1.4 Spreadsheets vs. Databases
+
+Many people already use spreadsheets (Excel, Google Sheets), and a database table looks very similar: rows and columns. So why not just use a spreadsheet?
+
+| | Spreadsheet | Database |
+|---|---|---|
+| **Best for** | Small lists, quick calculations, one person | Large amounts of data used by apps and many people |
+| **Rules for data** | You can type anything into any cell | Each column has rules (for example: "must be a number", "cannot be empty") |
+| **Size** | Becomes slow with hundreds of thousands of rows | Handles millions of rows |
+| **Many users at once** | Easy to overwrite each other's changes | Designed for many simultaneous users and apps |
+| **Linking information** | Copying the same data into several sheets | Tables are linked using keys, so each fact is stored once |
+| **How you ask questions** | Filters, formulas, scrolling | A query language called **SQL** |
+
+**Example:** If a customer changes their email address, a spreadsheet might have that email copied into the *Customers*, *Orders*, and *Invoices* sheets — and you must remember to change all three. In a database, the email is stored once in the customer table, and everything else *points* to that customer.
+
+---
+
+## 1.5 Databases in Software Architecture
 
 Databases are one part of a larger application: the application uses them to save information and retrieve it when needed. These examples show how the same role appears across different kinds of software.
 
 In modern software applications, databases serve as the backbone of data storage and management.
+
+A simple way to picture it:
+
+```text
+You (the user)  →  App or website  →  Database
+   "Show my        "Find orders       Looks up the
+    orders"         for user 42"      matching rows
+```
+
+The app asks the database a question, the database returns the answer, and the app shows it to you in a nice layout.
 
 ### Recipe website
 
@@ -130,9 +170,11 @@ Without a database, these applications would be like a library without a catalog
 
 ---
 
-## 1.5 Database vs. Database Management System
+## 1.6 Database vs. Database Management System
 
 A database stores the information; a Database Management System (DBMS) is the software used to create, query, update, and protect that information. The online-store example illustrates why the distinction matters.
+
+> **Analogy:** The database is the *library's books*. The DBMS is the *librarian* who knows where every book is, who is allowed to borrow it, and makes sure nothing gets lost.
 
 ### Real-Life Example — Online Store
 
@@ -178,14 +220,21 @@ When someone places an order, the system can automatically:
 
 Think of a DBMS as a digital assistant that helps manage data efficiently, securely, and reliably.
 
-## 1.6 Popular DBMS Options
+## 1.7 Popular DBMS Options
 
-| DBMS | Often used for | Why |
-|---|---|---|
-| MySQL | Web applications, small-to-medium businesses | Free, reliable, widely supported |
-| PostgreSQL | Complex applications, large datasets | Powerful features and complex query support |
-| MongoDB | Applications with changing data structures | Flexible data model |
-| SQLite | Small applications, mobile apps | Lightweight and requires little setup |
+There are two big families of databases:
+
+- **Relational (SQL) databases** store data in tables made of rows and columns, and link tables together. You talk to them using **SQL**. *This is what we learn in this course.*
+- **Non-relational (NoSQL) databases** store data in other shapes, such as documents that look like nested lists. They are useful when the structure of the data changes often.
+
+| DBMS | Type | Often used for | Why |
+|---|---|---|---|
+| MySQL | Relational | Web applications, small-to-medium businesses | Free, reliable, widely supported |
+| PostgreSQL | Relational | Complex applications, large datasets | Powerful features and complex query support |
+| SQLite | Relational | Small applications, mobile apps, learning | Lightweight; the whole database is a single file and needs no setup |
+| MongoDB | Non-relational | Applications with changing data structures | Flexible data model |
+
+In this session we use **SQLite**, because the entire database lives in one file on your computer — there is no server to install or configure.
 
 ---
 
@@ -205,51 +254,129 @@ This will also allow us to explore:
 - Data types
 - SQL queries
 
-## 2.1 Install DBeaver and Connect from Visual Studio Code
+## 2.1 Install DBeaver
 
-### Install DBeaver
+**DBeaver** is a free program that lets you look at and work with databases through a visual interface. It is not a database itself — it is a *tool* that connects to a database, much like a web browser is a tool that connects to websites.
 
-1. Open the [DBeaver download page](https://dbeaver.io/download/).
-2. Download **DBeaver Community** for your operating system.
-3. Run the downloaded installer and follow its instructions. Then open DBeaver.
+We use the free **DBeaver Community** edition. It works on Windows, macOS, and Linux.
 
-DBeaver is a desktop application; it does not run inside Visual Studio Code. You can also work with the same SQLite database from VS Code using the SQLTools extensions.
+### Download
 
-### Set Up SQLite in Visual Studio Code
+1. Open the official download page: [dbeaver.io/download](https://dbeaver.io/download/).
+2. Under **DBeaver Community**, choose the download that matches your computer:
 
-1. Install [Node.js 14 or later](https://nodejs.org/) if it is not already installed.
-2. In VS Code, open **Extensions** and install [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) and [SQLTools SQLite](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-sqlite).
-3. If prompted on first use, allow the SQLite driver to install its required package. If SQLTools cannot find Node.js, open VS Code's `settings.json` and add `"sqltools.useNodeRuntime": true` inside the settings object.
-4. Open the folder where you will keep the session database. In the SQLTools pane, choose **Add New Connection**, select **SQLite**, and give the connection a name.
-5. Select the path to your `tasks.sqlite3` database file. If you have not created it yet, complete the next section first, then add the connection.
-6. Open or create a `.sql` file, write a query, and use SQLTools' **Run Query** command. Review the results in the SQLTools results view.
+| Your computer | Choose |
+|---|---|
+| Windows | **Windows (installer)** |
+| Mac with Apple chip (M1, M2, M3, …) | **macOS for Apple Silicon** |
+| Mac with Intel chip | **macOS for Intel** |
+| Ubuntu / Debian Linux | **Linux Debian package (.deb)** |
 
-Use the same `tasks.sqlite3` file in DBeaver and VS Code so that both applications show the same tables and data. For more information, see the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx).
+> **Not sure which Mac you have?** Click the Apple menu → **About This Mac**. If it says **Chip: Apple M…**, choose Apple Silicon. If it says **Processor: Intel**, choose Intel.
+
+The download is a few hundred megabytes, so it may take a few minutes.
+
+### Install on Windows
+
+1. Open your **Downloads** folder and double-click the file named like `dbeaver-ce-…-windows-x86_64.exe`.
+2. If Windows asks *"Do you want to allow this app to make changes?"*, click **Yes**.
+3. Choose your language and click **OK**, then **Next**.
+4. Accept the license agreement.
+5. When asked who to install for, choose **For me** (this does not require administrator rights).
+6. Keep all default options and click **Next** → **Install**.
+7. Click **Finish**. DBeaver will now appear in your **Start** menu.
+
+### Install on macOS
+
+1. Open your **Downloads** folder and double-click the file named like `dbeaver-ce-…-macos-aarch64.dmg` (Apple Silicon) or `…-macos-x86_64.dmg` (Intel).
+2. In the window that opens, **drag the DBeaver icon into the Applications folder**.
+3. Open **Applications** and double-click **DBeaver**.
+4. If macOS says the app was downloaded from the internet, click **Open**.
+
+### Install on Ubuntu / Debian Linux
+
+1. Download the `.deb` file.
+2. Double-click it to open it in the Software app and click **Install**, or run this in a terminal from your Downloads folder:
+
+```bash
+sudo apt install ./dbeaver-ce_*_amd64.deb
+```
+
+### First Launch
+
+The first time DBeaver opens:
+
+- It may ask whether to **create a sample database**. Click **No** — we will use our own.
+- It may show a **Tip of the Day** or a welcome window. You can close it.
+- It may ask to choose a **workspace** folder. Accept the default.
+
+You should now see the main DBeaver window. On the left is the **Database Navigator**, which lists your database connections. It will be empty for now.
+
+![DBeaver main window with Database Navigator](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/database-view.png)
+
+### Troubleshooting
+
+| Problem | What to do |
+|---|---|
+| Windows shows *"Windows protected your PC"* | Click **More info** → **Run anyway**. DBeaver is safe when downloaded from dbeaver.io. |
+| macOS says the app *"cannot be opened"* | Open **System Settings** → **Privacy & Security**, scroll down, and click **Open Anyway** next to DBeaver. |
+| The installer complains about Java | Re-download the installer from dbeaver.io. The official installers already include the Java runtime DBeaver needs. |
+
+> **Check your installation:** In DBeaver, open **Help** → **About DBeaver**. If you see a version number, you are ready.
 
 ---
 
-## 2.2 Create a New SQLite Connection
+## 2.2 Optional: Use the Database from Visual Studio Code
+
+This section is **optional** and intended for people who already use Visual Studio Code (VS Code). Everything in this session can be done in DBeaver alone.
+
+DBeaver is a standalone desktop application; it does not run inside VS Code. However, because a SQLite database is just a file, you can open the **same** `tasks.sqlite3` file from VS Code using the free **SQLTools** extensions.
+
+1. Install [Node.js](https://nodejs.org/) (the **LTS** version) if it is not already installed. The SQLite extension needs it to run.
+2. In VS Code, open the **Extensions** view (`Ctrl+Shift+X`, or `Cmd+Shift+X` on macOS).
+3. Search for and install **SQLTools SQLite** (publisher: *mtxr*). This also installs the main **SQLTools** extension.
+4. Click the **SQLTools** icon (a database cylinder) in the left sidebar.
+5. Hover over **CONNECTIONS** and click **Add New Connection**. Choose **SQLite**.
+6. Give the connection a name (for example `Tasks`), and select your `tasks.sqlite3` file in the **Database file** field. Click **Save Connection**, then **Connect Now**.
+7. If asked to install the `sqlite3` package, click **Install now** and wait for it to finish.
+8. A new SQL editor opens. Write a query such as `SELECT * FROM user;` and click **Run on active connection** (or press `Ctrl+E Ctrl+E` / `Cmd+E Cmd+E`). The results appear in a new tab.
+
+> If SQLTools reports that it cannot find Node.js, open VS Code settings, search for `sqltools.useNodeRuntime`, and set it to `true`. See the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx) for details.
+
+> **Tip:** Close the connection in one tool before changing data in the other. SQLite allows only one program to write to the file at a time.
+
+---
+
+## 2.3 Create a New SQLite Connection
+
+A **connection** tells DBeaver *where* a database is and *how* to talk to it. For SQLite, the database is a single file on your computer, so the connection simply points to that file. If the file does not exist yet, DBeaver creates a new, empty database.
 
 Using DBeaver:
 
-1. Click **New Database Connection** in the toolbar, or press `Ctrl+Shift+N`.
+1. Click **New Database Connection** (the plug icon with a `+`) in the toolbar, or press `Ctrl+Shift+N` (`Cmd+Shift+N` on macOS).
 2. Select **SQLite**.
 3. Click **Next**.
-4. In the **Path** field, click **Browse** and choose where to save the database.
+4. In the **Path** field, click **Browse** (or **Create**) and choose where to save the database — for example, a new `databases` folder in your Documents.
 5. Name the database file:
 
 ```text
 tasks.sqlite3
 ```
 
+> The `.sqlite3` **extension is important** — it tells DBeaver and other tools that the file is a SQLite database.
+
 6. Click **Test Connection** to verify that everything works.
+   - The first time, DBeaver will say the **SQLite driver files are missing** and offer to download them. A *driver* is a small add-on that teaches DBeaver how to talk to a specific type of database. Click **Download** and wait.
+   - You should then see **Connected**.
 7. Click **Finish**.
+
+Your new connection now appears in the **Database Navigator** on the left. Click the arrow next to it to expand it.
 
 > See the DBeaver documentation for more information about SQLite connections.
 
 ---
 
-## 2.3 Understanding Database Structure
+## 2.4 Understanding Database Structure
 
 Before creating tables, understand the basic terminology.
 
@@ -276,12 +403,40 @@ Database
         └── Foreign Keys
 ```
 
+### Example: the `user` table
+
+Here are a few rows from the `user` table in our sample database:
+
+| id | name | email | phone |
+|---|---|---|---|
+| 1 | Aarika Ellingworth | aellingworth0@harvard.edu | 483-396-8795 |
+| 2 | Pren Goldsworthy | pgoldsworthy1@spotify.com | 635-572-8467 |
+| 3 | Pablo Kisbee | pkisbee2@lulu.com | 790-962-8683 |
+
+- The whole grid is a **table**.
+- Each horizontal line (one person) is a **row**.
+- Each vertical heading (`id`, `name`, `email`, `phone`) is a **column**.
+- `id` is the **primary key**: every user has a different number, even if two users have the same name. Think of it like a personal ID number.
+
+### Example: linking tables with a foreign key
+
+The `task` table stores to-do items. Instead of copying the user's name and email into every task, each task stores only the user's `id` in a column called `user_id`:
+
+| id | title | status_id | user_id |
+|---|---|---|---|
+| 1 | Wash clothes | 2 | 1 |
+| 4 | Order groceries online | 1 | 1 |
+
+`user_id` is a **foreign key**: it points to `id` in the `user` table. Both tasks above belong to user `1`, Aarika Ellingworth. In the same way, `status_id` points to the `status` table, where `1` = *Not started*, `2` = *In progress*, and `3` = *Done*.
+
 ---
 
-## 2.4 Create Tables and Insert Sample Data
+## 2.5 Create Tables and Insert Sample Data
+
+A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data.
 
 1. Find the sample SQL file in the session materials.
-2. Copy the contents of the SQL file.
+2. Open it in any text editor and copy its contents.
 3. In DBeaver, right-click your database connection.
 4. Select:
 
@@ -290,21 +445,34 @@ SQL Editor → Open SQL Script
 ```
 
 5. Paste the SQL commands into the editor.
-6. Execute the complete script using the **Execute SQL Script** button or `Alt+X`.
+6. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
+7. In the Database Navigator, right-click your connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
 
-After execution, you should have the sample Tasks database.
+After execution, you should have the sample Tasks database with five tables:
+
+| Table | What it stores |
+|---|---|
+| `user` | People who can be assigned tasks |
+| `task` | To-do items, each with a status and an assigned user |
+| `status` | The possible task statuses: *Not started*, *In progress*, *Done* |
+| `tag` | Labels that can be attached to tasks |
+| `task_tag` | Which tags are attached to which tasks |
+
+> **Shortcut:** Instead of running the script, you can connect DBeaver directly to the pre-created `tasks.sqlite3` file from the session materials.
 
 ### Explore Your Database
 
-Use the database diagram to understand the relationships between the tables.
+Use the database diagram to understand the relationships between the tables. Each box is a table, and each line between boxes is a foreign-key relationship.
 
 ---
 
-## 2.5 Exercise — Explore the Database
+## 2.6 Exercise — Explore the Database
 
 If you have not already done so, follow the setup steps above.
 
 Then explore your database in DBeaver.
+
+> **How to look around:** Double-click a table in the Database Navigator. The **Properties** tab shows its columns and their data types. The **Data** tab shows its rows, like a spreadsheet. The **ER Diagram** tab shows how it links to other tables.
 
 ### Questions
 
@@ -317,7 +485,7 @@ Then explore your database in DBeaver.
 
 ---
 
-## 2.6 Data Types
+## 2.7 Data Types
 
 Open the properties of the `task` table.
 
@@ -329,7 +497,7 @@ You will see data types such as:
 
 When creating a table, we define the type of data each column will hold.
 
-This helps the database understand how to store and manage the data efficiently.
+This helps the database understand how to store and manage the data efficiently. It also protects the data: for example, it prevents someone from accidentally typing *"tomorrow"* in a column meant for numbers.
 
 ### Common Data Types
 
@@ -343,6 +511,14 @@ This helps the database understand how to store and manage the data efficiently.
 | `TIME` | Time values | Times |
 | `DATETIME` | Date and time | Timestamps |
 | `BLOB` | Binary data | Images, files |
+
+### Empty values: `NULL`
+
+Sometimes a value is unknown or missing — for example, a task with no due date. Databases represent "no value" with a special marker called **`NULL`**. `NULL` is not zero and not an empty text; it means *"nothing here"*. In DBeaver, these cells show `[NULL]`.
+
+Columns can be marked **NOT NULL**, meaning a value is required. In our sample database, every user **must** have a `name` and an `email`, but `phone` can be left empty.
+
+> **SQLite detail:** SQLite is flexible about types. Internally it stores everything as `INTEGER`, `REAL`, `TEXT`, `BLOB`, or `NULL`. Dates are stored as text such as `'2017-10-25 06:54:16'` (year-month-day, hours:minutes:seconds), and true/false is stored as `1`/`0`.
 
 > **Note:** You do not need to memorize every data type. Keep in mind that you can always refer to cheat sheets and documentation when you are unsure.
 
@@ -363,6 +539,14 @@ Now that the database is set up, learn how to interact with it using **SQL (Stru
 SQL is a specialized language for managing and manipulating data in relational database management systems.
 
 Unlike general-purpose languages such as JavaScript or Python, SQL focuses specifically on data operations.
+
+SQL reads almost like an English sentence. For example:
+
+```sql
+SELECT name FROM user WHERE id = 3;
+```
+
+reads as: *"Show me the name from the user table where the id is 3."*
 
 ### Key Characteristics
 
@@ -388,11 +572,61 @@ These are commonly referred to as **CRUD**:
 
 ---
 
-## 3.2 SELECT — Retrieving Data
+## 3.2 Writing and Running SQL in DBeaver
+
+### Open a SQL editor
+
+1. In the Database Navigator, click your `tasks.sqlite3` connection.
+2. Open **SQL Editor** → **New SQL script** (or press `Ctrl+]`, `Cmd+]` on macOS).
+3. A blank editor opens. This is where you type SQL.
+
+![Opening a new SQL script in DBeaver](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/new-sql-script.png)
+
+### Run a query
+
+![Run buttons in the DBeaver SQL editor](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/run-queries.png)
+
+| To run… | Click | Shortcut |
+|---|---|---|
+| **The query your cursor is on** | Orange triangle ▶ | `Ctrl+Enter` (`Cmd+Enter` on macOS) |
+| **Everything in the editor** | Document icon with triangle | `Alt+X` (`Option+X` on macOS) |
+
+The results appear in a grid below the editor.
+
+### SQL writing rules
+
+- **End every query with a semicolon** `;`. It tells DBeaver where one query ends and the next begins.
+- **Keywords are not case-sensitive.** `SELECT`, `select`, and `Select` all work. Writing keywords in CAPITALS is a common convention that makes queries easier to read.
+- **Text values go in single quotes**: `'Wash clothes'`. Numbers do not: `18`.
+- **Line breaks and spaces do not matter.** You can write a query on one line or across several lines.
+- **Comments** start with `--`. The database ignores them, so you can use them as notes:
+
+```sql
+-- Show all users
+SELECT * FROM user;
+```
+
+### When something goes wrong
+
+If a query contains a mistake, DBeaver underlines it in red and shows an error message. Read the message — it usually says exactly what is wrong, such as a misspelled table name or a missing quote.
+
+![An error shown in DBeaver](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/errors.png)
+
+Common beginner mistakes:
+
+- Forgetting the `;` at the end.
+- Forgetting the closing quote: `'Wash clothes` instead of `'Wash clothes'`.
+- Misspelling a table or column name: `users` instead of `user`.
+
+> **Save your work:** Use **File** → **Save As** to save your queries as a `.sql` file, for example for homework.
+
+---
+
+## 3.3 SELECT — Retrieving Data
 
 The `SELECT` statement is used to retrieve data from one or more tables.
 
-It is one of the most common SQL operations.
+It is one of the most common SQL operations. `SELECT` only *reads* data — it never changes anything, so it is always safe to experiment with.
 
 ### Basic Syntax
 
@@ -401,7 +635,14 @@ SELECT column1, column2
 FROM table_name;
 ```
 
-To retrieve all columns:
+Example — show the name and email of every user:
+
+```sql
+SELECT name, email
+FROM user;
+```
+
+To retrieve all columns, use `*`, which means *"every column"*:
 
 ```sql
 SELECT *
@@ -410,9 +651,9 @@ FROM table_name;
 
 ---
 
-## 3.3 WHERE — Filtering Data
+## 3.4 WHERE — Filtering Data
 
-The `WHERE` clause filters records based on conditions.
+The `WHERE` clause filters records based on conditions. Only rows where the condition is true are returned.
 
 ### Basic Syntax
 
@@ -422,7 +663,7 @@ FROM table_name
 WHERE condition;
 ```
 
-Example:
+Example — show all tasks that are *In progress* (`status_id` 2):
 
 ```sql
 SELECT *
@@ -430,13 +671,40 @@ FROM task
 WHERE status_id = 2;
 ```
 
+### Comparison Operators
+
+| Operator | Meaning | Example |
+|---|---|---|
+| `=` | Equal to | `WHERE id = 3` |
+| `!=` or `<>` | Not equal to | `WHERE status_id != 3` |
+| `>` / `<` | Greater than / less than | `WHERE id > 10` |
+| `>=` / `<=` | Greater / less than or equal to | `WHERE created >= '2017-10-01'` |
+| `LIKE` | Matches a text pattern; `%` means *"anything"* | `WHERE title LIKE '%car%'` |
+| `IS NULL` | Has no value | `WHERE due_date IS NULL` |
+| `IS NOT NULL` | Has a value | `WHERE phone IS NOT NULL` |
+
+> **Note:** To check for an empty value, use `IS NULL`, **not** `= NULL`.
+
+### Combining Conditions
+
+Use `AND` when **both** conditions must be true, and `OR` when **either** one is enough:
+
+```sql
+-- Tasks for user 1 that are not done yet
+SELECT title
+FROM task
+WHERE user_id = 1 AND status_id != 3;
+```
+
 ---
 
-## 3.4 ORDER BY — Sorting Data
+## 3.5 ORDER BY and LIMIT — Sorting and Limiting Data
 
 The `ORDER BY` clause sorts query results.
 
 ### Ascending
+
+`ASC` sorts from A to Z, smallest to largest, or oldest to newest. It is the default.
 
 ```sql
 SELECT *
@@ -446,15 +714,30 @@ ORDER BY name ASC;
 
 ### Descending
 
+`DESC` sorts from Z to A, largest to smallest, or newest to oldest.
+
 ```sql
 SELECT *
 FROM user
 ORDER BY name DESC;
 ```
 
+### LIMIT
+
+`LIMIT` returns only the first *n* rows. Combined with `ORDER BY`, it answers questions such as *"What are the 5 newest tasks?"*
+
+```sql
+SELECT title, created
+FROM task
+ORDER BY created DESC
+LIMIT 5;
+```
+
+> **Order matters:** write the parts of a query in this order: `SELECT` → `FROM` → `WHERE` → `ORDER BY` → `LIMIT`.
+
 ---
 
-## 3.5 Exercise — Practice SELECT Queries
+## 3.6 Exercise — Practice SELECT Queries
 
 Now that the database is set up, practice writing SQL queries.
 
@@ -462,12 +745,14 @@ Now that the database is set up, practice writing SQL queries.
 2. List all users, ordering them alphabetically by name.
 3. Find the name of the user with `id = 10`.
 4. Find the 3 oldest tasks based on creation date.
+5. **Bonus:** Find all tasks that have no description.
+6. **Bonus:** Find all users whose email ends with `.com`.
 
 > **Note:** For more practice, refer back to the SQL cheat sheet and experiment with more complex queries.
 
 ---
 
-## 3.6 INSERT — Adding Data
+## 3.7 INSERT — Adding Data
 
 The `INSERT` statement adds new records to a table.
 
@@ -478,16 +763,28 @@ INSERT INTO table_name (column1, column2)
 VALUES (value1, value2);
 ```
 
+- The first list names the **columns** you are filling in.
+- The second list gives the **values**, in the same order.
+- You do not need to provide the `id`: SQLite automatically gives the new row the next available number.
+- Columns marked **NOT NULL** (required) must be included.
+
 Example:
 
 ```sql
-INSERT INTO user (name, phone)
-VALUES ('John Doe', '12345678');
+INSERT INTO user (name, email, phone)
+VALUES ('John Doe', 'john@example.com', '12345678');
+```
+
+To add a task, you must provide the required columns `title`, `created`, `updated`, and `status_id`. `datetime('now')` is a SQLite helper that fills in the current date and time:
+
+```sql
+INSERT INTO task (title, description, created, updated, status_id, user_id)
+VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('now'), 1, 1);
 ```
 
 ---
 
-## 3.7 UPDATE — Modifying Data
+## 3.8 UPDATE — Modifying Data
 
 The `UPDATE` statement modifies existing records.
 
@@ -513,7 +810,7 @@ WHERE id = 18;
 
 ---
 
-## 3.8 DELETE — Removing Data
+## 3.9 DELETE — Removing Data
 
 The `DELETE` statement removes records.
 
@@ -535,11 +832,13 @@ WHERE id = 18;
 >
 > Always make sure you have a `WHERE` clause when you intend to delete specific records.
 
+> **There is no undo.** Unlike a document editor, a database does not have a recycle bin. Once a row is deleted, it is gone.
+
 ---
 
-## 3.9 Interactive Practice
+## 3.10 Interactive Practice
 
-Practice the CRUD operations together.
+Practice the CRUD operations together. Run each step and look at the result before moving on.
 
 ### Retrieve all tasks
 
@@ -551,8 +850,8 @@ FROM task;
 ### Add a new task
 
 ```sql
-INSERT INTO task (...)
-VALUES (...);
+INSERT INTO task (title, created, updated, status_id, user_id)
+VALUES ('Prepare presentation', datetime('now'), datetime('now'), 1, 1);
 ```
 
 ### Verify the task was added
@@ -560,15 +859,19 @@ VALUES (...);
 ```sql
 SELECT *
 FROM task
-WHERE ...;
+WHERE title = 'Prepare presentation';
 ```
 
+Note the `id` of the new task in the result — you will use it in the next steps.
+
 ### Update the task status
+
+Replace `<id>` with the `id` you noted above:
 
 ```sql
 UPDATE task
 SET status_id = 2
-WHERE ...;
+WHERE id = <id>;
 ```
 
 ### Verify that the update worked
@@ -576,20 +879,23 @@ WHERE ...;
 ```sql
 SELECT *
 FROM task
-WHERE ...;
+WHERE id = <id>;
 ```
+
+The `status_id` should now be `2` (*In progress*).
 
 ---
 
-## 3.10 Exercise — Combine Everything
+## 3.11 Exercise — Combine Everything
 
 Use the SQL operations you have learned.
 
-## Tasks
+### Tasks
 
-1. Add yourself as a new user in the `user` table.
-2. Create **2 or more tasks** assigned to yourself.
-3. Update one of the tasks you created so its status is:
+1. Add yourself as a new user in the `user` table. Remember that `name` and `email` are required.
+2. Find your new user's `id`.
+3. Create **2 or more tasks** assigned to yourself (use your `id` as the `user_id`).
+4. Update one of the tasks you created so its status is:
 
 ```text
 In Progress
@@ -601,23 +907,24 @@ using:
 status_id = 2
 ```
 
-4. Retrieve only the `title` and `description` of all tasks assigned to you.
-5. Delete a task that you no longer need.
+5. Retrieve only the `title` and `description` of all tasks assigned to you.
+6. Delete a task that you no longer need.
 
 ---
 
-## 3.11 Key Takeaways
+## 3.12 Key Takeaways
 
 By the end of this session, you should understand:
 
 - What a database is.
 - Why applications use databases.
+- How a database differs from a spreadsheet.
 - What a DBMS is.
 - The difference between a database and a DBMS.
 - Basic relational database terminology.
 - Tables, rows, and columns.
 - Primary keys and foreign keys.
-- Common database data types.
+- Common database data types and `NULL`.
 - What SQL is.
 - The four CRUD operations:
   - `SELECT`
@@ -625,10 +932,10 @@ By the end of this session, you should understand:
   - `UPDATE`
   - `DELETE`
 - How to filter data with `WHERE`.
-- How to sort data with `ORDER BY`.
-- How to work with a SQLite database using DBeaver.
+- How to sort data with `ORDER BY` and limit results with `LIMIT`.
+- How to install DBeaver and work with a SQLite database in it.
 
-## 3.12 Safety Rules to Remember
+## 3.13 Safety Rules to Remember
 
 ### `UPDATE`
 
@@ -657,6 +964,44 @@ DELETE ...
 ```
 
 make sure the `WHERE` clause targets exactly the rows you intend to delete.
+
+### Check first with `SELECT`
+
+A safe habit: before an `UPDATE` or `DELETE`, run a `SELECT` with the **same** `WHERE` clause. The rows it returns are exactly the rows that will be changed or deleted.
+
+```sql
+-- 1. Check which rows match
+SELECT * FROM task WHERE id = 18;
+
+-- 2. Only then delete them
+DELETE FROM task WHERE id = 18;
+```
+
+---
+
+# Glossary
+
+| Term | Meaning |
+|---|---|
+| **Column / Field** | One kind of information stored for every row, such as `name` or `email`. |
+| **Connection** | The settings that tell a tool such as DBeaver where a database is and how to reach it. |
+| **CRUD** | Create, Read, Update, Delete — the four basic things you do with data. |
+| **Data** | Recorded information, such as names, numbers, dates, or images. |
+| **Data type** | The kind of value a column holds, such as a number, text, or date. |
+| **Database** | An organized collection of structured data. |
+| **DBeaver** | A free desktop program for viewing and working with databases. |
+| **DBMS** | Database Management System — the software that stores, protects, and manages a database. |
+| **Driver** | A small add-on that lets a tool talk to a specific type of database. |
+| **Foreign key** | A column that points to the primary key of a row in another table. |
+| **NULL** | A special marker meaning "no value". |
+| **Primary key** | A column whose value is unique for each row, used to identify it. |
+| **Query** | A question or instruction sent to the database, written in SQL. |
+| **Relational database** | A database that stores data in linked tables. |
+| **Row / Record** | One entry in a table, such as one user or one task. |
+| **SQL** | Structured Query Language — the language used to work with relational databases. |
+| **SQL script** | A file containing one or more SQL statements to run in order. |
+| **SQLite** | A lightweight relational database stored in a single file. |
+| **Table** | A set of rows and columns holding one kind of thing, such as users or tasks. |
 
 ---
 
