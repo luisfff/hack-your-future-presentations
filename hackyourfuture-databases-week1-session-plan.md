@@ -18,6 +18,10 @@
 
 # 1. Introduction to Databases
 
+![Rows of server racks in a data center](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
+
+*Photo: [Unsplash License](https://unsplash.com/license)*
+
 ## What is a database?
 
 A database is an organized collection of structured information, or data, typically stored electronically in a computer system.
@@ -290,6 +294,10 @@ This helps the database understand how to store and manage the data efficiently.
 ---
 
 # 8. Interacting With Your Database
+
+![A person using a laptop to work with software](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80)
+
+*Photo: [Unsplash License](https://unsplash.com/license)*
 
 Now that the database is set up, learn how to interact with it using **SQL (Structured Query Language)**.
 
