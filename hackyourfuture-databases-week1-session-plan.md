@@ -5,9 +5,9 @@
 
 ## Session Materials
 
-- **Database Diagram** — The diagram of the database to be created in this session.
-- **Sample Tasks database** — Pre-created SQLite database with the contents of the sample SQL file.
-- **Sample SQL file** — The SQL script that creates the tables and fills them with example data.
+- **[Database Diagram](session-materials/database-diagram.jpg)** — The diagram of the database to be created in this session.
+- **[Sample Tasks database](session-materials/tasks.sqlite3)** — Pre-created SQLite database with the contents of the sample SQL file.
+- **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
@@ -435,7 +435,7 @@ The `task` table stores to-do items. Instead of copying the user's name and emai
 
 A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data.
 
-1. Find the sample SQL file in the session materials.
+1. Open the [sample SQL file](session-materials/session-data.sql).
 2. Open it in any text editor and copy its contents.
 3. In DBeaver, right-click your database connection.
 4. Select:
@@ -458,7 +458,7 @@ After execution, you should have the sample Tasks database with five tables:
 | `tag` | Labels that can be attached to tasks |
 | `task_tag` | Which tags are attached to which tasks |
 
-> **Shortcut:** Instead of running the script, you can connect DBeaver directly to the pre-created `tasks.sqlite3` file from the session materials.
+> **Shortcut:** Instead of running the script, you can connect DBeaver directly to the pre-created [`tasks.sqlite3`](session-materials/tasks.sqlite3) file.
 
 ### Explore Your Database
 
