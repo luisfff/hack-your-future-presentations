@@ -18,11 +18,12 @@
    - [**1.5** Database vs. Database Management System](#15-database-vs-database-management-system)
    - [**1.6** Popular DBMS options](#16-popular-dbms-options)
 2. [Creating Your First Database](#2-creating-your-first-database)
-   - [**2.1** Create a SQLite connection](#21-create-a-new-sqlite-connection)
-   - [**2.2** Understand database structure](#22-understanding-database-structure)
-   - [**2.3** Create tables and insert sample data](#23-create-tables-and-insert-sample-data)
-   - [**2.4** Explore the sample database](#24-exercise-explore-the-database)
-   - [**2.5** Understand data types](#25-data-types)
+   - [**2.1** Install DBeaver and connect from Visual Studio Code](#21-install-dbeaver-and-connect-from-visual-studio-code)
+   - [**2.2** Create a SQLite connection](#22-create-a-new-sqlite-connection)
+   - [**2.3** Understand database structure](#23-understanding-database-structure)
+   - [**2.4** Create tables and insert sample data](#24-create-tables-and-insert-sample-data)
+   - [**2.5** Explore the sample database](#25-exercise-explore-the-database)
+   - [**2.6** Understand data types](#26-data-types)
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
    - [**3.2** Retrieve data with `SELECT`](#32-select-retrieving-data)
@@ -204,7 +205,30 @@ This will also allow us to explore:
 - Data types
 - SQL queries
 
-## 2.1 Create a New SQLite Connection
+## 2.1 Install DBeaver and Connect from Visual Studio Code
+
+### Install DBeaver
+
+1. Open the [DBeaver download page](https://dbeaver.io/download/).
+2. Download **DBeaver Community** for your operating system.
+3. Run the downloaded installer and follow its instructions. Then open DBeaver.
+
+DBeaver is a desktop application; it does not run inside Visual Studio Code. You can also work with the same SQLite database from VS Code using the SQLTools extensions.
+
+### Set Up SQLite in Visual Studio Code
+
+1. Install [Node.js 14 or later](https://nodejs.org/) if it is not already installed.
+2. In VS Code, open **Extensions** and install [SQLTools](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools) and [SQLTools SQLite](https://marketplace.visualstudio.com/items?itemName=mtxr.sqltools-driver-sqlite).
+3. If prompted on first use, allow the SQLite driver to install its required package. If SQLTools cannot find Node.js, open VS Code's `settings.json` and add `"sqltools.useNodeRuntime": true` inside the settings object.
+4. Open the folder where you will keep the session database. In the SQLTools pane, choose **Add New Connection**, select **SQLite**, and give the connection a name.
+5. Select the path to your `tasks.sqlite3` database file. If you have not created it yet, complete the next section first, then add the connection.
+6. Open or create a `.sql` file, write a query, and use SQLTools' **Run Query** command. Review the results in the SQLTools results view.
+
+Use the same `tasks.sqlite3` file in DBeaver and VS Code so that both applications show the same tables and data. For more information, see the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx).
+
+---
+
+## 2.2 Create a New SQLite Connection
 
 Using DBeaver:
 
@@ -225,7 +249,7 @@ tasks.sqlite3
 
 ---
 
-## 2.2 Understanding Database Structure
+## 2.3 Understanding Database Structure
 
 Before creating tables, understand the basic terminology.
 
@@ -254,7 +278,7 @@ Database
 
 ---
 
-## 2.3 Create Tables and Insert Sample Data
+## 2.4 Create Tables and Insert Sample Data
 
 1. Find the sample SQL file in the session materials.
 2. Copy the contents of the SQL file.
@@ -276,7 +300,7 @@ Use the database diagram to understand the relationships between the tables.
 
 ---
 
-## 2.4 Exercise — Explore the Database
+## 2.5 Exercise — Explore the Database
 
 If you have not already done so, follow the setup steps above.
 
@@ -293,7 +317,7 @@ Then explore your database in DBeaver.
 
 ---
 
-## 2.5 Data Types
+## 2.6 Data Types
 
 Open the properties of the `task` table.
 
