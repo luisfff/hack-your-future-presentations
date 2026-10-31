@@ -10,45 +10,69 @@
 
 ## Session Outline
 
-1. Introduction to Databases
-2. Creating Your First Database
-3. Interacting with Your Database
+1. [Introduction to Databases](#1-introduction-to-databases)
+   - **1.1** What is a database?
+   - **1.2** Real-life examples
+   - **1.3** Benefits of using a database
+   - **1.4** Databases in software architecture
+   - **1.5** Database vs. Database Management System
+2. [Creating Your First Database](#2-creating-your-first-database)
+   - **2.1** Create a SQLite connection
+   - **2.2** Understand database structure
+   - **2.3** Create tables and insert sample data
+   - **2.4** Explore the sample database
+   - **2.5** Understand data types
+3. [Interacting with Your Database](#3-interacting-with-your-database)
+   - **3.1** Introduction to SQL and CRUD
+   - **3.2** Retrieve data with `SELECT`
+   - **3.3** Filter data with `WHERE`
+   - **3.4** Sort data with `ORDER BY`
+   - **3.5** Practice `SELECT` queries
+   - **3.6** Add data with `INSERT`
+   - **3.7** Modify data with `UPDATE`
+   - **3.8** Remove data with `DELETE`
+   - **3.9** Interactive CRUD practice
+   - **3.10** Combine the SQL operations
+   - **3.11** Review key takeaways
+   - **3.12** Follow safe data-change practices
 
 ---
 
 # 1. Introduction to Databases
 
+This chapter introduces databases as a practical way to organize and manage information. You will look at familiar examples, see why applications depend on databases, and learn how a database differs from the software that manages it.
+
 ![Rows of server racks in a data center](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
 
 *Photo: [Unsplash License](https://unsplash.com/license)*
 
-## What is a database?
+## 1.1 What is a database?
 
 A database is an organized collection of structured information, or data, typically stored electronically in a computer system.
 
 Think of it as a digital filing cabinet where you can store, retrieve, and manage information efficiently.
 
-## Real-Life Examples
+## 1.2 Real-Life Examples
 
-### 1. Personal Use
+### 1.2.1 Personal Use
 
 - **Contact List:** Your phone's contact list is a simple database storing names, phone numbers, and email addresses.
 - **Photo Library:** Your phone's photo app is a database organizing images by date, location, or album.
 - **Excel Spreadsheets:** When you track monthly expenses or create a shopping list, you're essentially using a simple database.
 
-### 2. Business Use
+### 1.2.2 Business Use
 
 - **Inventory Management:** Stores use databases to track products, quantities, and prices.
 - **Customer Records:** Businesses maintain customer information, purchase history, and preferences.
 - **Employee Management:** Companies store employee details, attendance, and payroll information.
 
-### 3. Everyday Services
+### 1.2.3 Everyday Services
 
 - **Banking Systems:** Banks use databases to track account balances, transactions, and personal information.
 - **Social Media:** Platforms such as Facebook and Instagram store user profiles, posts, and connections.
 - **Online Shopping:** E-commerce sites use databases to manage product catalogs, customer orders, and shipping information.
 
-## What do we gain from using a database?
+## 1.3 What Do We Gain from Using a Database?
 
 1. **Organization** — Information is structured and easy to find.
 2. **Efficiency** — Data can be accessed quickly.
@@ -62,7 +86,9 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 ---
 
-# 2. Databases in Software Architecture
+## 1.4 Databases in Software Architecture
+
+Databases are one part of a larger application: the application uses them to save information and retrieve it when needed. These examples show how the same role appears across different kinds of software.
 
 In modern software applications, databases serve as the backbone of data storage and management.
 
@@ -102,9 +128,11 @@ Without a database, these applications would be like a library without a catalog
 
 ---
 
-# 3. Database vs Database Management System
+## 1.5 Database vs. Database Management System
 
-## Real-Life Example — Online Store
+A database stores the information; a Database Management System (DBMS) is the software used to create, query, update, and protect that information. The online-store example illustrates why the distinction matters.
+
+### 1.5.1 Real-Life Example — Online Store
 
 Imagine running an online store. You need to maintain data such as:
 
@@ -148,7 +176,7 @@ When someone places an order, the system can automatically:
 
 Think of a DBMS as a digital assistant that helps manage data efficiently, securely, and reliably.
 
-## Popular DBMS Options
+### 1.5.2 Popular DBMS Options
 
 | DBMS | Often used for | Why |
 |---|---|---|
@@ -159,7 +187,9 @@ Think of a DBMS as a digital assistant that helps manage data efficiently, secur
 
 ---
 
-# 4. Creating Your First Database
+# 2. Creating Your First Database
+
+In this chapter, you will set up a SQLite database and explore how its information is organized. You will use the provided Tasks example to connect database concepts—tables, rows, columns, keys, and data types—to a real structure you can inspect.
 
 The goal is to create a database that can be used as a playground for learning SQL.
 
@@ -173,7 +203,7 @@ This will also allow us to explore:
 - Data types
 - SQL queries
 
-## Step 1 — Create a New SQLite Connection
+## 2.1 Create a New SQLite Connection
 
 Using DBeaver:
 
@@ -194,11 +224,11 @@ tasks.sqlite3
 
 ---
 
-# 5. Understanding Database Structure
+## 2.2 Understanding Database Structure
 
 Before creating tables, understand the basic terminology.
 
-## Database Terminology
+### Database Terminology
 
 | Term | Meaning |
 |---|---|
@@ -223,7 +253,7 @@ Database
 
 ---
 
-# 6. Create Tables and Insert Sample Data
+## 2.3 Create Tables and Insert Sample Data
 
 1. Find the sample SQL file in the session materials.
 2. Copy the contents of the SQL file.
@@ -239,13 +269,13 @@ SQL Editor → Open SQL Script
 
 After execution, you should have the sample Tasks database.
 
-## Explore Your Database
+### Explore Your Database
 
 Use the database diagram to understand the relationships between the tables.
 
 ---
 
-# Exercise 1 — Explore the Database
+## 2.4 Exercise — Explore the Database
 
 If you have not already done so, follow the setup steps above.
 
@@ -262,7 +292,7 @@ Then explore your database in DBeaver.
 
 ---
 
-# 7. Data Types
+## 2.5 Data Types
 
 Open the properties of the `task` table.
 
@@ -276,7 +306,7 @@ When creating a table, we define the type of data each column will hold.
 
 This helps the database understand how to store and manage the data efficiently.
 
-## Common Data Types
+### Common Data Types
 
 | Data Type | Description | Example Usage |
 |---|---|---|
@@ -293,7 +323,9 @@ This helps the database understand how to store and manage the data efficiently.
 
 ---
 
-# 8. Interacting With Your Database
+# 3. Interacting With Your Database
+
+With the sample database ready, this chapter focuses on using SQL to work with its data. You will begin by retrieving and sorting records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
 
 ![A person using a laptop to work with software](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80)
 
@@ -301,7 +333,7 @@ This helps the database understand how to store and manage the data efficiently.
 
 Now that the database is set up, learn how to interact with it using **SQL (Structured Query Language)**.
 
-## What is SQL?
+## 3.1 What is SQL?
 
 SQL is a specialized language for managing and manipulating data in relational database management systems.
 
@@ -314,7 +346,7 @@ Unlike general-purpose languages such as JavaScript or Python, SQL focuses speci
 - **Powerful** — Complex data operations can often be expressed in a few lines.
 - **Widely used** — SQL is fundamental to many applications and systems.
 
-## CRUD Operations
+### CRUD Operations
 
 The four fundamental database operations are:
 
@@ -331,13 +363,13 @@ These are commonly referred to as **CRUD**:
 
 ---
 
-# 9. SELECT — Retrieving Data
+## 3.2 SELECT — Retrieving Data
 
 The `SELECT` statement is used to retrieve data from one or more tables.
 
 It is one of the most common SQL operations.
 
-## Basic Syntax
+### Basic Syntax
 
 ```sql
 SELECT column1, column2
@@ -353,11 +385,11 @@ FROM table_name;
 
 ---
 
-# 10. WHERE — Filtering Data
+## 3.3 WHERE — Filtering Data
 
 The `WHERE` clause filters records based on conditions.
 
-## Basic Syntax
+### Basic Syntax
 
 ```sql
 SELECT column1, column2
@@ -375,7 +407,7 @@ WHERE status_id = 2;
 
 ---
 
-# 11. ORDER BY — Sorting Data
+## 3.4 ORDER BY — Sorting Data
 
 The `ORDER BY` clause sorts query results.
 
@@ -397,7 +429,7 @@ ORDER BY name DESC;
 
 ---
 
-# Exercise 2 — Practice SELECT Queries
+## 3.5 Exercise — Practice SELECT Queries
 
 Now that the database is set up, practice writing SQL queries.
 
@@ -410,11 +442,11 @@ Now that the database is set up, practice writing SQL queries.
 
 ---
 
-# 12. INSERT — Adding Data
+## 3.6 INSERT — Adding Data
 
 The `INSERT` statement adds new records to a table.
 
-## Basic Syntax
+### Basic Syntax
 
 ```sql
 INSERT INTO table_name (column1, column2)
@@ -430,11 +462,11 @@ VALUES ('John Doe', '12345678');
 
 ---
 
-# 13. UPDATE — Modifying Data
+## 3.7 UPDATE — Modifying Data
 
 The `UPDATE` statement modifies existing records.
 
-## Basic Syntax
+### Basic Syntax
 
 ```sql
 UPDATE table_name
@@ -456,11 +488,11 @@ WHERE id = 18;
 
 ---
 
-# 14. DELETE — Removing Data
+## 3.8 DELETE — Removing Data
 
 The `DELETE` statement removes records.
 
-## Basic Syntax
+### Basic Syntax
 
 ```sql
 DELETE FROM table_name
@@ -480,25 +512,25 @@ WHERE id = 18;
 
 ---
 
-# 15. Interactive Practice
+## 3.9 Interactive Practice
 
 Practice the CRUD operations together.
 
-## 1. Retrieve all tasks
+### 3.9.1 Retrieve all tasks
 
 ```sql
 SELECT *
 FROM task;
 ```
 
-## 2. Add a new task
+### 3.9.2 Add a new task
 
 ```sql
 INSERT INTO task (...)
 VALUES (...);
 ```
 
-## 3. Verify the task was added
+### 3.9.3 Verify the task was added
 
 ```sql
 SELECT *
@@ -506,7 +538,7 @@ FROM task
 WHERE ...;
 ```
 
-## 4. Update the task status
+### 3.9.4 Update the task status
 
 ```sql
 UPDATE task
@@ -514,7 +546,7 @@ SET status_id = 2
 WHERE ...;
 ```
 
-## 5. Verify that the update worked
+### 3.9.5 Verify that the update worked
 
 ```sql
 SELECT *
@@ -524,7 +556,7 @@ WHERE ...;
 
 ---
 
-# Exercise 3 — Combine Everything
+## 3.10 Exercise — Combine Everything
 
 Use the SQL operations you have learned.
 
@@ -549,7 +581,7 @@ status_id = 2
 
 ---
 
-# Key Takeaways
+## 3.11 Key Takeaways
 
 By the end of this session, you should understand:
 
@@ -571,7 +603,7 @@ By the end of this session, you should understand:
 - How to sort data with `ORDER BY`.
 - How to work with a SQLite database using DBeaver.
 
-## Safety Rules to Remember
+## 3.12 Safety Rules to Remember
 
 ### `UPDATE`
 
