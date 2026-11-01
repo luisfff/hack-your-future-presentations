@@ -773,14 +773,14 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ### Exercises — Practice INSERT
 
-Write a separate `INSERT` for each task below. Include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Use your own distinctive titles if you prefer. After each insert, use `SELECT` to find the new row and record its `id` and exercise number; you will need them for the next sections. If a title appears more than once, identify the row you just inserted by its highest `id`.
+Write a separate `INSERT` for each task below. Include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. Use your own distinctive titles if you prefer. After each insert, use `SELECT` to find the new row and record its `id` and exercise number; you will need them for the next sections. If a title appears more than once, identify the row you just inserted by its highest `id`.
 
-1. Add a task titled `Practice 1: Read SQL`, with status `1` and assigned to user `1`.
-2. Add `Practice 2: Write queries`, with status `1` and a description of your choice.
-3. Add `Practice 3: Review results`, with status `2` and assigned to user `1`.
-4. Add `Practice 4: Plan a project`, with status `1` and a due date of `2030-12-31`.
-5. Add `Practice 5: Check data`, with status `2` and a description of your choice.
-6. Add `Practice 6: Finish practice`, with status `3`, leaving the optional description and user empty.
+1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
+2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
+3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
+4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
+5. Add `Practice 5: Check data`, with status *In progress* and a description of your choice.
+6. Add `Practice 6: Finish practice`, with status *Done*, leaving the optional description and user empty.
 
 ---
 
@@ -847,14 +847,11 @@ WHERE id = 18;
 
 ### Exercises — Practice DELETE
 
-Delete only the six tasks you created in the INSERT exercises, using their recorded IDs. For each exercise, first run a `SELECT` with the same `WHERE` clause and confirm it finds the intended task. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete the original sample rows.
+After the INSERT and UPDATE exercises, delete three tasks you created in the INSERT exercises. Use their recorded IDs so each deletion removes the task you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your task. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete the original sample rows.
 
-1. Delete your task 1.
-2. Delete your task 2.
-3. Delete your task 3.
-4. Delete your task 4.
-5. Delete your task 5.
-6. Delete your task 6.
+1. Delete the task you added for INSERT exercise 1.
+2. Delete the task you added for INSERT exercise 2.
+3. Delete the task you added for INSERT exercise 3.
 
 ---
 
