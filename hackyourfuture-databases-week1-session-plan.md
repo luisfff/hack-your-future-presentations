@@ -773,14 +773,14 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ### Exercises — Practice INSERT
 
-Write a separate `INSERT` for each task below. Include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. Use your own distinctive titles if you prefer. After each insert, use `SELECT` to find the new row and record its `id` and exercise number; you will need them for the next sections. If a title appears more than once, identify the row you just inserted by its highest `id`.
+These exercises add rows to three different tables. For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number; you will need them for the next sections. Use distinctive values so you can identify the rows you added.
 
 1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
 2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
 3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
 4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
-5. Add `Practice 5: Check data`, with status *In progress* and a description of your choice.
-6. Add `Practice 6: Finish practice`, with status *Done*, leaving the optional description and user empty.
+5. Add a user with a distinctive name and email address of your choice. Leave the optional phone number empty, and do not assign this user to any tasks.
+6. Add a tag with a distinctive name of your choice.
 
 ---
 
@@ -810,14 +810,14 @@ WHERE id = 18;
 
 ### Exercises — Practice UPDATE
 
-Use the six task IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended task. Afterward, select it again to check the change. Do not update the original sample rows.
+Use the table names and row IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended row. Afterward, select it again to check the change. Do not update original sample rows.
 
-1. Change task 1's status to in progress.
-2. Change task 2's description to `Write and test SELECT queries`.
-3. Change task 3's title to `Practice 3: Review query results`.
-4. Change task 4's due date to `2031-01-15`.
-5. Set task 5's status to done and its `updated` timestamp to `datetime('now')` in the same statement.
-6. Assign task 6 to user `1` by setting its `user_id`.
+1. Change the status of the task from INSERT exercise 1 to in progress.
+2. Change the description of the task from INSERT exercise 2 to `Write and test SELECT queries`.
+3. Change the title of the task from INSERT exercise 3 to `Practice 3: Review query results`.
+4. Change the due date of the task from INSERT exercise 4 to `2031-01-15`.
+5. Add a phone number to the user from INSERT exercise 5.
+6. Change the name of the tag from INSERT exercise 6.
 
 ---
 
@@ -847,11 +847,11 @@ WHERE id = 18;
 
 ### Exercises — Practice DELETE
 
-After the INSERT and UPDATE exercises, delete three tasks you created in the INSERT exercises. Use their recorded IDs so each deletion removes the task you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your task. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete the original sample rows.
+After the INSERT and UPDATE exercises, delete three rows you created in the INSERT exercises: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
 
 1. Delete the task you added for INSERT exercise 1.
-2. Delete the task you added for INSERT exercise 2.
-3. Delete the task you added for INSERT exercise 3.
+2. Delete the user you added for INSERT exercise 5.
+3. Delete the tag you added for INSERT exercise 6.
 
 ---
 
