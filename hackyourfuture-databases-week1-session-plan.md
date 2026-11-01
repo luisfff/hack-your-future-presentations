@@ -37,7 +37,7 @@
    - [**3.3** Retrieve data with `SELECT`](#33-select--retrieving-data)
    - [**3.4** Filter data with `WHERE`](#34-where--filtering-data)
    - [**3.5** Sort and limit data with `ORDER BY` and `LIMIT`](#35-order-by-and-limit--sorting-and-limiting-data)
-   - [**3.6** Practice `SELECT` queries and explore linked tables](#36-exercise--practice-select-queries)
+   - [**3.6** Practice `SELECT` queries](#36-exercise--practice-select-queries)
    - [**3.7** Add data with `INSERT`](#37-insert--adding-data)
    - [**3.8** Modify data with `UPDATE`](#38-update--modifying-data)
    - [**3.9** Remove data with `DELETE`](#39-delete--removing-data)
@@ -46,18 +46,6 @@
    - [**3.12** Review key takeaways](#312-key-takeaways)
    - [**3.13** Follow safe data-change practices](#313-safety-rules-to-remember)
 4. [Glossary](#glossary)
-
-### Suggested pacing (3 hours)
-
-| Time | Activity | Pause and check |
-|---|---|---|
-| 20 min | Chapter 1: familiar examples and why databases help | Ask learners to name a row and a column in a contact list. |
-| 45 min | Chapter 2: connect to the sample database and inspect its tables | Everyone can find the `task` table and the task with `id = 18`. |
-| 10 min | Break | |
-| 90 min | Chapter 3: run a first query, then practice reading and changing data | Pause after the first `SELECT` and again before `UPDATE` and `DELETE`. |
-| 15 min | Recap and questions | Ask learners to explain what a primary key and `WHERE` do. |
-
-Installing DBeaver during the session may need extra time; the VS Code option, SQL-script setup, and `JOIN` example are optional if time is short. Do not rush learners through the first successful query.
 
 ---
 
@@ -771,23 +759,6 @@ Now that the database is set up, practice writing SQL queries.
 
 > **Note:** For more practice, refer back to the SQL cheat sheet and experiment with more complex queries.
 
-### Optional: see two linked tables together
-
-In the `task` table, task `1` (*Wash clothes*) has `user_id = 1`. In the `user` table, `id = 1` is Aarika Ellingworth. A `JOIN` follows that link so you can see the task title and the person's name in one result:
-
-```sql
-SELECT task.title, user.name
-FROM task
-JOIN user ON task.user_id = user.id
-WHERE task.id = 1;
-```
-
-| title | name |
-|---|---|
-| Wash clothes | Aarika Ellingworth |
-
-Read `JOIN user ON task.user_id = user.id` as “match each task's `user_id` to a user's `id`.” The dot in `task.title` specifies which table a column comes from. **Try it:** Change the final `1` to `4`. What task and person do you get? `task_tag` works similarly as a bridge between `task` and `tag`; you can explore it in the diagram without learning a second `JOIN` today.
-
 ---
 
 ## 3.7 INSERT — Adding Data
@@ -982,7 +953,6 @@ By the end of this session, you should understand:
   - `DELETE`
 - How to filter data with `WHERE`.
 - How to sort data with `ORDER BY` and limit results with `LIMIT`.
-- How linked tables can be read together with `JOIN` (optional).
 - How to install DBeaver and work with a SQLite database in it.
 
 ## 3.13 Safety Rules to Remember
@@ -1043,7 +1013,6 @@ DELETE FROM task WHERE id = 18;
 | **DBMS** | Database Management System — the software that stores, protects, and manages a database. |
 | **Driver** | A small add-on that lets a tool talk to a specific type of database. |
 | **Foreign key** | A column that points to the primary key of a row in another table. |
-| **JOIN** | A way to combine rows from linked tables using matching columns. |
 | **NULL** | A special marker meaning "no value". |
 | **Primary key** | A column whose value is unique for each row, used to identify it. |
 | **Query** | A question or instruction sent to the database, written in SQL. |
