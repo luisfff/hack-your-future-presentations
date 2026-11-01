@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-labelledby="title description">
+  <title id="title">An online store</title>
+  <desc id="description">An illustration of an online shopping page, a shopping basket and a parcel.</desc>
+  <rect width="1000" height="380" rx="28" fill="#f8edeb"/>
+  <circle cx="170" cy="92" r="54" fill="#f2d6cf"/>
+  <circle cx="838" cy="285" r="66" fill="#f2d6cf"/>
+  <rect x="244" y="53" width="445" height="261" rx="16" fill="#fff"/>
+  <path d="M260 53h413a16 16 0 0 1 16 16v30H244V69a16 16 0 0 1 16-16z" fill="#916c78"/>
+  <circle cx="268" cy="76" r="5" fill="#f2d7dd"/>
+  <circle cx="286" cy="76" r="5" fill="#f2d7dd"/>
+  <circle cx="304" cy="76" r="5" fill="#f2d7dd"/>
+  <text x="345" y="82" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">The Little Shop</text>
+  <rect x="275" y="123" width="115" height="126" rx="9" fill="#f7e8d7"/>
+  <rect x="294" y="146" width="76" height="70" rx="9" fill="#d7a47f"/>
+  <path d="M313 148v-8a19 19 0 0 1 38 0v8" fill="none" stroke="#96674e" stroke-width="5"/>
+  <rect x="408" y="123" width="115" height="126" rx="9" fill="#e3efea"/>
+  <path d="M440 147h52l-7 58h-38z" fill="#85b5a4"/>
+  <path d="M453 147c0-22 26-22 26 0" fill="none" stroke="#5d8c7c" stroke-width="5"/>
+  <rect x="541" y="123" width="115" height="126" rx="9" fill="#e7e9f4"/>
+  <path d="M570 159h57v40a12 12 0 0 1-12 12h-33a12 12 0 0 1-12-12z" fill="#8597bc"/>
+  <path d="M627 169h8c12 0 12 20 0 20h-8" fill="none" stroke="#8597bc" stroke-width="5"/>
+  <rect x="276" y="264" width="70" height="8" rx="4" fill="#d8c4c5"/>
+  <rect x="409" y="264" width="70" height="8" rx="4" fill="#d8c4c5"/>
+  <rect x="542" y="264" width="70" height="8" rx="4" fill="#d8c4c5"/>
+  <rect x="276" y="281" width="38" height="7" rx="3.5" fill="#b89299"/>
+  <rect x="409" y="281" width="38" height="7" rx="3.5" fill="#b89299"/>
+  <rect x="542" y="281" width="38" height="7" rx="3.5" fill="#b89299"/>
+  <path d="M91 202h114l-15 69h-84z" fill="#cd8975"/>
+  <path d="M117 202v-15a31 31 0 0 1 62 0v15" fill="none" stroke="#9d6659" stroke-width="7"/>
+  <path d="M730 210l73-38 75 37v84l-75 38-73-38z" fill="#dba77d"/>
+  <path d="M730 210l73 39 75-40M803 249v82" fill="none" stroke="#ad7959" stroke-width="4"/>
+  <path d="M769 190l74 39" stroke="#f7dfb3" stroke-width="11"/>
+  <rect x="820" y="257" width="35" height="21" rx="3" fill="#f8e6cb" transform="rotate(-27 837 267)"/>
+  <circle cx="785" cy="96" r="25" fill="#fff"/>
+  <path d="M774 97h22m-11-11v22" stroke="#d89a89" stroke-width="4" stroke-linecap="round"/>
+</svg>

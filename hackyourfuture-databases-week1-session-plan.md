@@ -87,6 +87,8 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 - **Social Media:** Platforms such as Facebook and Instagram store user profiles, posts, and connections.
 - **Online Shopping:** E-commerce sites use databases to manage product catalogs, customer orders, and shipping information.
 
+![Illustration of a banking app, payment card, and transaction history](session-materials/banking-illustration.svg)
+
 > **Discussion:** Which apps did you use today? What information do you think they stored about you?
 
 ## 1.3 What Do We Gain from Using a Database?
@@ -117,6 +119,8 @@ Many people already use spreadsheets (Excel, Google Sheets), and a database tabl
 | **How you ask questions** | Filters, formulas, scrolling | A query language called **SQL** |
 
 **Example:** If a customer changes their email address, a spreadsheet might have that email copied into the *Customers*, *Orders*, and *Invoices* sheets — and you must remember to change all three. In a database, the email is stored once in the customer table, and everything else *points* to that customer.
+
+![Illustration comparing a spreadsheet grid with a database and its tables](session-materials/spreadsheet-database-illustration.svg)
 
 ---
 
@@ -179,6 +183,8 @@ A database stores the information; a Database Management System (DBMS) is the so
 > **Analogy:** The database is the *library's books*. The DBMS is the *librarian* who knows where every book is, who is allowed to borrow it, and makes sure nothing gets lost.
 
 ### Real-Life Example — Online Store
+
+![Illustration of an online shop with products, a shopping bag, and a delivery parcel](session-materials/online-store-illustration.svg)
 
 Imagine running an online store. You need to maintain data such as:
 
@@ -625,6 +631,8 @@ Common beginner mistakes:
 The `SELECT` statement is used to retrieve data from one or more tables.
 
 It is one of the most common SQL operations. `SELECT` only *reads* data — it never changes anything, so it is always safe to experiment with.
+
+![Illustration of a magnifying glass highlighting a row in a task table](session-materials/finding-data-illustration.svg)
 
 ### Basic Syntax
 

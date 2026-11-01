@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-labelledby="title description">
+  <title id="title">A spreadsheet and a database</title>
+  <desc id="description">An illustrated spreadsheet beside a database, with small tables representing stored information.</desc>
+  <rect width="1000" height="380" rx="28" fill="#f5eee4"/>
+  <circle cx="155" cy="82" r="52" fill="#f8dfc7"/>
+  <circle cx="846" cy="295" r="55" fill="#d6e5df"/>
+  <rect x="95" y="57" width="357" height="260" rx="15" fill="#fff"/>
+  <path d="M110 57h327a15 15 0 0 1 15 15v32H95V72a15 15 0 0 1 15-15z" fill="#467e6b"/>
+  <circle cx="119" cy="80" r="5" fill="#cae6d5"/>
+  <circle cx="137" cy="80" r="5" fill="#cae6d5"/>
+  <circle cx="155" cy="80" r="5" fill="#cae6d5"/>
+  <text x="191" y="86" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Spreadsheet</text>
+  <rect x="119" y="125" width="309" height="161" rx="4" fill="#f6faf7" stroke="#c7ddd2" stroke-width="2"/>
+  <rect x="120" y="126" width="307" height="32" fill="#deeee4"/>
+  <path d="M205 126v159M300 126v159M119 158h309M119 190h309M119 222h309M119 254h309" stroke="#c7ddd2" stroke-width="2"/>
+  <text x="130" y="148" fill="#376957" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Name</text>
+  <text x="218" y="148" fill="#376957" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Item</text>
+  <text x="314" y="148" fill="#376957" font-family="Arial, sans-serif" font-size="12" font-weight="bold">Price</text>
+  <text x="130" y="179" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Maya</text>
+  <text x="218" y="179" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Book</text>
+  <text x="314" y="179" fill="#47675c" font-family="Arial, sans-serif" font-size="12">$12</text>
+  <text x="130" y="211" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Sam</text>
+  <text x="218" y="211" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Pen</text>
+  <text x="314" y="211" fill="#47675c" font-family="Arial, sans-serif" font-size="12">$3</text>
+  <text x="130" y="243" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Maya</text>
+  <text x="218" y="243" fill="#47675c" font-family="Arial, sans-serif" font-size="12">Notebook</text>
+  <text x="314" y="243" fill="#47675c" font-family="Arial, sans-serif" font-size="12">$8</text>
+  <rect x="493" y="72" width="2" height="234" rx="1" fill="#dfd5c7"/>
+  <rect x="535" y="57" width="370" height="260" rx="15" fill="#fff"/>
+  <path d="M550 57h340a15 15 0 0 1 15 15v32H535V72a15 15 0 0 1 15-15z" fill="#496d96"/>
+  <circle cx="559" cy="80" r="5" fill="#d4e4f2"/>
+  <circle cx="577" cy="80" r="5" fill="#d4e4f2"/>
+  <circle cx="595" cy="80" r="5" fill="#d4e4f2"/>
+  <text x="633" y="86" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Database</text>
+  <path d="M580 164v94c0 16 31 29 69 29s69-13 69-29v-94" fill="#92b3d2" stroke="#496d96" stroke-width="3"/>
+  <ellipse cx="649" cy="164" rx="69" ry="29" fill="#c6dced" stroke="#496d96" stroke-width="3"/>
+  <path d="M580 195c0 16 31 29 69 29s69-13 69-29M580 226c0 16 31 29 69 29s69-13 69-29" fill="none" stroke="#496d96" stroke-width="3"/>
+  <rect x="750" y="136" width="119" height="65" rx="7" fill="#eaf2f8" stroke="#a8c4d9" stroke-width="2"/>
+  <path d="M750 157h119M789 136v65M829 136v65M750 179h119" stroke="#b8d0e1" stroke-width="2"/>
+  <rect x="750" y="219" width="119" height="65" rx="7" fill="#eaf2f8" stroke="#a8c4d9" stroke-width="2"/>
+  <path d="M750 240h119M789 219v65M829 219v65M750 262h119" stroke="#b8d0e1" stroke-width="2"/>
+</svg>
