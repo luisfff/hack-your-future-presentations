@@ -34,6 +34,7 @@
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
    - [**3.2** Write and run SQL in DBeaver](#32-writing-and-running-sql-in-dbeaver)
+   - [**3.2.1** Create a table with `CREATE TABLE`](#321-create-a-table-with-create-table)
    - [**3.3** Retrieve data with `SELECT`](#33-select--retrieving-data)
    - [**3.4** Filter data with `WHERE`](#34-where--filtering-data)
    - [**3.5** Sort and limit data with `ORDER BY` and `LIMIT`](#35-order-by-and-limit--sorting-and-limiting-data)
@@ -500,7 +501,7 @@ Columns can be marked **NOT NULL**, meaning a value is required. In our sample d
 
 # 3. Interacting With Your Database
 
-With the sample database ready, this chapter focuses on using SQL to work with its data. You will begin by retrieving and sorting records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
+With the sample database ready, this chapter focuses on using SQL to create a table and work with data. You will retrieve and sort records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
 
 ![A person using a laptop to work with software](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80)
 
@@ -613,6 +614,40 @@ Common beginner mistakes:
 - Misspelling a table or column name: `users` instead of `user`.
 
 > **Save your work:** Use **File** → **Save As** to save your queries as a `.sql` file, for example for homework.
+
+---
+
+## 3.2.1 Create a Table with CREATE TABLE
+
+`CREATE TABLE` adds a new, empty table to the connected database. Unlike `INSERT`, which adds a row to an existing table, it defines the table and its columns.
+
+In the SQL editor connected to your sample database, run:
+
+```sql
+CREATE TABLE practice_note (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    details TEXT
+);
+```
+
+- `practice_note` is the new table's name.
+- `id INTEGER PRIMARY KEY` gives each row a unique number. SQLite assigns one automatically when you leave it out of an insert.
+- `title TEXT NOT NULL` stores text and requires a value.
+- `details TEXT` stores optional text; if omitted, it is `NULL`.
+
+Right-click the connection in the Database Navigator and select **Refresh**, then expand **Tables** to find `practice_note`. Double-click it to inspect its columns. It has no rows yet; run the following statements one at a time to add and see one:
+
+```sql
+INSERT INTO practice_note (title, details)
+VALUES ('First note', 'Practising CREATE TABLE');
+```
+
+```sql
+SELECT * FROM practice_note;
+```
+
+The result should contain one row with an automatically assigned `id`, the title `First note`, and its details. Creating a table changes your database. If you run `CREATE TABLE` again with the same name, SQLite reports that the table already exists; choose a different name and use it in the later statements instead. Do not remove an existing table to repeat the example.
 
 ---
 
@@ -916,6 +951,8 @@ status_id = 2
 
 5. Retrieve only the `title` and `description` of all tasks assigned to you.
 6. Delete a task that you no longer need.
+7. Create a new table named `practice_book` with an `INTEGER PRIMARY KEY` called `id`, a required `TEXT` column called `title`, and an optional `TEXT` column called `author`. If that table already exists, choose another name and use it in the next step.
+8. Insert a book into your new table, then use `SELECT` to check its `id`, `title`, and `author`. Refresh the Database Navigator and find the table.
 
 ---
 
@@ -933,6 +970,7 @@ By the end of this session, you should understand:
 - Primary keys and foreign keys.
 - Common database data types and `NULL`.
 - What SQL is.
+- How to create a table with `CREATE TABLE`.
 - The four CRUD operations:
   - `SELECT`
   - `INSERT`
