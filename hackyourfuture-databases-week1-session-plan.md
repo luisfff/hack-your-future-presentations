@@ -33,18 +33,19 @@
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
    - [**3.2** Write and run SQL in DBeaver](#32-writing-and-running-sql-in-dbeaver)
-   - [**3.3** Create a table with `CREATE TABLE`](#33-create-a-table-with-create-table)
-   - [**3.4** Retrieve data with `SELECT`](#34-select--retrieving-data)
-   - [**3.5** Filter data with `WHERE`](#35-where--filtering-data)
-   - [**3.6** Sort and limit data with `ORDER BY` and `LIMIT`](#36-order-by-and-limit--sorting-and-limiting-data)
+   - [**3.3** Retrieve data with `SELECT`](#33-select--retrieving-data)
+   - [**3.4** Filter data with `WHERE`](#34-where--filtering-data)
+   - [**3.5** Sort data with `ORDER BY`](#35-order-by--sorting-data)
+   - [**3.6** Limit results with `LIMIT`](#36-limit--limiting-results)
    - [**3.7** Practice `SELECT` queries](#37-exercise--practice-select-queries)
    - [**3.8** Add data with `INSERT`](#38-insert--adding-data)
    - [**3.9** Modify data with `UPDATE`](#39-update--modifying-data)
    - [**3.10** Remove data with `DELETE`](#310-delete--removing-data)
-   - [**3.11** Interactive CRUD practice](#311-interactive-practice)
-   - [**3.12** Combine the SQL operations](#312-exercise--combine-everything)
-   - [**3.13** Review key takeaways](#313-key-takeaways)
-   - [**3.14** Follow safe data-change practices](#314-safety-rules-to-remember)
+   - [**3.11** Create a table with `CREATE TABLE`](#311-create-a-table-with-create-table)
+   - [**3.12** Interactive CRUD practice](#312-interactive-practice)
+   - [**3.13** Combine the SQL operations](#313-exercise--combine-everything)
+   - [**3.14** Review key takeaways](#314-key-takeaways)
+   - [**3.15** Follow safe data-change practices](#315-safety-rules-to-remember)
 4. [Glossary](#glossary)
 5. [Additional Tools and Resources](#additional-tools-and-resources)
 
@@ -484,7 +485,7 @@ Columns can be marked **NOT NULL**, meaning a value is required. In our sample d
 
 # 3. Interacting With Your Database
 
-With the sample database ready, this chapter focuses on using SQL to create a table and work with data. You will retrieve and sort records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
+With the sample database ready, this chapter focuses on using SQL to work with data and create a table. You will retrieve and sort records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
 
 ![A person using a laptop to work with software](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80)
 
@@ -600,41 +601,7 @@ Common beginner mistakes:
 
 ---
 
-## 3.3 Create a Table with CREATE TABLE
-
-`CREATE TABLE` adds a new, empty table to the connected database. Unlike `INSERT`, which adds a row to an existing table, it defines the table and its columns.
-
-In the SQL editor connected to your sample database, run:
-
-```sql
-CREATE TABLE practice_note (
-    id INTEGER PRIMARY KEY,
-    title TEXT NOT NULL,
-    details TEXT
-);
-```
-
-- `practice_note` is the new table's name.
-- `id INTEGER PRIMARY KEY` gives each row a unique number. SQLite assigns one automatically when you leave it out of an insert.
-- `title TEXT NOT NULL` stores text and requires a value.
-- `details TEXT` stores optional text; if omitted, it is `NULL`.
-
-Right-click the connection in the Database Navigator and select **Refresh**, then expand **Tables** to find `practice_note`. Double-click it to inspect its columns. It has no rows yet; run the following statements one at a time to add and see one:
-
-```sql
-INSERT INTO practice_note (title, details)
-VALUES ('First note', 'Practising CREATE TABLE');
-```
-
-```sql
-SELECT * FROM practice_note;
-```
-
-The result should contain one row with an automatically assigned `id`, the title `First note`, and its details. Creating a table changes your database. If you run `CREATE TABLE` again with the same name, SQLite reports that the table already exists; choose a different name and use it in the later statements instead. Do not remove an existing table to repeat the example.
-
----
-
-## 3.4 SELECT — Retrieving Data
+## 3.3 SELECT — Retrieving Data
 
 The `SELECT` statement is used to retrieve data from one or more tables.
 
@@ -665,7 +632,7 @@ FROM table_name;
 
 ---
 
-## 3.5 WHERE — Filtering Data
+## 3.4 WHERE — Filtering Data
 
 The `WHERE` clause filters records based on conditions. Only rows where the condition is true are returned.
 
@@ -712,7 +679,7 @@ WHERE user_id = 1 AND status_id != 3;
 
 ---
 
-## 3.6 ORDER BY and LIMIT — Sorting and Limiting Data
+## 3.5 ORDER BY — Sorting Data
 
 The `ORDER BY` clause sorts query results.
 
@@ -736,7 +703,9 @@ FROM user
 ORDER BY name DESC;
 ```
 
-### LIMIT
+---
+
+## 3.6 LIMIT — Limiting Results
 
 `LIMIT` returns only the first *n* rows. Combined with `ORDER BY`, it answers questions such as *"What are the 5 newest tasks?"*
 
@@ -761,6 +730,12 @@ Now that the database is set up, practice writing SQL queries.
 4. Find the 3 oldest tasks based on creation date.
 5. **Bonus:** Find all tasks that have no description.
 6. **Bonus:** Find all users whose email ends with `.com`.
+7. List the titles of all tasks that are not started.
+8. Find the tasks assigned to user `1` that are in progress.
+9. Find tasks whose title contains `database`.
+10. List the names of users who have no phone number.
+11. Show the five newest tasks by creation date, including their titles and creation dates.
+12. List tasks that are either not started or in progress, ordered by title.
 
 > **Note:** For more practice, refer back to the SQL cheat sheet and experiment with more complex queries.
 
@@ -796,6 +771,17 @@ INSERT INTO task (title, description, created, updated, status_id, user_id)
 VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('now'), 1, 1);
 ```
 
+### Exercises — Practice INSERT
+
+These exercises add rows to three different tables. For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number; you will need them for the next sections. Use distinctive values so you can identify the rows you added.
+
+1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
+2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
+3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
+4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
+5. Add a user with a distinctive name and email address of your choice. Leave the optional phone number empty, and do not assign this user to any tasks.
+6. Add a tag with a distinctive name of your choice.
+
 ---
 
 ## 3.9 UPDATE — Modifying Data
@@ -810,7 +796,7 @@ SET column1 = value1
 WHERE condition;
 ```
 
-Example:
+Example (for illustration only; task `18` is an original sample row):
 
 ```sql
 UPDATE task
@@ -821,6 +807,17 @@ WHERE id = 18;
 > **Important:** Always include a `WHERE` clause with `UPDATE` statements.
 >
 > Otherwise, you may accidentally update **every row** in the table.
+
+### Exercises — Practice UPDATE
+
+Use the table names and row IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended row. Afterward, select it again to check the change. Do not update original sample rows.
+
+1. Change the status of the task from INSERT exercise 1 to in progress.
+2. Change the description of the task from INSERT exercise 2 to `Write and test SELECT queries`.
+3. Change the title of the task from INSERT exercise 3 to `Practice 3: Review query results`.
+4. Change the due date of the task from INSERT exercise 4 to `2031-01-15`.
+5. Add a phone number to the user from INSERT exercise 5.
+6. Change the name of the tag from INSERT exercise 6.
 
 ---
 
@@ -835,7 +832,7 @@ DELETE FROM table_name
 WHERE condition;
 ```
 
-Example:
+Example (for illustration only; do not delete the original sample task `18`):
 
 ```sql
 DELETE FROM task
@@ -848,9 +845,51 @@ WHERE id = 18;
 
 > **There is no undo.** Unlike a document editor, a database does not have a recycle bin. Once a row is deleted, it is gone.
 
+### Exercises — Practice DELETE
+
+After the INSERT and UPDATE exercises, delete three rows you created in the INSERT exercises: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
+
+1. Delete the task you added for INSERT exercise 1.
+2. Delete the user you added for INSERT exercise 5.
+3. Delete the tag you added for INSERT exercise 6.
+
 ---
 
-## 3.11 Interactive Practice
+## 3.11 Create a Table with CREATE TABLE
+
+`CREATE TABLE` adds a new, empty table to the connected database. Unlike `INSERT`, which adds a row to an existing table, it defines the table and its columns.
+
+In the SQL editor connected to your sample database, run:
+
+```sql
+CREATE TABLE practice_note (
+    id INTEGER PRIMARY KEY,
+    title TEXT NOT NULL,
+    details TEXT
+);
+```
+
+- `practice_note` is the new table's name.
+- `id INTEGER PRIMARY KEY` gives each row a unique number. SQLite assigns one automatically when you leave it out of an insert.
+- `title TEXT NOT NULL` stores text and requires a value.
+- `details TEXT` stores optional text; if omitted, it is `NULL`.
+
+Right-click the connection in the Database Navigator and select **Refresh**, then expand **Tables** to find `practice_note`. Double-click it to inspect its columns. It has no rows yet; run the following statements one at a time to add and see one:
+
+```sql
+INSERT INTO practice_note (title, details)
+VALUES ('First note', 'Practising CREATE TABLE');
+```
+
+```sql
+SELECT * FROM practice_note;
+```
+
+The result should contain one row with an automatically assigned `id`, the title `First note`, and its details. Creating a table changes your database. If you run `CREATE TABLE` again with the same name, SQLite reports that the table already exists; choose a different name and use it in the later statements instead. Do not remove an existing table to repeat the example.
+
+---
+
+## 3.12 Interactive Practice
 
 Practice the CRUD operations together. Run each step and look at the result before moving on.
 
@@ -911,7 +950,7 @@ Run the same `SELECT` once more. It should show **no rows**. If it still appears
 
 ---
 
-## 3.12 Exercise — Combine Everything
+## 3.13 Exercise — Combine Everything
 
 Use the SQL operations you have learned.
 
@@ -920,17 +959,7 @@ Use the SQL operations you have learned.
 1. Add yourself as a new user in the `user` table. Remember that `name` and `email` are required.
 2. Find your new user's `id`.
 3. Create **2 or more tasks** assigned to yourself (use your `id` as the `user_id`).
-4. Update one of the tasks you created so its status is:
-
-```text
-In Progress
-```
-
-using:
-
-```text
-status_id = 2
-```
+4. Update one of the tasks you created so its status is *In Progress*.
 
 5. Retrieve only the `title` and `description` of all tasks assigned to you.
 6. Delete a task that you no longer need.
@@ -939,7 +968,7 @@ status_id = 2
 
 ---
 
-## 3.13 Key Takeaways
+## 3.14 Key Takeaways
 
 By the end of this session, you should understand:
 
@@ -963,7 +992,7 @@ By the end of this session, you should understand:
 - How to sort data with `ORDER BY` and limit results with `LIMIT`.
 - How to install DBeaver and work with a SQLite database in it.
 
-## 3.14 Safety Rules to Remember
+## 3.15 Safety Rules to Remember
 
 ### `UPDATE`
 
@@ -995,7 +1024,7 @@ make sure the `WHERE` clause targets exactly the rows you intend to delete.
 
 ### Check first with `SELECT`
 
-A safe habit: before an `UPDATE` or `DELETE`, run a `SELECT` with the **same** `WHERE` clause. The rows it returns are exactly the rows that will be changed or deleted.
+A safe habit: before an `UPDATE` or `DELETE`, run a `SELECT` with the **same** `WHERE` clause. The rows it returns are exactly the rows that will be changed or deleted. This example is for illustration only; use the ID of a task you created rather than deleting the original sample task `18`.
 
 ```sql
 -- 1. Check which rows match
