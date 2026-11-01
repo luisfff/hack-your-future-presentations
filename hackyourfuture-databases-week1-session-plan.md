@@ -9,7 +9,7 @@
 - **[Sample Tasks database](session-materials/tasks.sqlite3)** — Pre-created SQLite database with the contents of the sample SQL file.
 - **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
-**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. We will connect to this copy and change its data during the exercises. The SQL script is an alternative way to build the same database from scratch, not something to run on the downloaded database.
+**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for **all exercises**. You can also practice building a separate database from scratch with the SQL script; do not run the script on the downloaded database.
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
@@ -25,8 +25,8 @@
    - [**1.7** Popular DBMS options](#17-popular-dbms-options)
 2. [Creating Your First Database](#2-creating-your-first-database)
    - [**2.1** Install DBeaver](#21-install-dbeaver)
-   - [**2.2** Optional: use the database from Visual Studio Code](#22-optional-use-the-database-from-visual-studio-code)
-   - [**2.3** Create a SQLite connection](#23-create-a-new-sqlite-connection)
+   - [**2.2** Connect to the downloaded Tasks database](#22-connect-to-the-downloaded-tasks-database)
+   - [**2.3** Create a separate empty database](#23-create-a-separate-empty-database)
    - [**2.4** Understand database structure](#24-understanding-database-structure)
    - [**2.5** Create tables and insert sample data](#25-create-tables-and-insert-sample-data)
    - [**2.6** Explore the sample database](#26-exercise--explore-the-database)
@@ -47,6 +47,7 @@
    - [**3.13** Review key takeaways](#313-key-takeaways)
    - [**3.14** Follow safe data-change practices](#314-safety-rules-to-remember)
 4. [Glossary](#glossary)
+5. [Additional Tools and Resources](#additional-tools-and-resources)
 
 ---
 
@@ -242,7 +243,7 @@ In this session we use **SQLite**, because the entire database lives in one file
 
 In this chapter, you will set up a SQLite database and explore how its information is organized. You will use the provided Tasks example to connect database concepts—tables, rows, columns, keys, and data types—to a real structure you can inspect.
 
-The goal is to create a database that can be used as a playground for learning SQL.
+The downloaded Tasks database will be our playground for learning SQL. You can also create a separate database to practice building it from scratch.
 
 This will also allow us to explore:
 
@@ -305,32 +306,11 @@ You should now see the main DBeaver window. On the left is the **Database Naviga
 
 ---
 
-## 2.2 Optional: Use the Database from Visual Studio Code
-
-This section is **optional** and intended for people who already use Visual Studio Code (VS Code). Everything in this session can be done in DBeaver alone.
-
-DBeaver is a standalone desktop application; it does not run inside VS Code. However, because a SQLite database is just a file, you can open the **same** `tasks.sqlite3` file from VS Code using the free **SQLTools** extensions.
-
-1. Install [Node.js](https://nodejs.org/) (the **LTS** version) if it is not already installed. The SQLite extension needs it to run.
-2. In VS Code, open the **Extensions** view (`Ctrl+Shift+X`, or `Cmd+Shift+X` on macOS).
-3. Search for and install **SQLTools SQLite** (publisher: *mtxr*). This also installs the main **SQLTools** extension.
-4. Click the **SQLTools** icon (a database cylinder) in the left sidebar.
-5. Hover over **CONNECTIONS** and click **Add New Connection**. Choose **SQLite**.
-6. Give the connection a name (for example `Tasks`), and select your `tasks.sqlite3` file in the **Database file** field. Click **Save Connection**, then **Connect Now**.
-7. If asked to install the `sqlite3` package, click **Install now** and wait for it to finish.
-8. A new SQL editor opens. Write a query such as `SELECT * FROM user;` and click **Run on active connection** (or press `Ctrl+E Ctrl+E` / `Cmd+E Cmd+E`). The results appear in a new tab.
-
-> If SQLTools reports that it cannot find Node.js, open VS Code settings, search for `sqltools.useNodeRuntime`, and set it to `true`. See the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx) for details.
-
-> **Tip:** Close the connection in one tool before changing data in the other. SQLite allows only one program to write to the file at a time.
-
----
-
-## 2.3 Create a New SQLite Connection
+## 2.2 Connect to the Downloaded Tasks Database
 
 A **connection** tells DBeaver *where* a database is and *how* to talk to it. For SQLite, the database is a single file on your computer, so the connection simply points to that file.
 
-**Recommended for your first session:** Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-materials). This file already has the example tables and rows. If you prefer to create an empty database and run the SQL script yourself, follow the alternative in [section 2.5](#25-create-tables-and-insert-sample-data).
+Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-materials). It already has the example tables and rows. **Use this connection for all exercises in this session**, even if you also create the separate database below.
 
 Using DBeaver to open the downloaded file:
 
@@ -346,6 +326,19 @@ Using DBeaver to open the downloaded file:
 Your new connection now appears in the **Database Navigator** on the left. Click the arrow next to it to expand it. You should see tables such as `user` and `task`. If there are no tables, check that you selected the downloaded file rather than an empty file with the same name.
 
 > See the DBeaver documentation for more information about SQLite connections.
+
+---
+
+## 2.3 Create a Separate Empty Database
+
+This optional practice shows how to create a database from scratch. It is separate from the downloaded `tasks.sqlite3` used for exercises.
+
+1. In DBeaver, click **New Database Connection**, select **SQLite**, and click **Next**.
+2. In the **Path** field, choose **Create** and create a new file named `my-tasks.sqlite3` in your database folder. Do not select or overwrite `tasks.sqlite3`.
+3. Click **Test Connection**, download the SQLite driver if prompted, and click **Finish**.
+4. In the Database Navigator, expand the new connection. It is empty: no sample tables have been created yet. Check the connection's path if you are unsure which file it uses.
+
+In [section 2.5](#25-create-tables-and-insert-sample-data), you can populate `my-tasks.sqlite3` with the SQL script. Afterwards, return to the `tasks.sqlite3` connection for the exercises.
 
 ---
 
@@ -409,19 +402,18 @@ The diagram also shows `task_tag`, which links tasks to labels in the `tag` tabl
 
 ## 2.5 Create Tables and Insert Sample Data
 
-A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data. **Skip this step if you connected to the downloaded `tasks.sqlite3` file.** Running it there would try to create tables that already exist.
+A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data. This optional step uses the empty `my-tasks.sqlite3` from [section 2.3](#23-create-a-separate-empty-database). **Do not run the script on `tasks.sqlite3`**, which already contains the tables.
 
-1. Make a separate connection to a **new, empty** file, for example `my-tasks.sqlite3`: repeat section 2.3, but choose **Create** in the **Path** field instead of selecting the downloaded file. DBeaver creates an empty database for that file.
-2. Open the [sample SQL file](session-materials/session-data.sql) in a text editor and copy its contents.
-3. In DBeaver, right-click the connection to your **empty** database and select:
+1. Open the [sample SQL file](session-materials/session-data.sql) in a text editor and copy its contents.
+2. In DBeaver, right-click the connection to your **empty `my-tasks.sqlite3` database** and select:
 
 ```text
-SQL Editor → Open SQL Script
+SQL Editor → New SQL Script
 ```
 
-4. Paste the SQL commands into the editor.
-5. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
-6. In the Database Navigator, right-click your connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
+3. Paste the SQL commands into the editor. Check that the editor is connected to `my-tasks.sqlite3`, not `tasks.sqlite3`.
+4. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
+5. In the Database Navigator, right-click the `my-tasks.sqlite3` connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
 
 After execution, you should have the sample Tasks database with five tables:
 
@@ -433,7 +425,7 @@ After execution, you should have the sample Tasks database with five tables:
 | `tag` | Labels that can be attached to tasks |
 | `task_tag` | Which tags are attached to which tasks |
 
-If you used the downloaded database, you already have these five tables; there is no need to run the script.
+The downloaded `tasks.sqlite3` already has these five tables. Switch back to its connection for all exercises; changes to one database do not change the other.
 
 ### Explore Your Database
 
@@ -445,7 +437,7 @@ Use the database diagram to understand the relationships between the tables. Eac
 
 If you have not already done so, follow the setup steps above.
 
-Then explore your database in DBeaver.
+Then explore the downloaded `tasks.sqlite3` database in DBeaver.
 
 > **How to look around:** Double-click a table in the Database Navigator. The **Properties** tab shows its columns and their data types. The **Data** tab shows its rows, like a spreadsheet. The **ER Diagram** tab shows how it links to other tables.
 
@@ -570,7 +562,7 @@ The results appear in a grid below the editor.
 
 ### Your first query: find one task
 
-If you have not connected to the downloaded sample database yet, follow [section 2.3](#23-create-a-new-sqlite-connection) first. Then type this into the SQL editor and click the orange triangle (or press `Ctrl+Enter` / `Cmd+Enter`):
+If you have not connected to the downloaded sample database yet, follow [section 2.2](#22-connect-to-the-downloaded-tasks-database) first. Then type this into the SQL editor and click the orange triangle (or press `Ctrl+Enter` / `Cmd+Enter`):
 
 ```sql
 SELECT id, title
@@ -1049,6 +1041,27 @@ DELETE FROM task WHERE id = 18;
 | **Table** | A set of rows and columns holding one kind of thing, such as users or tasks. |
 
 ---
+
+# Additional Tools and Resources
+
+## Optional: Use the Database from Visual Studio Code
+
+This section is **optional** and intended for people who already use Visual Studio Code (VS Code). Everything in this session can be done in DBeaver alone.
+
+DBeaver is a standalone desktop application; it does not run inside VS Code. However, because a SQLite database is just a file, you can open the **same** `tasks.sqlite3` file from VS Code using the free **SQLTools** extensions.
+
+1. Install [Node.js](https://nodejs.org/) (the **LTS** version) if it is not already installed. The SQLite extension needs it to run.
+2. In VS Code, open the **Extensions** view (`Ctrl+Shift+X`, or `Cmd+Shift+X` on macOS).
+3. Search for and install **SQLTools SQLite** (publisher: *mtxr*). This also installs the main **SQLTools** extension.
+4. Click the **SQLTools** icon (a database cylinder) in the left sidebar.
+5. Hover over **CONNECTIONS** and click **Add New Connection**. Choose **SQLite**.
+6. Give the connection a name (for example `Tasks`), and select your `tasks.sqlite3` file in the **Database file** field. Click **Save Connection**, then **Connect Now**.
+7. If asked to install the `sqlite3` package, click **Install now** and wait for it to finish.
+8. A new SQL editor opens. Write a query such as `SELECT * FROM user;` and click **Run on active connection** (or press `Ctrl+E Ctrl+E` / `Cmd+E Cmd+E`). The results appear in a new tab.
+
+> If SQLTools reports that it cannot find Node.js, open VS Code settings, search for `sqltools.useNodeRuntime`, and set it to `true`. See the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx) for details.
+
+> **Tip:** Close the connection in one tool before changing data in the other. SQLite allows only one program to write to the file at a time.
 
 ## Source
 
