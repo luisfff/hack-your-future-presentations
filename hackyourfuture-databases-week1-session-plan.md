@@ -34,18 +34,18 @@
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
    - [**3.2** Write and run SQL in DBeaver](#32-writing-and-running-sql-in-dbeaver)
-   - [**3.2.1** Create a table with `CREATE TABLE`](#321-create-a-table-with-create-table)
-   - [**3.3** Retrieve data with `SELECT`](#33-select--retrieving-data)
-   - [**3.4** Filter data with `WHERE`](#34-where--filtering-data)
-   - [**3.5** Sort and limit data with `ORDER BY` and `LIMIT`](#35-order-by-and-limit--sorting-and-limiting-data)
-   - [**3.6** Practice `SELECT` queries](#36-exercise--practice-select-queries)
-   - [**3.7** Add data with `INSERT`](#37-insert--adding-data)
-   - [**3.8** Modify data with `UPDATE`](#38-update--modifying-data)
-   - [**3.9** Remove data with `DELETE`](#39-delete--removing-data)
-   - [**3.10** Interactive CRUD practice](#310-interactive-practice)
-   - [**3.11** Combine the SQL operations](#311-exercise--combine-everything)
-   - [**3.12** Review key takeaways](#312-key-takeaways)
-   - [**3.13** Follow safe data-change practices](#313-safety-rules-to-remember)
+   - [**3.3** Create a table with `CREATE TABLE`](#33-create-a-table-with-create-table)
+   - [**3.4** Retrieve data with `SELECT`](#34-select--retrieving-data)
+   - [**3.5** Filter data with `WHERE`](#35-where--filtering-data)
+   - [**3.6** Sort and limit data with `ORDER BY` and `LIMIT`](#36-order-by-and-limit--sorting-and-limiting-data)
+   - [**3.7** Practice `SELECT` queries](#37-exercise--practice-select-queries)
+   - [**3.8** Add data with `INSERT`](#38-insert--adding-data)
+   - [**3.9** Modify data with `UPDATE`](#39-update--modifying-data)
+   - [**3.10** Remove data with `DELETE`](#310-delete--removing-data)
+   - [**3.11** Interactive CRUD practice](#311-interactive-practice)
+   - [**3.12** Combine the SQL operations](#312-exercise--combine-everything)
+   - [**3.13** Review key takeaways](#313-key-takeaways)
+   - [**3.14** Follow safe data-change practices](#314-safety-rules-to-remember)
 4. [Glossary](#glossary)
 
 ---
@@ -617,7 +617,7 @@ Common beginner mistakes:
 
 ---
 
-## 3.2.1 Create a Table with CREATE TABLE
+## 3.3 Create a Table with CREATE TABLE
 
 `CREATE TABLE` adds a new, empty table to the connected database. Unlike `INSERT`, which adds a row to an existing table, it defines the table and its columns.
 
@@ -651,7 +651,7 @@ The result should contain one row with an automatically assigned `id`, the title
 
 ---
 
-## 3.3 SELECT — Retrieving Data
+## 3.4 SELECT — Retrieving Data
 
 The `SELECT` statement is used to retrieve data from one or more tables.
 
@@ -682,7 +682,7 @@ FROM table_name;
 
 ---
 
-## 3.4 WHERE — Filtering Data
+## 3.5 WHERE — Filtering Data
 
 The `WHERE` clause filters records based on conditions. Only rows where the condition is true are returned.
 
@@ -729,7 +729,7 @@ WHERE user_id = 1 AND status_id != 3;
 
 ---
 
-## 3.5 ORDER BY and LIMIT — Sorting and Limiting Data
+## 3.6 ORDER BY and LIMIT — Sorting and Limiting Data
 
 The `ORDER BY` clause sorts query results.
 
@@ -768,7 +768,7 @@ LIMIT 5;
 
 ---
 
-## 3.6 Exercise — Practice SELECT Queries
+## 3.7 Exercise — Practice SELECT Queries
 
 Now that the database is set up, practice writing SQL queries.
 
@@ -783,7 +783,7 @@ Now that the database is set up, practice writing SQL queries.
 
 ---
 
-## 3.7 INSERT — Adding Data
+## 3.8 INSERT — Adding Data
 
 The `INSERT` statement adds new records to a table.
 
@@ -815,7 +815,7 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ---
 
-## 3.8 UPDATE — Modifying Data
+## 3.9 UPDATE — Modifying Data
 
 The `UPDATE` statement modifies existing records.
 
@@ -841,7 +841,7 @@ WHERE id = 18;
 
 ---
 
-## 3.9 DELETE — Removing Data
+## 3.10 DELETE — Removing Data
 
 The `DELETE` statement removes records.
 
@@ -867,7 +867,7 @@ WHERE id = 18;
 
 ---
 
-## 3.10 Interactive Practice
+## 3.11 Interactive Practice
 
 Practice the CRUD operations together. Run each step and look at the result before moving on.
 
@@ -928,7 +928,7 @@ Run the same `SELECT` once more. It should show **no rows**. If it still appears
 
 ---
 
-## 3.11 Exercise — Combine Everything
+## 3.12 Exercise — Combine Everything
 
 Use the SQL operations you have learned.
 
@@ -956,7 +956,7 @@ status_id = 2
 
 ---
 
-## 3.12 Key Takeaways
+## 3.13 Key Takeaways
 
 By the end of this session, you should understand:
 
@@ -980,7 +980,7 @@ By the end of this session, you should understand:
 - How to sort data with `ORDER BY` and limit results with `LIMIT`.
 - How to install DBeaver and work with a SQLite database in it.
 
-## 3.13 Safety Rules to Remember
+## 3.14 Safety Rules to Remember
 
 ### `UPDATE`
 
