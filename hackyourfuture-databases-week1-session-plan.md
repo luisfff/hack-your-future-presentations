@@ -109,6 +109,8 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 Many people already use spreadsheets (Excel, Google Sheets), and a database table looks very similar: rows and columns. So why not just use a spreadsheet?
 
+![Illustration comparing a spreadsheet grid with a database and its tables](session-materials/spreadsheet-database-illustration.svg)
+
 | | Spreadsheet | Database |
 |---|---|---|
 | **Best for** | Small lists, quick calculations, one person | Large amounts of data used by apps and many people |
@@ -119,8 +121,6 @@ Many people already use spreadsheets (Excel, Google Sheets), and a database tabl
 | **How you ask questions** | Filters, formulas, scrolling | A query language called **SQL** |
 
 **Example:** If a customer changes their email address, a spreadsheet might have that email copied into the *Customers*, *Orders*, and *Invoices* sheets — and you must remember to change all three. In a database, the email is stored once in the customer table, and everything else *points* to that customer.
-
-![Illustration comparing a spreadsheet grid with a database and its tables](session-materials/spreadsheet-database-illustration.svg)
 
 ---
 
@@ -301,16 +301,6 @@ The first time DBeaver opens:
 You should now see the main DBeaver window. On the left is the **Database Navigator**, which lists your database connections. It will be empty for now.
 
 ![DBeaver main window with Database Navigator](https://raw.githubusercontent.com/HackYourFuture-CPH/program/main/courses/foundation/databases/week1/session-materials/dbeaver-screenshots/database-view.png)
-
-### Troubleshooting
-
-| Problem | What to do |
-|---|---|
-| Windows shows *"Windows protected your PC"* | Click **More info** → **Run anyway**. DBeaver is safe when downloaded from dbeaver.io. |
-| macOS says the app *"cannot be opened"* | Open **System Settings** → **Privacy & Security**, scroll down, and click **Open Anyway** next to DBeaver. |
-| The installer complains about Java | Re-download the installer from dbeaver.io. The official installers already include the Java runtime DBeaver needs. |
-
-> **Check your installation:** In DBeaver, open **Help** → **About DBeaver**. If you see a version number, you are ready.
 
 ---
 
