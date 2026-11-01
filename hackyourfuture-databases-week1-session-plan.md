@@ -255,14 +255,13 @@ We use the free **DBeaver Community** edition.
 
 ### Download
 
-1. Open the official download page: [dbeaver.io/download](https://dbeaver.io/download/).
-2. Under **DBeaver Community**, choose the download that matches your computer:
+1. Open the [official download page](https://dbeaver.io/download/) or use the direct download link for your computer:
 
 | Your computer | Choose |
 |---|---|
-| Windows | **Windows (installer)** |
-| Mac with Apple chip (M1, M2, M3, …) | **macOS for Apple Silicon** |
-| Mac with Intel chip | **macOS for Intel** |
+| Windows | [Windows installer](https://dbeaver.io/files/dbeaver-ce-latest-windows-x86_64.exe) |
+| Mac with Apple chip (M1, M2, M3, …) | [macOS for Apple Silicon](https://dbeaver.io/files/dbeaver-ce-latest-macos-aarch64.dmg) |
+| Mac with Intel chip | [macOS for Intel](https://dbeaver.io/files/dbeaver-ce-latest-macos-x86_64.dmg) |
 
 > **Not sure which Mac you have?** Click the Apple menu → **About This Mac**. If it says **Chip: Apple M…**, choose Apple Silicon. If it says **Processor: Intel**, choose Intel.
 
