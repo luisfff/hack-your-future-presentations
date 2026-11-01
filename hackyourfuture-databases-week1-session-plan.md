@@ -251,7 +251,7 @@ This will also allow us to explore:
 
 **DBeaver** is a free program that lets you look at and work with databases through a visual interface. It is not a database itself — it is a *tool* that connects to a database, much like a web browser is a tool that connects to websites.
 
-We use the free **DBeaver Community** edition. It works on Windows, macOS, and Linux.
+We use the free **DBeaver Community** edition.
 
 ### Download
 
@@ -263,7 +263,6 @@ We use the free **DBeaver Community** edition. It works on Windows, macOS, and L
 | Windows | **Windows (installer)** |
 | Mac with Apple chip (M1, M2, M3, …) | **macOS for Apple Silicon** |
 | Mac with Intel chip | **macOS for Intel** |
-| Ubuntu / Debian Linux | **Linux Debian package (.deb)** |
 
 > **Not sure which Mac you have?** Click the Apple menu → **About This Mac**. If it says **Chip: Apple M…**, choose Apple Silicon. If it says **Processor: Intel**, choose Intel.
 
@@ -285,15 +284,6 @@ The download is a few hundred megabytes, so it may take a few minutes.
 2. In the window that opens, **drag the DBeaver icon into the Applications folder**.
 3. Open **Applications** and double-click **DBeaver**.
 4. If macOS says the app was downloaded from the internet, click **Open**.
-
-### Install on Ubuntu / Debian Linux
-
-1. Download the `.deb` file.
-2. Double-click it to open it in the Software app and click **Install**, or run this in a terminal from your Downloads folder:
-
-```bash
-sudo apt install ./dbeaver-ce_*_amd64.deb
-```
 
 ### First Launch
 
