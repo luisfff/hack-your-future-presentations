@@ -9,6 +9,8 @@
 - **[Sample Tasks database](session-materials/tasks.sqlite3)** — Pre-created SQLite database with the contents of the sample SQL file.
 - **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
+**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. We will connect to this copy and change its data during the exercises. The SQL script is an alternative way to build the same database from scratch, not something to run on the downloaded database.
+
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
 ## Session Outline
@@ -108,7 +110,7 @@ Many people already use spreadsheets (Excel, Google Sheets), and a database tabl
 | | Spreadsheet | Database |
 |---|---|---|
 | **Best for** | Small lists, quick calculations, one person | Large amounts of data used by apps and many people |
-| **Rules for data** | You can type anything into any cell | Each column has rules (for example: "must be a number", "cannot be empty") |
+| **Rules for data** | Cells are usually easy to edit freely | Tables can define rules such as "cannot be empty"; how strictly types are checked depends on the database |
 | **Size** | Becomes slow with hundreds of thousands of rows | Handles millions of rows |
 | **Many users at once** | Easy to overwrite each other's changes | Designed for many simultaneous users and apps |
 | **Linking information** | Copying the same data into several sheets | Tables are linked using keys, so each fact is stored once |
@@ -197,9 +199,7 @@ You may need to:
 5. Update the customer's purchase history.
 6. Send a confirmation.
 
-What if this work could be automated and validated so that all records remain consistent?
-
-This is where a **Database Management System (DBMS)** comes in.
+An application can automate these steps using a **Database Management System (DBMS)** to store and update the records. The DBMS helps enforce the database's rules; the application decides what to do when a customer places an order.
 
 ### Without a DBMS
 
@@ -209,16 +209,9 @@ You might need to manually update separate spreadsheets for:
 - Orders
 - Customers
 
-### With a DBMS
+### With an application and a DBMS
 
-When someone places an order, the system can automatically:
-
-- Update inventory.
-- Create an order record.
-- Send a confirmation email.
-- Update customer history.
-
-Think of a DBMS as a digital assistant that helps manage data efficiently, securely, and reliably.
+When someone places an order, the **application** can ask the DBMS to update inventory, create an order record, and retrieve customer history. The application can then send a confirmation email using a separate email service. The DBMS manages the stored data; it does not send emails by itself.
 
 ## 1.7 Popular DBMS Options
 
@@ -349,28 +342,22 @@ DBeaver is a standalone desktop application; it does not run inside VS Code. How
 
 ## 2.3 Create a New SQLite Connection
 
-A **connection** tells DBeaver *where* a database is and *how* to talk to it. For SQLite, the database is a single file on your computer, so the connection simply points to that file. If the file does not exist yet, DBeaver creates a new, empty database.
+A **connection** tells DBeaver *where* a database is and *how* to talk to it. For SQLite, the database is a single file on your computer, so the connection simply points to that file.
 
-Using DBeaver:
+**Recommended for your first session:** Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-materials). This file already has the example tables and rows. If you prefer to create an empty database and run the SQL script yourself, follow the alternative in [section 2.5](#25-create-tables-and-insert-sample-data).
+
+Using DBeaver to open the downloaded file:
 
 1. Click **New Database Connection** (the plug icon with a `+`) in the toolbar, or press `Ctrl+Shift+N` (`Cmd+Shift+N` on macOS).
 2. Select **SQLite**.
 3. Click **Next**.
-4. In the **Path** field, click **Browse** (or **Create**) and choose where to save the database — for example, a new `databases` folder in your Documents.
-5. Name the database file:
-
-```text
-tasks.sqlite3
-```
-
-> The `.sqlite3` **extension is important** — it tells DBeaver and other tools that the file is a SQLite database.
-
-6. Click **Test Connection** to verify that everything works.
+4. In the **Path** field, click **Browse** and choose the `tasks.sqlite3` file you saved in `Documents/databases` (or wherever you downloaded it). Select the file itself, not just its folder.
+5. Click **Test Connection** to verify that everything works.
    - The first time, DBeaver will say the **SQLite driver files are missing** and offer to download them. A *driver* is a small add-on that teaches DBeaver how to talk to a specific type of database. Click **Download** and wait.
    - You should then see **Connected**.
-7. Click **Finish**.
+6. Click **Finish**.
 
-Your new connection now appears in the **Database Navigator** on the left. Click the arrow next to it to expand it.
+Your new connection now appears in the **Database Navigator** on the left. Click the arrow next to it to expand it. You should see tables such as `user` and `task`. If there are no tables, check that you selected the downloaded file rather than an empty file with the same name.
 
 > See the DBeaver documentation for more information about SQLite connections.
 
@@ -395,12 +382,11 @@ A useful mental model is:
 
 ```text
 Database
-└── Tables
-    ├── Rows
-    │   └── Columns
-    └── Relationships
-        ├── Primary Keys
-        └── Foreign Keys
+└── Tables (for example, user and task)
+    ├── Columns describe each kind of information
+    └── Rows hold one entry each
+
+Primary keys identify rows; foreign keys link rows in different tables.
 ```
 
 ### Example: the `user` table
@@ -429,24 +415,27 @@ The `task` table stores to-do items. Instead of copying the user's name and emai
 
 `user_id` is a **foreign key**: it points to `id` in the `user` table. Both tasks above belong to user `1`, Aarika Ellingworth. In the same way, `status_id` points to the `status` table, where `1` = *Not started*, `2` = *In progress*, and `3` = *Done*.
 
+![Diagram of the five Tasks database tables and their relationships](session-materials/database-diagram.jpg)
+
+The diagram also shows `task_tag`, which links tasks to labels in the `tag` table. For example, task `1` (*Wash clothes*) has two rows in `task_tag`: one points to *Personal* (tag `2`), and the other to *Home* (tag `4`). One task can therefore have more than one tag without storing a list of tags inside the task row.
+
 ---
 
 ## 2.5 Create Tables and Insert Sample Data
 
-A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data.
+A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data. **Skip this step if you connected to the downloaded `tasks.sqlite3` file.** Running it there would try to create tables that already exist.
 
-1. Open the [sample SQL file](session-materials/session-data.sql).
-2. Open it in any text editor and copy its contents.
-3. In DBeaver, right-click your database connection.
-4. Select:
+1. Make a separate connection to a **new, empty** file, for example `my-tasks.sqlite3`: repeat section 2.3, but choose **Create** in the **Path** field instead of selecting the downloaded file. DBeaver creates an empty database for that file.
+2. Open the [sample SQL file](session-materials/session-data.sql) in a text editor and copy its contents.
+3. In DBeaver, right-click the connection to your **empty** database and select:
 
 ```text
 SQL Editor → Open SQL Script
 ```
 
-5. Paste the SQL commands into the editor.
-6. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
-7. In the Database Navigator, right-click your connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
+4. Paste the SQL commands into the editor.
+5. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
+6. In the Database Navigator, right-click your connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
 
 After execution, you should have the sample Tasks database with five tables:
 
@@ -458,7 +447,7 @@ After execution, you should have the sample Tasks database with five tables:
 | `tag` | Labels that can be attached to tasks |
 | `task_tag` | Which tags are attached to which tasks |
 
-> **Shortcut:** Instead of running the script, you can connect DBeaver directly to the pre-created [`tasks.sqlite3`](session-materials/tasks.sqlite3) file.
+If you used the downloaded database, you already have these five tables; there is no need to run the script.
 
 ### Explore Your Database
 
@@ -481,7 +470,7 @@ Then explore your database in DBeaver.
 3. Select the `task` table. What properties does it have?
 4. What kind of data is stored in the table?
 5. Can you explore the data directly in DBeaver?
-6. What is the `title` value in row `18`?
+6. What is the `title` of the task with `id = 18`? Find its `id` column in the **Data** tab; it is not necessarily the 18th row shown.
 
 ---
 
@@ -497,7 +486,7 @@ You will see data types such as:
 
 When creating a table, we define the type of data each column will hold.
 
-This helps the database understand how to store and manage the data efficiently. It also protects the data: for example, it prevents someone from accidentally typing *"tomorrow"* in a column meant for numbers.
+Types tell the database what kind of value is expected. Some databases strictly reject values of the wrong type, but SQLite is more flexible: declaring a column as `INTEGER` does not by itself guarantee that text will be rejected. Rules such as `NOT NULL` can require that a value be present.
 
 ### Common Data Types
 
@@ -518,7 +507,7 @@ Sometimes a value is unknown or missing — for example, a task with no due date
 
 Columns can be marked **NOT NULL**, meaning a value is required. In our sample database, every user **must** have a `name` and an `email`, but `phone` can be left empty.
 
-> **SQLite detail:** SQLite is flexible about types. Internally it stores everything as `INTEGER`, `REAL`, `TEXT`, `BLOB`, or `NULL`. Dates are stored as text such as `'2017-10-25 06:54:16'` (year-month-day, hours:minutes:seconds), and true/false is stored as `1`/`0`.
+> **SQLite detail:** SQLite is flexible about types. Internally it stores values as `INTEGER`, `REAL`, `TEXT`, `BLOB`, or `NULL`. In this sample database, dates use text such as `'2017-10-25 06:54:16'` (year-month-day, hours:minutes:seconds); true/false values are usually stored as `1`/`0`.
 
 > **Note:** You do not need to memorize every data type. Keep in mind that you can always refer to cheat sheets and documentation when you are unsure.
 
@@ -592,6 +581,26 @@ These are commonly referred to as **CRUD**:
 | **Everything in the editor** | Document icon with triangle | `Alt+X` (`Option+X` on macOS) |
 
 The results appear in a grid below the editor.
+
+### Your first query: find one task
+
+If you have not connected to the downloaded sample database yet, follow [section 2.3](#23-create-a-new-sqlite-connection) first. Then type this into the SQL editor and click the orange triangle (or press `Ctrl+Enter` / `Cmd+Enter`):
+
+```sql
+SELECT id, title
+FROM task
+WHERE id = 18;
+```
+
+In the grid below the editor, you should see **one row**:
+
+| id | title |
+|---|---|
+| 18 | Learn how databases work |
+
+`SELECT` asks to show data, `id` and `title` name the columns to show, `FROM task` chooses the table, and `WHERE id = 18` chooses the task with that ID. The query only reads data; it does not change the database.
+
+> **Pause and check:** Can everyone see that row? If you see “no such table: task,” check that the SQL editor is connected to the populated sample database, not an empty one.
 
 ### SQL writing rules
 
@@ -862,16 +871,16 @@ FROM task
 WHERE title = 'Prepare presentation';
 ```
 
-Note the `id` of the new task in the result — you will use it in the next steps.
+Note the `id` of the new task in the result — you will use it in the next steps. If several tasks have this title, use the row with the highest `id` (your newest task).
 
 ### Update the task status
 
-Replace `<id>` with the `id` you noted above:
+The examples below use `36` only to show what a complete SQL query looks like. **Replace `36` in every query with the `id` you just found.** Never run these queries with `36` unless it really is your new task's `id`.
 
 ```sql
 UPDATE task
 SET status_id = 2
-WHERE id = <id>;
+WHERE id = 36;
 ```
 
 ### Verify that the update worked
@@ -879,10 +888,21 @@ WHERE id = <id>;
 ```sql
 SELECT *
 FROM task
-WHERE id = <id>;
+WHERE id = 36;
 ```
 
 The `status_id` should now be `2` (*In progress*).
+
+### Delete only the task you added
+
+First use the same `SELECT` above to check that the `id` belongs to *your* task. Then delete it:
+
+```sql
+DELETE FROM task
+WHERE id = 36;
+```
+
+Run the same `SELECT` once more. It should show **no rows**. If it still appears, check the `id` and whether DBeaver needs you to commit the change. Do not delete one of the original sample tasks.
 
 ---
 
