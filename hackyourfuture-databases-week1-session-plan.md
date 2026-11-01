@@ -730,8 +730,8 @@ Now that the database is set up, practice writing SQL queries.
 4. Find the 3 oldest tasks based on creation date.
 5. **Bonus:** Find all tasks that have no description.
 6. **Bonus:** Find all users whose email ends with `.com`.
-7. List the titles and status IDs of all tasks that are not started (`status_id = 1`).
-8. Find the tasks assigned to user `1` that are in progress (`status_id = 2`).
+7. List the titles of all tasks that are not started.
+8. Find the tasks assigned to user `1` that are in progress.
 9. Find tasks whose title contains `database`.
 10. List the names of users who have no phone number.
 11. Show the five newest tasks by creation date, including their titles and creation dates.
@@ -812,11 +812,11 @@ WHERE id = 18;
 
 Use the six task IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended task. Afterward, select it again to check the change. Do not update the original sample rows.
 
-1. Change task 1's status to `2` (in progress).
+1. Change task 1's status to in progress.
 2. Change task 2's description to `Write and test SELECT queries`.
 3. Change task 3's title to `Practice 3: Review query results`.
 4. Change task 4's due date to `2031-01-15`.
-5. Set task 5's status to `3` (done) and its `updated` timestamp to `datetime('now')` in the same statement.
+5. Set task 5's status to done and its `updated` timestamp to `datetime('now')` in the same statement.
 6. Assign task 6 to user `1` by setting its `user_id`.
 
 ---
@@ -962,17 +962,7 @@ Use the SQL operations you have learned.
 1. Add yourself as a new user in the `user` table. Remember that `name` and `email` are required.
 2. Find your new user's `id`.
 3. Create **2 or more tasks** assigned to yourself (use your `id` as the `user_id`).
-4. Update one of the tasks you created so its status is:
-
-```text
-In Progress
-```
-
-using:
-
-```text
-status_id = 2
-```
+4. Update one of the tasks you created so its status is *In Progress*.
 
 5. Retrieve only the `title` and `description` of all tasks assigned to you.
 6. Delete a task that you no longer need.
