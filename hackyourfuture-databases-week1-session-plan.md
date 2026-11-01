@@ -1094,71 +1094,17 @@ https://program.hackyourfuture.dk/course-content/foundation/databases/week1/sess
 
 # Homework
 
-Repeat the exercises from today's class using [SQLPlay Live](https://luisfff.github.io/sqlplay-live/). Its **Tasks database** is already seeded with the same sample data used in class, so you do not need to install DBeaver, download a database, or run the setup script for this homework.
+Use the built-in **Challenges** in [SQLPlay Live](https://luisfff.github.io/sqlplay-live/). These are separate exercises from the ones in today's class; follow each challenge's prompt rather than repeating the class exercises.
 
-## Set Up SQLPlay Live
+## Open the Challenges
 
-1. Open [SQLPlay Live](https://luisfff.github.io/sqlplay-live/) in your browser and choose **Playground**.
-2. Check that **Tasks database** is selected in the **Dataset** menu. It is the default dataset.
-3. Use the schema sidebar to explore the tables and columns. Write SQL in the editor and click **Run** to see the result. If text is selected, only the selected statements run; otherwise, the whole editor runs.
-4. Work through the exercises below in order. Keep the rows you insert for the later UPDATE and DELETE exercises, and record their IDs.
+1. Open [SQLPlay Live](https://luisfff.github.io/sqlplay-live/) in your browser and choose **Challenges**.
+2. Select a challenge under **Tasks database**.
+3. Read its prompt, write your SQL in the editor, and click **Check answer**. Use **Hint** if you need help; **Show solution** is available to review the answer.
+4. Work through the challenges in the order shown. There are 18 challenges:
 
-The working database is temporary. To keep your changes, click **Save dataset**, give it a name, and choose that saved dataset from the **Dataset** menu when you return in the same browser. Save it again after making further changes. Reloading, switching datasets or challenges, or resetting can discard unsaved changes. Copy your SQL statements somewhere safe too: saving a dataset does not save your exercise answers as a document.
-
-To start again with the original sample data, click **Reset to Tasks database** and confirm. This discards unsaved changes in the working database but does not delete saved datasets.
-
-## SELECT
-
-1. List the names and phones of all users.
-2. List all users, ordering them alphabetically by name.
-3. Find the name of the user with `id = 10`.
-4. Find the 3 oldest tasks based on creation date.
-5. **Bonus:** Find all tasks that have no description.
-6. **Bonus:** Find all users whose email ends with `.com`.
-7. List the titles of all tasks that are not started.
-8. Find the tasks assigned to user `1` that are in progress.
-9. Find tasks whose title contains `database`.
-10. List the names of users who have no phone number.
-11. Show the five newest tasks by creation date, including their titles and creation dates.
-12. List tasks that are either not started or in progress, ordered by title.
-
-## INSERT
-
-For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Look up each status name in the `status` table to find its `id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number for the next sections. Use distinctive values so you can identify your rows.
-
-1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
-2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
-3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
-4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
-5. Add a user with a distinctive name and email address of your choice. Leave the optional phone number empty, and do not assign this user to any tasks.
-6. Add a tag with a distinctive name of your choice.
-
-## UPDATE
-
-Use the table names and row IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended row. Afterward, select it again to check the change. Do not update original sample rows.
-
-1. Change the status of the task from INSERT exercise 1 to in progress.
-2. Change the description of the task from INSERT exercise 2 to `Write and test SELECT queries`.
-3. Change the title of the task from INSERT exercise 3 to `Practice 3: Review query results`.
-4. Change the due date of the task from INSERT exercise 4 to `2031-01-15`.
-5. Add a phone number to the user from INSERT exercise 5.
-6. Change the name of the tag from INSERT exercise 6.
-
-## DELETE
-
-After the INSERT and UPDATE exercises, delete three rows you created: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
-
-1. Delete the task you added for INSERT exercise 1.
-2. Delete the user you added for INSERT exercise 5.
-3. Delete the tag you added for INSERT exercise 6.
-
-## Combine Everything
-
-1. Add yourself as a new user in the `user` table. Remember that `name` and `email` are required.
-2. Find your new user's `id`.
-3. Create **2 or more tasks** assigned to yourself (use your `id` as the `user_id`).
-4. Update one of the tasks you created so its status is *In Progress*.
-5. Retrieve only the `title` and `description` of all tasks assigned to you.
-6. Delete a task that you no longer need.
-7. Create a new table named `practice_book` with an `INTEGER PRIMARY KEY` called `id`, a required `TEXT` column called `title`, and an optional `TEXT` column called `author`. If that table already exists, choose another name and use it in the next step.
-8. Insert a book into your new table, then use `SELECT` to check its `id`, `title`, and `author`. Find the table in the schema sidebar.
+   - **SELECT:** Task titles and IDs; Tasks in progress; Tasks without due dates; Tasks alphabetically; Five highest task IDs; Unassigned tasks; Count the tasks.
+   - **UPDATE:** Rename a task; Mark a task done; Assign an unassigned task; Set unassigned task status.
+   - **DELETE:** Delete one task; Remove one task tag.
+   - **CREATE TABLE:** Create task notes table; Create reminders table.
+   - **JOIN:** Tasks and their statuses; Tasks and assigned users; Tasks and tags.
