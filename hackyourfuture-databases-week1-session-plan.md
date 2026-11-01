@@ -251,19 +251,17 @@ This will also allow us to explore:
 
 **DBeaver** is a free program that lets you look at and work with databases through a visual interface. It is not a database itself — it is a *tool* that connects to a database, much like a web browser is a tool that connects to websites.
 
-We use the free **DBeaver Community** edition. It works on Windows, macOS, and Linux.
+We use the free **DBeaver Community** edition.
 
 ### Download
 
-1. Open the official download page: [dbeaver.io/download](https://dbeaver.io/download/).
-2. Under **DBeaver Community**, choose the download that matches your computer:
+1. Open the [official download page](https://dbeaver.io/download/) or use the direct download link for your computer:
 
 | Your computer | Choose |
 |---|---|
-| Windows | **Windows (installer)** |
-| Mac with Apple chip (M1, M2, M3, …) | **macOS for Apple Silicon** |
-| Mac with Intel chip | **macOS for Intel** |
-| Ubuntu / Debian Linux | **Linux Debian package (.deb)** |
+| Windows | [Windows installer](https://dbeaver.io/files/dbeaver-ce-latest-windows-x86_64.exe) |
+| Mac with Apple chip (M1, M2, M3, …) | [macOS for Apple Silicon](https://dbeaver.io/files/dbeaver-ce-latest-macos-aarch64.dmg) |
+| Mac with Intel chip | [macOS for Intel](https://dbeaver.io/files/dbeaver-ce-latest-macos-x86_64.dmg) |
 
 > **Not sure which Mac you have?** Click the Apple menu → **About This Mac**. If it says **Chip: Apple M…**, choose Apple Silicon. If it says **Processor: Intel**, choose Intel.
 
@@ -285,15 +283,6 @@ The download is a few hundred megabytes, so it may take a few minutes.
 2. In the window that opens, **drag the DBeaver icon into the Applications folder**.
 3. Open **Applications** and double-click **DBeaver**.
 4. If macOS says the app was downloaded from the internet, click **Open**.
-
-### Install on Ubuntu / Debian Linux
-
-1. Download the `.deb` file.
-2. Double-click it to open it in the Software app and click **Install**, or run this in a terminal from your Downloads folder:
-
-```bash
-sudo apt install ./dbeaver-ce_*_amd64.deb
-```
 
 ### First Launch
 
