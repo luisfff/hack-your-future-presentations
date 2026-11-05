@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title description">
+  <title id="title">Movie streaming platform and its database</title>
+  <desc id="description">After a user logs in, a streaming platform requests their information from the database, which stores movies, watchlists, viewing history, and preferences. The platform displays the returned preferences and viewing history.</desc>
+  <rect width="1000" height="420" rx="28" fill="#e9ebf5"/>
+
+  <rect x="30" y="35" width="420" height="350" rx="18" fill="#fff"/>
+  <path d="M48 35h384a18 18 0 0 1 18 18v28H30V53a18 18 0 0 1 18-18z" fill="#8597bc"/>
+  <circle cx="53" cy="58" r="4" fill="#fff"/>
+  <circle cx="68" cy="58" r="4" fill="#fff"/>
+  <circle cx="83" cy="58" r="4" fill="#fff"/>
+  <text x="240" y="119" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Streaming platform</text>
+  <text x="64" y="154" fill="#5f5057" font-family="Arial, sans-serif" font-size="18">Welcome back, Maria</text>
+  <rect x="64" y="173" width="135" height="147" rx="10" fill="#778aaa"/>
+  <circle cx="132" cy="233" r="29" fill="#e8eaf3"/>
+  <path d="m124 217 24 16-24 16z" fill="#778aaa"/>
+  <text x="132" y="291" text-anchor="middle" fill="#fff" font-family="Arial, sans-serif" font-size="16">Movie</text>
+  <text x="220" y="201" fill="#4a3e45" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Your preferences</text>
+  <text x="220" y="228" fill="#5f5057" font-family="Arial, sans-serif" font-size="17">Language: English</text>
+  <text x="220" y="271" fill="#4a3e45" font-family="Arial, sans-serif" font-size="18" font-weight="bold">Recently watched</text>
+  <text x="220" y="298" fill="#5f5057" font-family="Arial, sans-serif" font-size="17">The Blue Planet</text>
+
+  <text x="535" y="157" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">Login request</text>
+  <path d="M470 174h130m-12-10 12 10-12 10" fill="none" stroke="#778aaa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="535" y="231" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">
+    <tspan x="535">Preferences</tspan>
+    <tspan x="535" dy="20">and history</tspan>
+  </text>
+  <path d="M600 272H470m12-10-12 10 12 10" fill="none" stroke="#778aaa" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="620" y="35" width="350" height="350" rx="18" fill="#fff"/>
+  <path d="M750 80v55c0 11 20 19 45 19s45-8 45-19V80" fill="#85b5a4"/>
+  <ellipse cx="795" cy="80" rx="45" ry="19" fill="#b9d8cb"/>
+  <path d="M750 107c0 11 20 19 45 19s45-8 45-19M750 134c0 11 20 19 45 19s45-8 45-19" fill="none" stroke="#5d8c7c" stroke-width="3"/>
+  <text x="795" y="190" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Database</text>
+  <text x="675" y="229" fill="#5f5057" font-family="Arial, sans-serif" font-size="19">
+    <tspan x="675">• Movies</tspan>
+    <tspan x="675" dy="30">• User watchlists</tspan>
+    <tspan x="675" dy="30">• Viewing history</tspan>
+    <tspan x="675" dy="30">• User preferences</tspan>
+  </text>
+</svg>

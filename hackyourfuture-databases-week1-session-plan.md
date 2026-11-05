@@ -151,6 +151,8 @@ The database can store:
 
 When someone searches for `"chocolate cake"`, the application queries the database to find relevant recipes.
 
+![A recipe website searches for chocolate cake; its database stores recipes, user profiles, comments, and ratings and returns matching recipes.](session-materials/recipe-database-example.svg)
+
 ### Movie streaming platform
 
 A movie streaming platform can use databases to store:
@@ -162,6 +164,8 @@ A movie streaming platform can use databases to store:
 
 When a user logs in, the application retrieves their preferences and watch history.
 
+![A streaming platform retrieves a user's preferences and viewing history from a database that also stores movies and watchlists.](session-materials/movie-database-example.svg)
+
 ### Blog
 
 Even a simple blog needs a database to store:
@@ -169,6 +173,8 @@ Even a simple blog needs a database to store:
 - Articles
 - Comments
 - User information
+
+![A blog retrieves an article and its comments from a database that also stores user information.](session-materials/blog-database-example.svg)
 
 Without a database, these applications would be like a library without a catalog: the information exists, but finding and managing it becomes difficult.
 

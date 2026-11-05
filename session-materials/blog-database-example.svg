@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="420" viewBox="0 0 1000 420" role="img" aria-labelledby="title description">
+  <title id="title">Blog and its database</title>
+  <desc id="description">A blog requests an article and its comments from a database. The database stores articles, comments, and user information, and returns the article and comments for display.</desc>
+  <rect width="1000" height="420" rx="28" fill="#edf4ef"/>
+
+  <rect x="30" y="35" width="420" height="350" rx="18" fill="#fff"/>
+  <path d="M48 35h384a18 18 0 0 1 18 18v28H30V53a18 18 0 0 1 18-18z" fill="#85b5a4"/>
+  <circle cx="53" cy="58" r="4" fill="#fff"/>
+  <circle cx="68" cy="58" r="4" fill="#fff"/>
+  <circle cx="83" cy="58" r="4" fill="#fff"/>
+  <text x="240" y="119" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Blog</text>
+  <rect x="64" y="140" width="352" height="195" rx="12" fill="#f5f8f5"/>
+  <text x="86" y="177" fill="#4a3e45" font-family="Arial, sans-serif" font-size="20" font-weight="bold">Growing herbs at home</text>
+  <text x="86" y="203" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">By Alex</text>
+  <rect x="86" y="221" width="292" height="7" rx="3.5" fill="#b8d3c4"/>
+  <rect x="86" y="238" width="245" height="7" rx="3.5" fill="#b8d3c4"/>
+  <path d="M86 267h30a5 5 0 0 1 5 5v15a5 5 0 0 1-5 5H98l-8 7v-7h-4a5 5 0 0 1-5-5v-15a5 5 0 0 1 5-5z" fill="#85b5a4"/>
+  <text x="134" y="285" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">Sam: Great tips!</text>
+
+  <text x="535" y="146" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">
+    <tspan x="535">Request</tspan>
+    <tspan x="535" dy="20">an article</tspan>
+  </text>
+  <path d="M470 184h130m-12-10 12 10-12 10" fill="none" stroke="#6b9888" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="535" y="239" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="16">
+    <tspan x="535">Article and</tspan>
+    <tspan x="535" dy="20">comments</tspan>
+  </text>
+  <path d="M600 280H470m12-10-12 10 12 10" fill="none" stroke="#6b9888" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="620" y="35" width="350" height="350" rx="18" fill="#fff"/>
+  <path d="M750 80v55c0 11 20 19 45 19s45-8 45-19V80" fill="#85b5a4"/>
+  <ellipse cx="795" cy="80" rx="45" ry="19" fill="#b9d8cb"/>
+  <path d="M750 107c0 11 20 19 45 19s45-8 45-19M750 134c0 11 20 19 45 19s45-8 45-19" fill="none" stroke="#5d8c7c" stroke-width="3"/>
+  <text x="795" y="190" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="24" font-weight="bold">Database</text>
+  <text x="675" y="239" fill="#5f5057" font-family="Arial, sans-serif" font-size="19">
+    <tspan x="675">• Articles</tspan>
+    <tspan x="675" dy="30">• Comments</tspan>
+    <tspan x="675" dy="30">• User information</tspan>
+  </text>
+</svg>
