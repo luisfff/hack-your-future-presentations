@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="390" viewBox="0 0 1000 390" role="img" aria-labelledby="title description">
+  <title id="title">From a user's request to a database lookup</title>
+  <desc id="description">A user named Maria asks to show her orders. An app or website asks for orders for Maria. A database looks up the matching rows.</desc>
+  <rect width="1000" height="390" rx="28" fill="#f8edeb"/>
+
+  <rect x="30" y="35" width="270" height="320" rx="18" fill="#fff"/>
+  <circle cx="165" cy="106" r="44" fill="#f7e8d7"/>
+  <circle cx="165" cy="96" r="17" fill="#cd8975"/>
+  <path d="M132 130c3-20 15-29 33-29s30 9 33 29" fill="#cd8975"/>
+  <text x="165" y="191" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="23" font-weight="bold">You (the user)</text>
+  <text x="165" y="246" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="19">"Show my orders"</text>
+
+  <path d="M310 186h43m-12-11 12 11-12 11" fill="none" stroke="#916c78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="365" y="35" width="270" height="320" rx="18" fill="#fff"/>
+  <rect x="419" y="66" width="162" height="99" rx="10" fill="#e7e9f4"/>
+  <path d="M429 66h142a10 10 0 0 1 10 10v17H419V76a10 10 0 0 1 10-10z" fill="#8597bc"/>
+  <circle cx="433" cy="80" r="3" fill="#fff"/>
+  <circle cx="445" cy="80" r="3" fill="#fff"/>
+  <circle cx="457" cy="80" r="3" fill="#fff"/>
+  <rect x="438" y="107" width="55" height="8" rx="4" fill="#8597bc"/>
+  <rect x="438" y="123" width="104" height="7" rx="3.5" fill="#bcc8dd"/>
+  <rect x="438" y="137" width="82" height="7" rx="3.5" fill="#bcc8dd"/>
+  <text x="500" y="191" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="23" font-weight="bold">App or website</text>
+  <text x="500" y="236" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="19">
+    <tspan x="500">"Find orders</tspan>
+    <tspan x="500" dy="25">for user Maria"</tspan>
+  </text>
+
+  <path d="M645 186h43m-12-11 12 11-12 11" fill="none" stroke="#916c78" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <rect x="700" y="35" width="270" height="320" rx="18" fill="#fff"/>
+  <path d="M785 85v56c0 12 22 21 50 21s50-9 50-21V85" fill="#85b5a4"/>
+  <ellipse cx="835" cy="85" rx="50" ry="21" fill="#b9d8cb"/>
+  <path d="M785 112c0 12 22 21 50 21s50-9 50-21M785 140c0 12 22 21 50 21s50-9 50-21" fill="none" stroke="#5d8c7c" stroke-width="3"/>
+  <text x="835" y="191" text-anchor="middle" fill="#4a3e45" font-family="Arial, sans-serif" font-size="23" font-weight="bold">Database</text>
+  <text x="835" y="236" text-anchor="middle" fill="#5f5057" font-family="Arial, sans-serif" font-size="19">
+    <tspan x="835">Looks up the</tspan>
+    <tspan x="835" dy="25">matching rows</tspan>
+  </text>
+</svg>
