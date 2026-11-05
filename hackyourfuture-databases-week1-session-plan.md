@@ -9,25 +9,32 @@
 - **[Sample Tasks database](session-materials/tasks.sqlite3)** — A pre-created database to use for all exercises.
 - **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
-**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for all exercises. During the session, you will also create a separate database with the sample SQL file as a demonstration; you will not use that second database for exercises.
+**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for all exercises. During the session, the instructor will demonstrate creating a separate database with the sample SQL file; you will not use that second database for exercises.
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
-## Estimated Session Duration
+## Four-Hour Session Schedule
 
-Allow **about 6 hours 25 minutes**, including two 10-minute breaks, for a beginner group working through the explanations, demonstrations, discussions, and exercises (including the bonus questions).
+The session lasts **4 hours, including two 10-minute breaks**. Times are relative to the start and include brief questions and checks for understanding.
 
-| Activity | Estimated time |
-|---|---:|
-| Introduction to databases (section 1) | 40 min |
-| Connect, explore, and understand the database (sections 2.2–2.6) | 70 min |
-| SQL basics and SELECT practice (sections 3.1–3.7) | 100 min |
-| INSERT, UPDATE, DELETE, table creation, and interactive practice (sections 3.8–3.12) | 110 min |
-| Combined exercise, takeaways, and safety review (sections 3.13–3.15) | 45 min |
-| Two breaks | 20 min |
-| **Total** | **385 min (6 hr 25 min)** |
+| Time | Activity |
+|---|---|
+| 0:00–0:25 | Introduction to databases (section 1) |
+| 0:25–1:05 | Connect, explore, and understand the database (sections 2.2–2.6) |
+| 1:05–1:15 | Break |
+| 1:15–2:10 | SQL basics and SELECT practice (sections 3.1–3.7) |
+| 2:10–2:20 | Break |
+| 2:20–3:30 | INSERT, UPDATE, DELETE, and table creation (sections 3.8–3.11) |
+| 3:30–4:00 | Combined exercise, takeaways, and safety review (sections 3.13–3.15) |
 
-This assumes participants install DBeaver and download the sample database **before the session** (allow approximately 15–30 minutes separately). The glossary and optional VS Code instructions are reference material, not separate timed activities. Allow extra time for setup problems, questions, or participants who need more practice.
+**Keep the session within four hours:**
+
+- In section 2.4, the instructor demonstrates creating the separate database; participants continue using the downloaded database. For section 2.5, discuss questions 1, 3, and 6.
+- In section 3.7, work on questions 1, 3, 7, 9, and 11. Leave the other questions, including the bonus questions, for independent practice.
+- In sections 3.8 and 3.9, do INSERT exercises 1, 5, and 6 and the corresponding UPDATE exercises 1, 5, and 6. Then do all three DELETE exercises in section 3.10. Record the inserted IDs and use the described SELECT checks before and after changes. Demonstrate section 3.11; leave section 3.12 for independent practice.
+- In section 3.13, do tasks 1–6 in class; leave tasks 7–8 and the remaining exercises for independent practice. Review the safety rules before the session ends.
+
+This schedule assumes participants install DBeaver and download the sample database **before the session** (allow approximately 15–30 minutes separately). The glossary and optional VS Code instructions are reference material. Setup problems or longer discussions may require moving more practice out of class.
 
 ## Session Outline
 
@@ -259,7 +266,7 @@ In this session we use **SQLite**, because the entire database lives in one file
 
 In this chapter, you will set up a SQLite database and explore how its information is organized. You will use the provided Tasks example to connect database concepts—tables, rows, columns, keys, and data types—to a real structure you can inspect.
 
-You will use the provided Tasks database as your playground for learning SQL. Later, you will create a separate database with a script to see how its tables and data are created, then return to the provided database for all exercises.
+You will use the provided Tasks database as your playground for learning SQL. The instructor will demonstrate creating a separate database with a script so you can see how its tables and data are created; continue using the provided database for all exercises.
 
 This will also allow us to explore:
 
