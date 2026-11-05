@@ -50,6 +50,7 @@ For the schedule and teaching priorities, see the [teacher notes](hackyourfuture
    - [**3.15** Follow safe data-change practices](#315-safety-rules-to-remember)
 4. [Glossary](#glossary)
 5. [Additional Tools and Resources](#additional-tools-and-resources)
+6. [Homework](#homework)
 
 ---
 
@@ -1088,3 +1089,22 @@ DBeaver is a standalone desktop application; it does not run inside VS Code. How
 HackYourFuture Program — Foundation / Databases / Week 1 / Session Plan
 
 https://program.hackyourfuture.dk/course-content/foundation/databases/week1/session-plan
+
+---
+
+# Homework
+
+Use the built-in **Challenges** in [SQLPlay Live](https://luisfff.github.io/sqlplay-live/). These are separate exercises from the ones in today's class; follow each challenge's prompt rather than repeating the class exercises.
+
+## Open the Challenges
+
+1. Open [SQLPlay Live](https://luisfff.github.io/sqlplay-live/) in your browser and choose **Challenges**.
+2. Select a challenge under **Tasks database**.
+3. Read its prompt, write your SQL in the editor, and click **Check answer**. Use **Hint** if you need help; **Show solution** is available to review the answer.
+4. Work through the challenges in the order shown. There are 18 challenges:
+
+   - **SELECT:** Task titles and IDs; Tasks in progress; Tasks without due dates; Tasks alphabetically; Five highest task IDs; Unassigned tasks; Count the tasks.
+   - **UPDATE:** Rename a task; Mark a task done; Assign an unassigned task; Set unassigned task status.
+   - **DELETE:** Delete one task; Remove one task tag.
+   - **CREATE TABLE:** Create task notes table; Create reminders table.
+   - **JOIN:** Tasks and their statuses; Tasks and assigned users; Tasks and tags.
