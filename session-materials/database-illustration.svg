@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-labelledby="title description">
+  <title id="title">An organized database</title>
+  <desc id="description">A database connected to two tables containing tasks and people.</desc>
+  <rect width="1000" height="380" rx="28" fill="#eaf0f9"/>
+  <circle cx="128" cy="85" r="52" fill="#d8e3f3"/>
+  <circle cx="875" cy="294" r="55" fill="#d6e5df"/>
+  <path d="M398 150h105v-32h73M398 230h105v35h73" fill="none" stroke="#9bb6cf" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="503" cy="150" r="6" fill="#9bb6cf"/>
+  <circle cx="503" cy="230" r="6" fill="#9bb6cf"/>
+  <path d="M165 125v132c0 25 52 45 116 45s117-20 117-45V125" fill="#92b3d2" stroke="#496d96" stroke-width="4"/>
+  <ellipse cx="281.5" cy="125" rx="116.5" ry="45" fill="#c6dced" stroke="#496d96" stroke-width="4"/>
+  <path d="M165 169c0 25 52 45 116 45s117-20 117-45M165 213c0 25 52 45 116 45s117-20 117-45" fill="none" stroke="#496d96" stroke-width="4"/>
+  <rect x="576" y="52" width="300" height="132" rx="12" fill="#fff"/>
+  <path d="M588 52h276a12 12 0 0 1 12 12v26H576V64a12 12 0 0 1 12-12z" fill="#536e97"/>
+  <text x="595" y="78" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">Tasks</text>
+  <path d="M643 100v69M748 100v69M592 124h268M592 147h268" stroke="#d8e3ef" stroke-width="2"/>
+  <text x="603" y="117" fill="#4d6481" font-family="Arial, sans-serif" font-size="13" font-weight="bold">ID</text>
+  <text x="659" y="117" fill="#4d6481" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Title</text>
+  <text x="764" y="117" fill="#4d6481" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Status</text>
+  <text x="603" y="141" fill="#506582" font-family="Arial, sans-serif" font-size="13">1</text>
+  <text x="659" y="141" fill="#506582" font-family="Arial, sans-serif" font-size="13">Read</text>
+  <text x="764" y="141" fill="#506582" font-family="Arial, sans-serif" font-size="13">Done</text>
+  <text x="603" y="164" fill="#506582" font-family="Arial, sans-serif" font-size="13">2</text>
+  <text x="659" y="164" fill="#506582" font-family="Arial, sans-serif" font-size="13">Practice</text>
+  <text x="764" y="164" fill="#506582" font-family="Arial, sans-serif" font-size="13">To do</text>
+  <rect x="576" y="200" width="300" height="132" rx="12" fill="#fff"/>
+  <path d="M588 200h276a12 12 0 0 1 12 12v26H576v-26a12 12 0 0 1 12-12z" fill="#467e6b"/>
+  <text x="595" y="226" fill="#fff" font-family="Arial, sans-serif" font-size="17" font-weight="bold">People</text>
+  <path d="M643 248v69M592 272h268M592 295h268" stroke="#d6e7df" stroke-width="2"/>
+  <text x="603" y="265" fill="#376957" font-family="Arial, sans-serif" font-size="13" font-weight="bold">ID</text>
+  <text x="659" y="265" fill="#376957" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Name</text>
+  <text x="603" y="289" fill="#47675c" font-family="Arial, sans-serif" font-size="13">1</text>
+  <text x="659" y="289" fill="#47675c" font-family="Arial, sans-serif" font-size="13">Maya</text>
+  <text x="603" y="312" fill="#47675c" font-family="Arial, sans-serif" font-size="13">2</text>
+  <text x="659" y="312" fill="#47675c" font-family="Arial, sans-serif" font-size="13">Sam</text>
+</svg>
