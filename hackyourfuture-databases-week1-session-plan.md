@@ -769,24 +769,7 @@ WHERE id = 18;
 
 ### Exercises — Practice UPDATE
 
-Use your downloaded copy of the Tasks database. These exercises temporarily change existing sample rows: restore each original value after checking your change so the sample data stays intact. Before each update, run a `SELECT` with the same `WHERE` clause, confirm that it selects only the intended row, and record the original value. After updating, run the same `SELECT` to check the change. Then use another `UPDATE` with the same `WHERE` clause to restore the original value and check it with `SELECT`. Use `NULL` without quotes when restoring a missing value.
-
-For example, to practice changing the status of task `1`, first check its original `status_id`:
-
-```sql
-SELECT id, title, status_id FROM task WHERE id = 1;
-```
-
-If the original `status_id` is `2`, change it to `3`, check it, and restore it:
-
-```sql
-UPDATE task SET status_id = 3 WHERE id = 1;
-SELECT id, title, status_id FROM task WHERE id = 1;
-UPDATE task SET status_id = 2 WHERE id = 1;
-SELECT id, title, status_id FROM task WHERE id = 1;
-```
-
-If your original value is different, restore the value you recorded instead. Look up status names and IDs in the `status` table.
+Use your downloaded copy of the Tasks database. Find the data you need, check the effect of each update, and restore the original value afterward so the sample data stays intact.
 
 1. Change the status of task `1` to *Done*, then restore it.
 2. Change the description of task `2` to `Write and test SELECT queries`, then restore it.
@@ -829,13 +812,13 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ### Exercises — Practice INSERT
 
-These exercises add rows to three different tables. For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number; you will need them for the DELETE exercises. Use distinctive values so you can identify the rows you added.
+Work out what data each insert needs and check its effect. You will use some of the rows you add in the DELETE exercises.
 
 1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
 2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
 3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
 4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
-5. Add a user with a distinctive name and email address of your choice. Leave the optional phone number empty, and do not assign this user to any tasks.
+5. Add a user with a distinctive name and email address of your choice.
 6. Add a tag with a distinctive name of your choice.
 
 ---
@@ -866,7 +849,7 @@ WHERE id = 18;
 
 ### Exercises — Practice DELETE
 
-After the UPDATE and INSERT exercises, delete three rows you created in the INSERT exercises: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
+For each deletion, find the row you added, consider any related data, and check the effect. Do not delete original sample rows.
 
 1. Delete the task you added for INSERT exercise 1.
 2. Delete the user you added for INSERT exercise 5.
@@ -975,15 +958,15 @@ Use the SQL operations you have learned.
 
 ### Tasks
 
-1. Add yourself as a new user in the `user` table. Remember that `name` and `email` are required.
-2. Find your new user's `id`.
-3. Create **2 or more tasks** assigned to yourself (use your `id` as the `user_id`).
+1. Add yourself as a new user in the `user` table.
+2. Find the user you added.
+3. Create **2 or more tasks** assigned to yourself.
 4. Update one of the tasks you created so its status is *In Progress*.
 
 5. Retrieve only the `title` and `description` of all tasks assigned to you.
-6. Delete a task that you no longer need.
+6. Delete a task you created that you no longer need.
 7. Create a new table named `practice_book` with an `INTEGER PRIMARY KEY` called `id`, a required `TEXT` column called `title`, and an optional `TEXT` column called `author`. If that table already exists, choose another name and use it in the next step.
-8. Insert a book into your new table, then use `SELECT` to check its `id`, `title`, and `author`. Refresh the Database Navigator and find the table.
+8. Insert a book into your new table and check that it was added. Refresh the Database Navigator and find the table.
 
 ---
 
