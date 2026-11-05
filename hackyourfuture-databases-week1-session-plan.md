@@ -13,6 +13,22 @@
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
+## Estimated Session Duration
+
+Allow **about 6 hours 25 minutes**, including two 10-minute breaks, for a beginner group working through the explanations, demonstrations, discussions, and exercises (including the bonus questions).
+
+| Activity | Estimated time |
+|---|---:|
+| Introduction to databases (section 1) | 40 min |
+| Connect, explore, and understand the database (sections 2.2–2.6) | 70 min |
+| SQL basics and SELECT practice (sections 3.1–3.7) | 100 min |
+| INSERT, UPDATE, DELETE, table creation, and interactive practice (sections 3.8–3.12) | 110 min |
+| Combined exercise, takeaways, and safety review (sections 3.13–3.15) | 45 min |
+| Two breaks | 20 min |
+| **Total** | **385 min (6 hr 25 min)** |
+
+This assumes participants install DBeaver and download the sample database **before the session** (allow approximately 15–30 minutes separately). The glossary and optional VS Code instructions are reference material, not separate timed activities. Allow extra time for setup problems, questions, or participants who need more practice.
+
 ## Session Outline
 
 1. [Introduction to Databases](#1-introduction-to-databases)
