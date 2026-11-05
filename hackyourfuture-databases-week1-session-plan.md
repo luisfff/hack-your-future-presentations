@@ -241,11 +241,11 @@ In this session we use **SQLite**, because the entire database lives in one file
 
 # 2. Connecting to and Creating Databases
 
-In this chapter, you will set up a SQLite database and explore how its information is organized. You will use the provided Tasks example to connect database concepts—tables, rows, columns, keys, and data types—to a real structure you can inspect.
+Now that we know what a database is, let's connect to a real one. We'll use DBeaver to connect to the provided Tasks database, which is a SQLite database. This is the database you'll use for all the exercises.
 
-You will use the provided Tasks database as your playground for learning SQL. The instructor will demonstrate creating a separate database with a script so you can see how its tables and data are created; continue using the provided database for all exercises.
+I'll also demonstrate how to create a separate database and use a SQL script to create its tables and add sample data. That database is just for the demonstration, so keep using the downloaded Tasks database for your exercises.
 
-This will also allow us to explore:
+As we explore the database, we'll learn about:
 
 - Tables
 - Rows
