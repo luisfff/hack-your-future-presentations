@@ -1102,6 +1102,43 @@ DBeaver is a standalone desktop application; it does not run inside VS Code. How
 
 > **Tip:** Close the connection in one tool before changing data in the other. SQLite allows only one program to write to the file at a time.
 
+## Homework: Practice with SQLPlay
+
+[SQLPlay Live](https://luisfff.github.io/sqlplay/) is a browser-based SQL practice tool. It loads the Tasks database for each challenge, so you do not need to install anything or set up a database. The source code is available in the [SQLPlay repository](https://github.com/luisfff/sqlplay).
+
+1. Open SQLPlay Live and select **Challenges**.
+2. Choose a challenge under **Homework** and read its instructions.
+3. Use the table list to explore the database, then write your SQL in the editor.
+4. Select **Check answer** to check your work. Use **Hint** if you need help or **Show solution** to see an example answer.
+5. Continue with the other homework challenges. Your completed challenges are remembered in your browser.
+
+Check the requested column order and whether the results need a particular row order. For challenges that change data or create a table, SQLPlay checks the resulting database state; do not change unrelated data. Copy any query you want to keep before switching challenges. The **Class exercises** section is separate from the homework.
+
+### Homework questions and challenges
+
+1. **Count the tasks:** Return the total number of rows in `task`.
+2. **Count tasks without valid due dates:** Count tasks with a missing or unparseable due date.
+3. **Done tasks:** Return all columns of tasks marked Done.
+4. **Tasks not done:** Return all columns of tasks not marked Done.
+5. **Tasks by creation date:** Return all columns of every task, ordered by creation date from newest to oldest.
+6. **Most recently created task:** Return all columns of the single most recently created task.
+7. **Tasks mentioning database:** Return `title` and `due_date` for tasks whose title or description contains `database`, ignoring case.
+8. **Task titles and IDs:** Return `id` and `title` for every task, ordered by ID ascending.
+9. **Tasks in progress:** Return `id` and `title` for tasks with `status_id` 2, ordered by ID ascending.
+10. **Tasks without due dates:** Return `id` and `title` for tasks whose `due_date` is `NULL`, ordered by ID ascending.
+11. **Tasks alphabetically:** Return `id` and `title`, ordered by title from A to Z.
+12. **Five highest task IDs:** Return `id` and `title` for the five tasks with the highest IDs, highest first.
+13. **Unassigned tasks:** Return `id` and `title` for tasks with no assigned user, ordered by ID ascending.
+14. **Rename a task:** Change task 1's title to `Wash the laundry`, without changing anything else.
+15. **Mark a task done:** Set `status_id` to 3 for task 22 only.
+16. **Assign an unassigned task:** Set task 23's `user_id` to 11, without changing anything else.
+17. **Set unassigned task status:** Set `status_id` to 1 for tasks with no assigned user: tasks 23 and 35. Do not change other rows or columns.
+18. **Delete one task:** Delete task 35 only, without changing other rows.
+19. **Remove one task tag:** Remove the Personal tag association (`tag_id` 2) from task 1 only. Do not delete the task or other associations.
+20. **Create task notes table:** Create `task_note` with `id INTEGER PRIMARY KEY`, `task_id INTEGER NOT NULL`, and `note TEXT NOT NULL`, in that order. Add a foreign key from `task_id` to `task(id)`.
+
+---
+
 ## Source
 
 HackYourFuture Program — Foundation / Databases / Week 1 / Session Plan
