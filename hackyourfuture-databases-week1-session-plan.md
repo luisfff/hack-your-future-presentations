@@ -134,7 +134,7 @@ In modern software applications, databases serve as the backbone of data storage
 
 A simple way to picture it:
 
-![A user asks to show their orders; the app asks for orders for user 42; the database looks up the matching rows.](session-materials/application-database-flow.svg)
+![Maria asks to show her orders; the app asks for orders for Maria; the database looks up the matching rows.](session-materials/application-database-flow.svg)
 
 The app asks the database a question, the database returns the answer, and the app shows it to you in a nice layout.
 
