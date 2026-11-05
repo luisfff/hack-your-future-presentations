@@ -13,28 +13,7 @@
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
-## Four-Hour Session Schedule
-
-The session lasts **4 hours, including two 10-minute breaks**. Times are relative to the start and include brief questions and checks for understanding.
-
-| Time | Activity |
-|---|---|
-| 0:00–0:25 | Introduction to databases (section 1) |
-| 0:25–1:05 | Connect, explore, and understand the database (sections 2.2–2.6) |
-| 1:05–1:15 | Break |
-| 1:15–2:10 | SQL basics and SELECT practice (sections 3.1–3.7) |
-| 2:10–2:20 | Break |
-| 2:20–3:30 | INSERT, UPDATE, DELETE, and table creation (sections 3.8–3.11) |
-| 3:30–4:00 | Combined exercise, takeaways, and safety review (sections 3.13–3.15) |
-
-**Keep the session within four hours:**
-
-- In section 2.4, the instructor demonstrates creating the separate database; participants continue using the downloaded database. For section 2.5, discuss questions 1, 3, and 6.
-- In section 3.7, work on questions 1, 3, 7, 9, and 11. Leave the other questions, including the bonus questions, for independent practice.
-- In sections 3.8 and 3.9, do INSERT exercises 1, 5, and 6 and the corresponding UPDATE exercises 1, 5, and 6. Then do all three DELETE exercises in section 3.10. Record the inserted IDs and use the described SELECT checks before and after changes. Demonstrate section 3.11; leave section 3.12 for independent practice.
-- In section 3.13, do tasks 1–6 in class; leave tasks 7–8 and the remaining exercises for independent practice. Review the safety rules before the session ends.
-
-This schedule assumes participants install DBeaver and download the sample database **before the session** (allow approximately 15–30 minutes separately). The glossary and optional VS Code instructions are reference material. Setup problems or longer discussions may require moving more practice out of class.
+For the schedule and teaching priorities, see the [teacher notes](hackyourfuture-databases-week1-notes.md).
 
 ## Session Outline
 
@@ -78,9 +57,7 @@ This schedule assumes participants install DBeaver and download the sample datab
 
 This chapter introduces databases as a practical way to organize and manage information. You will look at familiar examples, see why applications depend on databases, and learn how a database differs from the software that manages it.
 
-![Rows of server racks in a data center](https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=1200&q=80)
-
-*Photo: [Unsplash License](https://unsplash.com/license)*
+![Illustration of a database connected to tables of organized information](session-materials/database-illustration.svg)
 
 ## 1.1 What is a database?
 
