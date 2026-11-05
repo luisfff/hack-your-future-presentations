@@ -40,8 +40,8 @@ For the schedule and teaching priorities, see the [teacher notes](hackyourfuture
    - [**3.5** Sort data with `ORDER BY`](#35-order-by--sorting-data)
    - [**3.6** Limit results with `LIMIT`](#36-limit--limiting-results)
    - [**3.7** Practice `SELECT` queries](#37-exercise--practice-select-queries)
-   - [**3.8** Add data with `INSERT`](#38-insert--adding-data)
-   - [**3.9** Modify data with `UPDATE`](#39-update--modifying-data)
+   - [**3.8** Modify data with `UPDATE`](#38-update--modifying-data)
+   - [**3.9** Add data with `INSERT`](#39-insert--adding-data)
    - [**3.10** Remove data with `DELETE`](#310-delete--removing-data)
    - [**3.11** Create a table with `CREATE TABLE`](#311-create-a-table-with-create-table)
    - [**3.12** Interactive CRUD practice](#312-interactive-practice)
@@ -743,7 +743,61 @@ Now that the database is set up, practice writing SQL queries.
 
 ---
 
-## 3.8 INSERT — Adding Data
+## 3.8 UPDATE — Modifying Data
+
+The `UPDATE` statement modifies existing records.
+
+### Basic Syntax
+
+```sql
+UPDATE table_name
+SET column1 = value1
+WHERE condition;
+```
+
+Example (for illustration only; task `18` is an original sample row):
+
+```sql
+UPDATE task
+SET status_id = 2
+WHERE id = 18;
+```
+
+> **Important:** Always include a `WHERE` clause with `UPDATE` statements.
+>
+> Otherwise, you may accidentally update **every row** in the table.
+
+### Exercises — Practice UPDATE
+
+Use your downloaded copy of the Tasks database. These exercises temporarily change existing sample rows: restore each original value after checking your change so the sample data stays intact. Before each update, run a `SELECT` with the same `WHERE` clause, confirm that it selects only the intended row, and record the original value. After updating, run the same `SELECT` to check the change. Then use another `UPDATE` with the same `WHERE` clause to restore the original value and check it with `SELECT`. Use `NULL` without quotes when restoring a missing value.
+
+For example, to practice changing the status of task `1`, first check its original `status_id`:
+
+```sql
+SELECT id, title, status_id FROM task WHERE id = 1;
+```
+
+If the original `status_id` is `2`, change it to `3`, check it, and restore it:
+
+```sql
+UPDATE task SET status_id = 3 WHERE id = 1;
+SELECT id, title, status_id FROM task WHERE id = 1;
+UPDATE task SET status_id = 2 WHERE id = 1;
+SELECT id, title, status_id FROM task WHERE id = 1;
+```
+
+If your original value is different, restore the value you recorded instead. Look up status names and IDs in the `status` table.
+
+1. Change the status of task `1` to *Done*, then restore it.
+2. Change the description of task `2` to `Write and test SELECT queries`, then restore it.
+3. Change the title of task `3` to `Practice: Review query results`, then restore it.
+4. Change the due date of task `4` to `2031-01-15`, then restore it.
+5. Change the phone number of user `1` to `12345678`, then restore it.
+6. Change the name of tag `1` to `Practice`, then restore it.
+
+---
+
+## 3.9 INSERT — Adding Data
 
 The `INSERT` statement adds new records to a table.
 
@@ -775,7 +829,7 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ### Exercises — Practice INSERT
 
-These exercises add rows to three different tables. For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number; you will need them for the next sections. Use distinctive values so you can identify the rows you added.
+These exercises add rows to three different tables. For task exercises, include the required `title`, `created`, `updated`, and `status_id` columns; use `datetime('now')` for both timestamps. Each task gives its status by name. Look up that status in the `status` table to find the `id` to use for `status_id`. After each insert, use `SELECT` to find the new row and record its table, `id`, and exercise number; you will need them for the DELETE exercises. Use distinctive values so you can identify the rows you added.
 
 1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
 2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
@@ -783,43 +837,6 @@ These exercises add rows to three different tables. For task exercises, include 
 4. Add `Practice 4: Plan a project`, with status *Not started* and a due date of `2030-12-31`.
 5. Add a user with a distinctive name and email address of your choice. Leave the optional phone number empty, and do not assign this user to any tasks.
 6. Add a tag with a distinctive name of your choice.
-
----
-
-## 3.9 UPDATE — Modifying Data
-
-The `UPDATE` statement modifies existing records.
-
-### Basic Syntax
-
-```sql
-UPDATE table_name
-SET column1 = value1
-WHERE condition;
-```
-
-Example (for illustration only; task `18` is an original sample row):
-
-```sql
-UPDATE task
-SET status_id = 2
-WHERE id = 18;
-```
-
-> **Important:** Always include a `WHERE` clause with `UPDATE` statements.
->
-> Otherwise, you may accidentally update **every row** in the table.
-
-### Exercises — Practice UPDATE
-
-Use the table names and row IDs you recorded in the INSERT exercises. Before each update, run a `SELECT` with the same `WHERE` clause to confirm that it selects only your intended row. Afterward, select it again to check the change. Do not update original sample rows.
-
-1. Change the status of the task from INSERT exercise 1 to in progress.
-2. Change the description of the task from INSERT exercise 2 to `Write and test SELECT queries`.
-3. Change the title of the task from INSERT exercise 3 to `Practice 3: Review query results`.
-4. Change the due date of the task from INSERT exercise 4 to `2031-01-15`.
-5. Add a phone number to the user from INSERT exercise 5.
-6. Change the name of the tag from INSERT exercise 6.
 
 ---
 
@@ -849,7 +866,7 @@ WHERE id = 18;
 
 ### Exercises — Practice DELETE
 
-After the INSERT and UPDATE exercises, delete three rows you created in the INSERT exercises: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
+After the UPDATE and INSERT exercises, delete three rows you created in the INSERT exercises: one from `task`, one from `user`, and one from `tag`. Use the recorded table names and IDs so each deletion removes only a row you added. For each one, first run a `SELECT` with the same `WHERE` clause and confirm it finds your row. Then run the `DELETE` and repeat the `SELECT` to confirm no row remains. Do not delete original sample rows.
 
 1. Delete the task you added for INSERT exercise 1.
 2. Delete the user you added for INSERT exercise 5.
