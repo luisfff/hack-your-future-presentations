@@ -9,7 +9,7 @@
 - **[Sample Tasks database](session-materials/tasks.sqlite3)** — A pre-created database to use for all exercises.
 - **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
-**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for all exercises. During the session, the instructor will demonstrate creating a separate database with the sample SQL file; you will not use that second database for exercises.
+**Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for all exercises.
 
 > **No coding experience needed.** This session starts from zero. Every new word is explained the first time it appears, and there is a [Glossary](#glossary) at the end.
 
@@ -29,8 +29,7 @@ For the schedule and teaching priorities, see the [teacher notes](hackyourfuture
    - [**2.1** Install DBeaver](#21-install-dbeaver)
    - [**2.2** Connect to the downloaded Tasks database](#22-connect-to-the-downloaded-tasks-database)
    - [**2.3** Understand database structure](#23-understanding-database-structure)
-   - [**2.4** Create a separate database and insert sample data](#24-create-a-separate-database-and-insert-sample-data)
-   - [**2.5** Explore the downloaded database](#25-exercise--explore-the-database)
+   - [**2.4** Explore the downloaded database](#24-exercise--explore-the-database)
    - [**2.6** Understand data types](#26-data-types)
 3. [Interacting With Your Database](#3-interacting-with-your-database)
    - [**3.1** Introduction to SQL and CRUD](#31-what-is-sql)
@@ -245,8 +244,6 @@ In this session we use **SQLite**, because the entire database lives in one file
 
 Now that we know what a database is, let's connect to a real one. We'll use DBeaver to connect to the provided Tasks database, which is a SQLite database. This is the database you'll use for all the exercises.
 
-I'll also demonstrate how to create a separate database and use a SQL script to create its tables and add sample data. That database is just for the demonstration, so keep using the downloaded Tasks database for your exercises.
-
 As we explore the database, we'll learn about:
 
 - Tables
@@ -312,7 +309,7 @@ You should now see the main DBeaver window. On the left is the **Database Naviga
 
 A **connection** tells DBeaver *where* a database is and *how* to talk to it. For SQLite, the database is a single file on your computer, so the connection simply points to that file.
 
-Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-materials). It already has the example tables and rows. **Use this connection for all exercises in this session**, even after you create a separate database below.
+Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-materials). It already has the example tables and rows. **Use this connection for all exercises in this session**.
 
 Using DBeaver to open the downloaded file:
 
@@ -389,47 +386,9 @@ The diagram also shows `task_tag`, which links tasks to labels in the `tag` tabl
 
 ---
 
-## 2.4 Create a Separate Database and Insert Sample Data
+## 2.4 Exercise — Explore the Database
 
-This demonstration shows how a script creates tables and fills them with sample data. It uses a second database, separate from the downloaded `tasks.sqlite3` that you will use for exercises.
-
-1. Click **New Database Connection** (the plug icon with a `+`) in the toolbar, or press `Ctrl+Shift+N` (`Cmd+Shift+N` on macOS).
-2. Select **SQLite** and click **Next**.
-3. In the **Path** field, choose **Create** and create a new file named `my-tasks.sqlite3` in a folder you can find again, such as `Documents/databases` (create the folder first if needed). Do not select or overwrite an existing database.
-4. Click **Test Connection**.
-   - The first time, DBeaver may say the **SQLite driver files are missing** and offer to download them. A *driver* is a small add-on that teaches DBeaver how to talk to a specific type of database. Click **Download** and wait.
-   - You should then see **Connected**. Click **Finish**.
-5. In the Database Navigator, expand the new connection. It is empty: no sample tables have been created yet. Check the connection's path if you are unsure which file it uses.
-
-Next, populate the empty database. A **SQL script** is a text file containing a list of SQL instructions. Running the script tells the database to perform each instruction in order — here, to create the tables and fill them with example data.
-
-1. Open the [sample SQL file](session-materials/session-data.sql) on GitHub and copy its entire contents (or download it and open it in a text editor).
-2. In DBeaver, right-click the connection to your **empty `my-tasks.sqlite3` database** and select **SQL Editor** → **New SQL Script**.
-3. Paste the SQL commands into the editor. Check that the editor is connected to your empty `my-tasks.sqlite3` database, not `tasks.sqlite3`.
-4. Execute the complete script using the **Execute SQL Script** button (the document icon with an orange triangle) or `Alt+X` (`Option+X` on macOS).
-5. In the Database Navigator, right-click the `my-tasks.sqlite3` connection and select **Refresh** (or press `F5`). Expand **Tables** to see the new tables.
-
-After execution, you should have the sample Tasks database with five tables:
-
-| Table | What it stores |
-|---|---|
-| `user` | People who can be assigned tasks |
-| `task` | To-do items, each with a status and an assigned user |
-| `status` | The possible task statuses: *Not started*, *In progress*, *Done* |
-| `tag` | Labels that can be attached to tasks |
-| `task_tag` | Which tags are attached to which tasks |
-
-This second database is only for the demonstration; continue using the downloaded `tasks.sqlite3` connection for all exercises. Run the setup script only once: if the tables already exist, running it again will cause errors. Do not run the script on `tasks.sqlite3`, which already contains these tables.
-
-### Explore Your Database
-
-Use the database diagram to understand the relationships between the tables. Each box is a table, and each line between boxes is a foreign-key relationship.
-
----
-
-## 2.5 Exercise — Explore the Database
-
-If you have not already connected to the downloaded database, follow [section 2.2](#22-connect-to-the-downloaded-tasks-database). The separate database demonstration is not needed for this exercise.
+If you have not already connected to the downloaded database, follow [section 2.2](#22-connect-to-the-downloaded-tasks-database).
 
 Then explore the downloaded `tasks.sqlite3` database in DBeaver.
 
@@ -1141,6 +1100,20 @@ DBeaver is a standalone desktop application; it does not run inside VS Code. How
 > If SQLTools reports that it cannot find Node.js, open VS Code settings, search for `sqltools.useNodeRuntime`, and set it to `true`. See the [SQLTools SQLite guide](https://github.com/mtxr/vscode-sqltools/blob/dev/docs/src/pages/en/drivers/sq-lite.mdx) for details.
 
 > **Tip:** Close the connection in one tool before changing data in the other. SQLite allows only one program to write to the file at a time.
+
+---
+
+## Extra: Create a Database from a SQL Script
+
+This is optional and is not part of the session. It shows how a script creates tables and fills them with sample data in a new, separate database. Continue using the downloaded `tasks.sqlite3` for all exercises.
+
+1. In DBeaver, click **New Database Connection**, select **SQLite**, and click **Next**.
+2. In the **Path** field, choose **Create** and create a new file named `my-tasks.sqlite3`. Do not select or overwrite an existing database. Click **Finish**.
+3. Open the [sample SQL file](session-materials/session-data.sql) and copy its contents.
+4. Right-click the empty `my-tasks.sqlite3` connection, select **SQL Editor** → **New SQL Script**, paste the SQL, and check that it is connected to `my-tasks.sqlite3`, not `tasks.sqlite3`.
+5. Run the whole script with **Execute SQL Script** (`Alt+X`, `Option+X` on macOS), then refresh the connection (`F5`) to see the tables.
+
+Run the script only once, and never on `tasks.sqlite3`, which already contains these tables.
 
 ---
 

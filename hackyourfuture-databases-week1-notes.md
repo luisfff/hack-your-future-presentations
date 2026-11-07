@@ -18,7 +18,7 @@ The session runs from **12:00 to 16:00**, including a 30-minute lunch and two 10
 
 **Teaching priorities:**
 
-- In section 2.4, demonstrate creating the separate database; participants continue using the downloaded database. For section 2.5, discuss questions 1, 3, and 6.
+- For section 2.4, discuss questions 1, 3, and 6.
 - In section 3.7, work on questions 1, 3, 7, 9, and 11. Leave the other questions, including the bonus questions, for independent practice.
 - In sections 3.8 and 3.9, do UPDATE exercises 1, 5, and 6, restoring each sample value, followed by INSERT exercises 1, 5, and 6. Then do all three DELETE exercises in section 3.10. Record the inserted IDs and use the described SELECT checks before and after changes. Demonstrate section 3.11; leave section 3.12 for independent practice.
 - In section 3.13, do tasks 1–6 in class; leave tasks 7–8 and the remaining exercises for independent practice. Review the safety rules before the session ends.
