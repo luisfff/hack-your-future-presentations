@@ -278,9 +278,18 @@ Use the `tasks.sqlite3` file you downloaded in [Session Materials](#session-mate
 Using DBeaver to open the downloaded file:
 
 1. Click **New Database Connection** (the plug icon with a `+`) in the toolbar, or press `Ctrl+Shift+N` (`Cmd+Shift+N` on macOS).
+
+   ![DBeaver new database connection step 1](session-materials/dbeaver-step-1-new-connection.png)
+
 2. Select **SQLite**.
+
+   ![DBeaver SQLite database selection](session-materials/dbeaver-step-2-select-sqlite.png)
+
 3. Click **Next**.
 4. In the **Path** field, click **Browse** and choose the `tasks.sqlite3` file you saved in `Documents/databases` (or wherever you downloaded it). Select the file itself, not just its folder.
+
+   ![DBeaver SQLite path selection for the downloaded database](session-materials/dbeaver-step-4-path.png)
+
 5. Click **Test Connection** to verify that everything works.
    - The first time, DBeaver may say the **SQLite driver files are missing** and offer to download them. A *driver* is a small add-on that teaches DBeaver how to talk to a specific type of database. Click **Download** and wait.
    - You should then see **Connected**.
