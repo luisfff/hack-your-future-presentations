@@ -141,6 +141,12 @@ Without a database, the recipe website would be like a library without a catalog
 
 A database stores the information; a Database Management System (DBMS) is the software used to create, query, update, and protect that information. The online-store example illustrates why the distinction matters.
 
+In this session:
+
+- **Database:** `tasks.sqlite3`, the file containing the tables and data.
+- **DBMS:** SQLite, the software that reads, updates, and manages the database.
+- **DBeaver:** A graphical database client you use to interact with SQLite and run SQL queries.
+
 > **Analogy:** The database is the *library's books*. The DBMS is the *librarian* who knows where every book is, who is allowed to borrow it, and makes sure nothing gets lost.
 
 ### Real-Life Example — Online Store
