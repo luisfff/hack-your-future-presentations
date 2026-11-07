@@ -54,7 +54,7 @@ For the schedule and teaching priorities, see the [teacher notes](hackyourfuture
 
 # 1. Introduction to Databases
 
-This chapter introduces databases as a practical way to organize and manage information. You will look at familiar examples, see why applications depend on databases, and learn how a database differs from the software that manages it.
+Databases are how applications store, organize and retrieve information reliably. This chapter covers real-world examples, why applications cannot function without a database, and the difference between a database and the system that manages it.
 
 ![Illustration of a database connected to tables of organized information](session-materials/database-illustration.svg)
 
@@ -236,15 +236,15 @@ There are two big families of databases:
 | SQLite | Relational | Small applications, mobile apps, learning | Lightweight; the whole database is a single file and needs no setup |
 | MongoDB | Non-relational | Applications with changing data structures | Flexible data model |
 
-In this session we use **SQLite**, because the entire database lives in one file on your computer — there is no server to install or configure.
+This session uses **SQLite**, because the entire database lives in one file on your computer — there is no server to install or configure.
 
 ---
 
 # 2. Connecting to and Creating Databases
 
-Now that we know what a database is, let's connect to a real one. We'll use DBeaver to connect to the provided Tasks database, which is a SQLite database. This is the database you'll use for all the exercises.
+Connect DBeaver to the provided Tasks database, a SQLite database. Every exercise in this session runs against it.
 
-As we explore the database, we'll learn about:
+Exploring the database covers:
 
 - Tables
 - Rows
@@ -295,7 +295,7 @@ The download is a few hundred megabytes, so it may take a few minutes.
 
 The first time DBeaver opens:
 
-- It may ask whether to **create a sample database**. Click **No** — we will use our own.
+- It may ask whether to **create a sample database**. Click **No** — the provided Tasks database is the one to use.
 - It may show a **Tip of the Day** or a welcome window. You can close it.
 - It may ask to choose a **workspace** folder. Accept the default.
 
@@ -683,14 +683,14 @@ LIMIT 5;
 
 ## 3.7 Exercise — Practice SELECT Queries
 
-Now that the database is set up, practice writing SQL queries.
+With the database set up, write the SQL queries yourself.
 
 1. List the names and phones of all users.
 2. List all users, ordering them alphabetically by name.
 3. Find the name of the user with `id = 10`.
 4. Find the 3 oldest tasks based on creation date.
-5. **Bonus:** Find all tasks that have no description.
-6. **Bonus:** Find all users whose email ends with `.com`.
+5. Find all tasks that have no description.
+6. Find all users whose email ends with `.com`.
 7. List the titles of all tasks that are not started.
 8. Find the tasks assigned to user `1` that are in progress.
 9. Find tasks whose title contains `database`.
