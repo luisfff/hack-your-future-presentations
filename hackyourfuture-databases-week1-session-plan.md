@@ -448,9 +448,7 @@ Columns can be marked **NOT NULL**, meaning a value is required. In our sample d
 
 With the sample database ready, this chapter focuses on using SQL to work with data and create a table. You will retrieve and sort records, then practice creating, changing, and deleting records while checking that each operation affects the intended data.
 
-![A person using a laptop to work with software](https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1200&q=80)
-
-*Photo: [Unsplash License](https://unsplash.com/license)*
+![Illustration of an SQL query retrieving tasks from a database](session-materials/sql-interaction-illustration.svg)
 
 Now that the database is set up, learn how to interact with it using **SQL (Structured Query Language)**.
 

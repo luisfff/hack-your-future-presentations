@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="380" viewBox="0 0 1000 380" role="img" aria-labelledby="title description">
+  <title id="title">Interacting with a database using SQL</title>
+  <desc id="description">An SQL query retrieves two tasks from a database, displaying their IDs and titles in a results table.</desc>
+  <rect width="1000" height="380" rx="28" fill="#eaf0f9"/>
+  <circle cx="87" cy="74" r="36" fill="#d8e3f3"/>
+  <circle cx="913" cy="307" r="52" fill="#d9e7ef"/>
+  <rect x="52" y="46" width="480" height="288" rx="16" fill="#fff"/>
+  <path d="M68 46h448a16 16 0 0 1 16 16v30H52V62a16 16 0 0 1 16-16z" fill="#536e97"/>
+  <circle cx="77" cy="69" r="5" fill="#d6e4f3"/>
+  <circle cx="95" cy="69" r="5" fill="#d6e4f3"/>
+  <circle cx="113" cy="69" r="5" fill="#d6e4f3"/>
+  <text x="146" y="75" fill="#fff" font-family="Arial, sans-serif" font-size="16" font-weight="bold">SQL editor</text>
+  <text x="78" y="126" fill="#536e97" font-family="monospace" font-size="17" font-weight="bold">SELECT <tspan fill="#33465f" font-weight="normal">id, title</tspan></text>
+  <text x="78" y="151" fill="#536e97" font-family="monospace" font-size="17" font-weight="bold">FROM <tspan fill="#33465f" font-weight="normal">task</tspan></text>
+  <text x="78" y="176" fill="#536e97" font-family="monospace" font-size="17" font-weight="bold">ORDER BY <tspan fill="#33465f" font-weight="normal">id</tspan></text>
+  <text x="78" y="201" fill="#536e97" font-family="monospace" font-size="17" font-weight="bold">LIMIT <tspan fill="#33465f" font-weight="normal">2;</tspan></text>
+  <rect x="77" y="224" width="430" height="85" rx="6" fill="#f7f9fc" stroke="#dae2ee"/>
+  <path d="M78 225h428v27H78z" fill="#e6edf7"/>
+  <path d="M137 225v83M78 252h428M78 280h428" stroke="#dae2ee"/>
+  <text x="94" y="244" fill="#4d6481" font-family="Arial, sans-serif" font-size="13" font-weight="bold">ID</text>
+  <text x="153" y="244" fill="#4d6481" font-family="Arial, sans-serif" font-size="13" font-weight="bold">Title</text>
+  <text x="96" y="271" fill="#506582" font-family="Arial, sans-serif" font-size="13">1</text>
+  <text x="153" y="271" fill="#506582" font-family="Arial, sans-serif" font-size="13">Wash clothes</text>
+  <text x="96" y="299" fill="#506582" font-family="Arial, sans-serif" font-size="13">2</text>
+  <text x="153" y="299" fill="#506582" font-family="Arial, sans-serif" font-size="13">Become a billionaire</text>
+  <path d="M559 149h85m-12-10 12 10-12 10M644 207h-85m12-10-12 10 12 10" fill="none" stroke="#91aac8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M693 131v126c0 20 46 36 103 36s103-16 103-36V131" fill="#a9c2de" stroke="#536e97" stroke-width="4"/>
+  <path d="M693 194c0 20 46 36 103 36s103-16 103-36M693 257c0 20 46 36 103 36s103-16 103-36" fill="none" stroke="#536e97" stroke-width="4"/>
+  <ellipse cx="796" cy="131" rx="103" ry="36" fill="#d9e7f4" stroke="#536e97" stroke-width="4"/>
+  <text x="796" y="137" text-anchor="middle" fill="#405c80" font-family="Arial, sans-serif" font-size="19" font-weight="bold">Database</text>
+  <circle cx="724" cy="193" r="5" fill="#f7e4bf"/>
+  <circle cx="724" cy="256" r="5" fill="#f7e4bf"/>
+</svg>
