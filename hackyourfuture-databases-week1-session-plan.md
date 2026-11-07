@@ -21,10 +21,9 @@ For the schedule and teaching priorities, see the [teacher notes](hackyourfuture
    - [**1.1** What is a database?](#11-what-is-a-database)
    - [**1.2** Real-life examples](#12-real-life-examples)
    - [**1.3** Benefits of using a database](#13-what-do-we-gain-from-using-a-database)
-   - [**1.4** Spreadsheets vs. databases](#14-spreadsheets-vs-databases)
-   - [**1.5** Databases in software architecture](#15-databases-in-software-architecture)
-   - [**1.6** Database vs. Database Management System](#16-database-vs-database-management-system)
-   - [**1.7** Popular DBMS options](#17-popular-dbms-options)
+   - [**1.4** Databases in software architecture](#14-databases-in-software-architecture)
+   - [**1.5** Database vs. Database Management System](#15-database-vs-database-management-system)
+   - [**1.6** Popular DBMS options](#16-popular-dbms-options)
 2. [Connecting to and Creating Databases](#2-connecting-to-and-creating-databases)
    - [**2.1** Install DBeaver](#21-install-dbeaver)
    - [**2.2** Connect to the downloaded Tasks database](#22-connect-to-the-downloaded-tasks-database)
@@ -106,28 +105,9 @@ Think of it as a digital filing cabinet where you can store, retrieve, and manag
 
 ---
 
-## 1.4 Spreadsheets vs. Databases
+## 1.4 Databases in Software Architecture
 
-Many people already use spreadsheets (Excel, Google Sheets), and a database table looks very similar: rows and columns. So why not just use a spreadsheet?
-
-![Illustration comparing a spreadsheet grid with a database and its tables](session-materials/spreadsheet-database-illustration.svg)
-
-| | Spreadsheet | Database |
-|---|---|---|
-| **Best for** | Small lists, quick calculations, one person | Large amounts of data used by apps and many people |
-| **Rules for data** | Cells are usually easy to edit freely | Tables can define rules such as "cannot be empty"; how strictly types are checked depends on the database |
-| **Size** | Becomes slow with hundreds of thousands of rows | Handles millions of rows |
-| **Many users at once** | Easy to overwrite each other's changes | Designed for many simultaneous users and apps |
-| **Linking information** | Copying the same data into several sheets | Tables are linked using keys, so each fact is stored once |
-| **How you ask questions** | Filters, formulas, scrolling | A query language called **SQL** |
-
-**Example:** If a customer changes their email address, a spreadsheet might have that email copied into the *Customers*, *Orders*, and *Invoices* sheets — and you must remember to change all three. In a database, the email is stored once in the customer table, and everything else *points* to that customer.
-
----
-
-## 1.5 Databases in Software Architecture
-
-Databases are one part of a larger application: the application uses them to save information and retrieve it when needed. These examples show how the same role appears across different kinds of software.
+Databases are one part of a larger application: the application uses them to save information and retrieve it when needed.
 
 In modern software applications, databases serve as the backbone of data storage and management.
 
@@ -152,34 +132,11 @@ When someone searches for `"chocolate cake"`, the application queries the databa
 
 ![A recipe website searches for chocolate cake; its database stores recipes, user profiles, comments, and ratings and returns matching recipes.](session-materials/recipe-database-example.svg)
 
-### Movie streaming platform
-
-A movie streaming platform can use databases to store:
-
-- Movies
-- User watchlists
-- Viewing history
-- User preferences
-
-When a user logs in, the application retrieves their preferences and watch history.
-
-![A streaming platform retrieves a user's preferences and viewing history from a database that also stores movies and watchlists.](session-materials/movie-database-example.svg)
-
-### Blog
-
-Even a simple blog needs a database to store:
-
-- Articles
-- Comments
-- User information
-
-![A blog retrieves an article and its comments from a database that also stores user information.](session-materials/blog-database-example.svg)
-
-Without a database, these applications would be like a library without a catalog: the information exists, but finding and managing it becomes difficult.
+Without a database, the recipe website would be like a library without a catalog: the information exists, but finding and managing it becomes difficult.
 
 ---
 
-## 1.6 Database vs. Database Management System
+## 1.5 Database vs. Database Management System
 
 A database stores the information; a Database Management System (DBMS) is the software used to create, query, update, and protect that information. The online-store example illustrates why the distinction matters.
 
@@ -222,7 +179,7 @@ You might need to manually update separate spreadsheets for:
 
 When someone places an order, the **application** can ask the DBMS to update inventory, create an order record, and retrieve customer history. The application can then send a confirmation email using a separate email service. The DBMS manages the stored data; it does not send emails by itself.
 
-## 1.7 Popular DBMS Options
+## 1.6 Popular DBMS Options
 
 There are two big families of databases:
 
@@ -950,7 +907,6 @@ By the end of this session, you should understand:
 
 - What a database is.
 - Why applications use databases.
-- How a database differs from a spreadsheet.
 - What a DBMS is.
 - The difference between a database and a DBMS.
 - Basic relational database terminology.
