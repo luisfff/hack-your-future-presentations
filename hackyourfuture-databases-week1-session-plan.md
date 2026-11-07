@@ -683,31 +683,29 @@ WHERE id = 18;
 
 ### Exercises — Practice UPDATE
 
-Use your downloaded copy of the Tasks database. These exercises temporarily change existing sample rows: restore each original value after checking your change so the sample data stays intact. Before each update, run a `SELECT` with the same `WHERE` clause, confirm that it selects only the intended row, and record the original value. After updating, run the same `SELECT` to check the change. Then use another `UPDATE` with the same `WHERE` clause to restore the original value and check it with `SELECT`. Use `NULL` without quotes when restoring a missing value.
+Use your downloaded copy of the Tasks database. Before each update, run a `SELECT` with the same `WHERE` clause and confirm that it selects only the intended row. After updating, run the same `SELECT` to check the change.
 
-For example, to practice changing the status of task `1`, first check its original `status_id`:
+For example, to practice changing the status of task `1`, first check its `status_id`:
 
 ```sql
 SELECT id, title, status_id FROM task WHERE id = 1;
 ```
 
-If the original `status_id` is `2`, change it to `3`, check it, and restore it:
+Change the `status_id` to `3` and check it:
 
 ```sql
 UPDATE task SET status_id = 3 WHERE id = 1;
 SELECT id, title, status_id FROM task WHERE id = 1;
-UPDATE task SET status_id = 2 WHERE id = 1;
-SELECT id, title, status_id FROM task WHERE id = 1;
 ```
 
-If your original value is different, restore the value you recorded instead. Look up status names and IDs in the `status` table.
+Look up status names and IDs in the `status` table.
 
-1. Change the status of task `1` to *Done*, then restore it.
-2. Change the description of task `2` to `Write and test SELECT queries`, then restore it.
-3. Change the title of task `3` to `Practice: Review query results`, then restore it.
-4. Change the due date of task `4` to `2031-01-15`, then restore it.
-5. Change the phone number of user `1` to `12345678`, then restore it.
-6. Change the name of tag `1` to `Practice`, then restore it.
+1. Change the status of task `1` to *Done*.
+2. Change the description of task `2` to `Write and test SELECT queries`.
+3. Change the title of task `3` to `Practice: Review query results`.
+4. Change the due date of task `4` to `2031-01-15`.
+5. Change the phone number of user `1` to `12345678`.
+6. Change the name of tag `1` to `Practice`.
 
 ---
 
