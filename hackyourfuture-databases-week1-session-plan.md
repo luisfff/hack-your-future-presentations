@@ -745,8 +745,6 @@ VALUES ('Learn SQL', 'Finish the week 1 exercises', datetime('now'), datetime('n
 
 ### Exercises — Practice INSERT
 
-After each insert, record the table and `id` of your new row for the DELETE exercises.
-
 1. Add a task titled `Practice 1: Read SQL`, with status *Not started* and assigned to user `1`.
 2. Add `Practice 2: Write queries`, with status *Not started* and a description of your choice.
 3. Add `Practice 3: Review results`, with status *In progress* and assigned to user `1`.
@@ -781,8 +779,6 @@ WHERE id = 18;
 > **There is no undo.** Unlike a document editor, a database does not have a recycle bin. Once a row is deleted, it is gone.
 
 ### Exercises — Practice DELETE
-
-Delete only the rows you added, not original sample rows. For each deletion, check the row before and after with a `SELECT` using the same `WHERE` clause.
 
 1. Delete the task you added for INSERT exercise 1.
 2. Delete the user you added for INSERT exercise 5.
