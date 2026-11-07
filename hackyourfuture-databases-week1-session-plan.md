@@ -7,6 +7,7 @@
 
 - **[Database Diagram](session-materials/database-diagram.jpg)** — The diagram of the database to be created in this session.
 - **[Sample Tasks database](session-materials/tasks.sqlite3)** — A pre-created database to use for all exercises.
+- **[Example solutions](hackyourfuture-databases-week1-example-solutions.md)** — Example answers organized by exercise section.
 - **[Sample SQL file](session-materials/session-data.sql)** — The SQL script that creates the tables and fills them with example data.
 
 **Before the session:** Install DBeaver and download the [sample Tasks database](session-materials/tasks.sqlite3) to a folder you can find again, such as `Documents/databases`. On GitHub, open the file link and use **Download raw file** to save it; make sure the saved file is named `tasks.sqlite3`. Use this downloaded copy for all exercises.
