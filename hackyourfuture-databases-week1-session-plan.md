@@ -683,7 +683,9 @@ WHERE id = 18;
 
 ### Exercises — Practice UPDATE
 
-Use your downloaded copy of the Tasks database. Before each update, run a `SELECT` with the same `WHERE` clause and confirm that it selects only the intended row. After updating, run the same `SELECT` to check the change.
+Use your downloaded copy of the Tasks database.
+
+> **Suggestion:** To validate an update, you can first run a `SELECT` with the same `WHERE` clause to confirm that it selects only the intended row. After updating, you can run the same `SELECT` again to check the change.
 
 For example, to practice changing the status of task `1`, first check its `status_id`:
 
