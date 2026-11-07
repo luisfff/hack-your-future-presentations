@@ -687,7 +687,7 @@ Use your downloaded copy of the Tasks database.
 
 > **Suggestion:** To validate an update, you can first run a `SELECT` with the same `WHERE` clause to confirm that it selects only the intended row. After updating, you can run the same `SELECT` again to check the change.
 
-For example, to practice changing the status of task `1`, first check its `status_id`:
+**Worked example (not an exercise):** To practice changing the status of task `1`, first check its `status_id`:
 
 ```sql
 SELECT id, title, status_id FROM task WHERE id = 1;
@@ -701,6 +701,8 @@ SELECT id, title, status_id FROM task WHERE id = 1;
 ```
 
 Look up status names and IDs in the `status` table.
+
+#### Exercise questions
 
 1. Change the status of task `1` to *Done*.
 2. Change the description of task `2` to `Write and test SELECT queries`.
