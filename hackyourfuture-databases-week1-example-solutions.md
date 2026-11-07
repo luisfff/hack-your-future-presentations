@@ -2,7 +2,7 @@
 
 These are example answers to the exercises in the [session plan](hackyourfuture-databases-week1-session-plan.md). Other queries may also be correct. They use SQLite and the supplied [Tasks database](session-materials/tasks.sqlite3).
 
-Use a downloaded **copy** of the database. `UPDATE`, `INSERT`, `DELETE`, and `CREATE TABLE` change it. Run the statements for one exercise at a time, not this whole document as a script. Check the rows with a `SELECT` before changing or deleting them, and commit changes in DBeaver if necessary. The homework challenges should each start with a fresh copy of the sample data, as they do in SQLPlay.
+Use a downloaded **copy** of the database. `UPDATE`, `INSERT`, `DELETE`, and `CREATE TABLE` change it. Run the statements for one exercise at a time, not this whole document as a script. Check the rows with a `SELECT` before changing or deleting them, and commit changes in DBeaver if necessary.
 
 The sample status IDs are `1` for Not started, `2` for In progress, and `3` for Done. Results can differ if you have already changed your database.
 
@@ -218,75 +218,3 @@ SELECT id, title, author FROM practice_book;
 ```
 
 If `practice_book` already exists, choose a different table name and use it for the `CREATE`, `INSERT`, and `SELECT`. Refresh the Database Navigator to see it.
-
-## Homework Questions and Challenges
-
-Each answer is independent: use the fresh sample database provided by each SQLPlay challenge, or restore a fresh copy before trying another answer locally. In particular, running challenges 14–19 sequentially changes data needed by later challenges.
-
-```sql
--- 1. Count the tasks
-SELECT COUNT(*) FROM task;
-
--- 2. Count missing or unparseable due dates
-SELECT COUNT(*) FROM task WHERE datetime(due_date) IS NULL;
-
--- 3. Done tasks
-SELECT * FROM task WHERE status_id = 3;
-
--- 4. Tasks not done
-SELECT * FROM task WHERE status_id != 3;
-
--- 5. Tasks by creation date, newest first
-SELECT * FROM task ORDER BY created DESC;
-
--- 6. Most recently created task
-SELECT * FROM task ORDER BY created DESC LIMIT 1;
-
--- 7. Tasks mentioning database in the title or description
-SELECT title, due_date FROM task
-WHERE LOWER(title) LIKE '%database%' OR LOWER(description) LIKE '%database%';
-
--- 8. Task titles and IDs
-SELECT id, title FROM task ORDER BY id ASC;
-
--- 9. Tasks in progress
-SELECT id, title FROM task WHERE status_id = 2 ORDER BY id ASC;
-
--- 10. Tasks without due dates
-SELECT id, title FROM task WHERE due_date IS NULL ORDER BY id ASC;
-
--- 11. Tasks alphabetically
-SELECT id, title FROM task ORDER BY title ASC;
-
--- 12. Five highest task IDs
-SELECT id, title FROM task ORDER BY id DESC LIMIT 5;
-
--- 13. Unassigned tasks
-SELECT id, title FROM task WHERE user_id IS NULL ORDER BY id ASC;
-
--- 14. Rename task 1
-UPDATE task SET title = 'Wash the laundry' WHERE id = 1;
-
--- 15. Mark task 22 done
-UPDATE task SET status_id = 3 WHERE id = 22;
-
--- 16. Assign task 23 to user 11
-UPDATE task SET user_id = 11 WHERE id = 23;
-
--- 17. Set the status of the two unassigned sample tasks
-UPDATE task SET status_id = 1 WHERE id IN (23, 35) AND user_id IS NULL;
-
--- 18. Delete task 35 only
-DELETE FROM task WHERE id = 35;
-
--- 19. Remove task 1's Personal tag association only
-DELETE FROM task_tag WHERE task_id = 1 AND tag_id = 2;
-
--- 20. Create task notes
-CREATE TABLE task_note (
-    id INTEGER PRIMARY KEY,
-    task_id INTEGER NOT NULL,
-    note TEXT NOT NULL,
-    FOREIGN KEY (task_id) REFERENCES task(id)
-);
-```
